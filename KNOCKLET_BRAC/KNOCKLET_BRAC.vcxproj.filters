@@ -2,36 +2,36 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source files">
-      <UniqueIdentifier>{98da7a8c-4d7e-48b5-a8cf-b9c42e28b7c1}</UniqueIdentifier>
+      <UniqueIdentifier>{55d7048d-e795-457f-8a1f-214ac7c16b15}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header files">
-      <UniqueIdentifier>{8b013948-b695-438f-babd-a49fa48f5470}</UniqueIdentifier>
+      <UniqueIdentifier>{2c88085b-5db8-40dd-87d6-32518e702179}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource files">
-      <UniqueIdentifier>{826d6bd9-3493-4c18-a3ff-fa2e221d297c}</UniqueIdentifier>
+      <UniqueIdentifier>{c527a696-2ea7-4c14-a472-ca0a79154318}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
     <Filter Include="Make files">
-      <UniqueIdentifier>{82f688d9-79ec-44a6-8a7b-1558874b8b62}</UniqueIdentifier>
+      <UniqueIdentifier>{6c7a9556-b237-4410-9048-55e5c6d261a6}</UniqueIdentifier>
       <Extensions>*.mak</Extensions>
     </Filter>
     <Filter Include="VisualGDB settings">
-      <UniqueIdentifier>{505c171f-096b-488e-92b3-90b8bd4882cb}</UniqueIdentifier>
+      <UniqueIdentifier>{5a7e6ef6-592c-4cd5-8e22-c158a49fe5d2}</UniqueIdentifier>
       <Extensions>*.vgdbsettings</Extensions>
     </Filter>
     <Filter Include="Source files\mbed Files">
-      <UniqueIdentifier>{dd2d22c4-92c4-4e7d-b768-b59d32198b34}</UniqueIdentifier>
+      <UniqueIdentifier>{ea25a4c2-b7e7-41c8-8447-ed2acee18a8e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header files\mbed Files">
-      <UniqueIdentifier>{6f483e99-7592-45f7-95ea-de5c910b8f96}</UniqueIdentifier>
+      <UniqueIdentifier>{d7be5c67-af2a-44dc-9077-c784bcd5f760}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header files\Accelerometer Files">
-      <UniqueIdentifier>{7f43e471-de43-423b-bb7a-509081abdaa5}</UniqueIdentifier>
+    <Filter Include="Header files\Accelerometer">
+      <UniqueIdentifier>{77abc436-cfb4-4a46-893d-f5e4de760908}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\Accelerometer Files">
-      <UniqueIdentifier>{e19c2ef0-d779-4d4b-87cb-065d8e312f18}</UniqueIdentifier>
+    <Filter Include="Source files\Accelerometer">
+      <UniqueIdentifier>{2a647c65-7637-4733-aa71-94e0c122f7c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -381,7 +381,7 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="Accelerometer\MMA8452.cpp">
-      <Filter>Source files\Accelerometer Files</Filter>
+      <Filter>Source files\Accelerometer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -935,7 +935,7 @@
       <Filter>Header files\mbed Files</Filter>
     </ClInclude>
     <ClInclude Include="Accelerometer\MMA8452.h">
-      <Filter>Header files\Accelerometer Files</Filter>
+      <Filter>Header files\Accelerometer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

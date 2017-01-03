@@ -11,7 +11,7 @@ Serial pc(USBTX, USBRX);
 //InterruptIn tap(USER_BUTTON);
 // NICOLAW
 InterruptIn tap(PA_0);
-DigitalOut  led1(LED1);
+DigitalOut  led1(PB_3);
 DigitalOut  here(PA_1);
 
 double x, y, z;

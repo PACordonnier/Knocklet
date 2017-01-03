@@ -70,7 +70,7 @@ int main() {
 	while (1) {
 	
 		here = !here;
-		wait(0.4);
+		wait(0.5);
 
 	}
 }

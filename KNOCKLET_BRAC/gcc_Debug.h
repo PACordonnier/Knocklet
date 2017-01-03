@@ -706,6 +706,9 @@
 #ifndef __UDQ_FBIT__
 #define __UDQ_FBIT__ 64
 #endif
+#ifndef DEBUG
+#define DEBUG 1
+#endif
 #ifndef __INT8_TYPE__
 #define __INT8_TYPE__ signed char
 #endif
@@ -1249,9 +1252,6 @@
 #ifndef __ATOMIC_RELEASE
 #define __ATOMIC_RELEASE 3
 #endif
-#ifndef DEBUG
-#define DEBUG 1
-#endif
 #endif
 
 // --- Include directories begin --- //
@@ -1281,6 +1281,7 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/include-fixed
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
+//Accelerometer
 // --- Include directories end --- //
 
 

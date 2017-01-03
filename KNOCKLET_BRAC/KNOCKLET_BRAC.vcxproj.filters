@@ -35,6 +35,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Accelerometer\MMA8452.cpp">
+      <Filter>Source files\Accelerometer</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.cpp">
       <Filter>Source files\mbed Files</Filter>
     </ClCompile>
@@ -377,12 +383,6 @@
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c">
       <Filter>Source files\mbed Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Accelerometer\MMA8452.cpp">
-      <Filter>Source files\Accelerometer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -398,14 +398,14 @@
     <None Include="KNOCKLET_BRAC-Release.vgdbsettings">
       <Filter>VisualGDB settings</Filter>
     </None>
+    <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed">
+      <Filter>Header files\mbed Files</Filter>
+    </None>
     <None Include="mbed.mak">
       <Filter>Source files\mbed Files</Filter>
     </None>
     <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM\startup_stm32l073xx.S">
       <Filter>Source files\mbed Files</Filter>
-    </None>
-    <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed">
-      <Filter>Header files\mbed Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

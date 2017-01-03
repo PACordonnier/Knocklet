@@ -227,6 +227,9 @@
 #ifndef __GCC_ATOMIC_POINTER_LOCK_FREE
 #define __GCC_ATOMIC_POINTER_LOCK_FREE 1
 #endif
+#ifndef BLUENRG_CONFIG
+#define BLUENRG_CONFIG BLUENRG_32_MHZ
+#endif
 #ifndef __LLACCUM_MIN__
 #define __LLACCUM_MIN__ (-0X1P31LLK-0X1P31LLK)
 #endif
@@ -416,6 +419,9 @@
 #ifndef __LACCUM_MAX__
 #define __LACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LK
 #endif
+#ifndef BLUENRG_MS
+#define BLUENRG_MS 1
+#endif
 #ifndef __INT_FAST16_TYPE__
 #define __INT_FAST16_TYPE__ int
 #endif
@@ -546,6 +552,9 @@
 #endif
 #ifndef __UFRACT_IBIT__
 #define __UFRACT_IBIT__ 0
+#endif
+#ifndef USE_STM32L0XX_NUCLEO
+#define USE_STM32L0XX_NUCLEO 1
 #endif
 #ifndef __cpp_lambdas
 #define __cpp_lambdas 200907
@@ -690,6 +699,9 @@
 #endif
 #ifndef __INT_FAST32_TYPE__
 #define __INT_FAST32_TYPE__ int
+#endif
+#ifndef OPTIMIZED_SPI
+#define OPTIMIZED_SPI 1
 #endif
 #ifndef __UINT_LEAST16_TYPE__
 #define __UINT_LEAST16_TYPE__ short unsigned int
@@ -1282,6 +1294,8 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
 //Accelerometer
+//BlueNRG/BSP
+//BlueNRG/Middlewares
 // --- Include directories end --- //
 
 

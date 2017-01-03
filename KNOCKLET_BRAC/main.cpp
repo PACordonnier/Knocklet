@@ -1,6 +1,21 @@
 #include <mbed.h>
 
 #include "MMA8452.h"
+
+#include "stm32l0xx_hal.h"			// Contains all the functions prototypes for the HAL module driver.
+#include "stm32_bluenrg_ble.h"		// Initialisation BLE	
+#include "bluenrg_gatt_server.h"	// Header file for BlueNRG's GATT server layer.
+#include "bluenrg_gatt_aci.h"		// Header file with GATT commands for BlueNRG FW6.3.
+#include "bluenrg_hal_aci.h"		// Header file with HCI commands for BlueNRG FW6.3.
+#include "bluenrg_aci_const.h"		// Header file with ACI definitions for BlueNRG FW6.3.
+#include "bluenrg_utils.h"			// Header file for BlueNRG utility functions 
+#include "bluenrg_gap.h"			// Header file for BlueNRG's GAP layer. 
+#include "bluenrg_gap_aci.h"		// Header file with GAP commands for BlueNRG FW6.3.
+
+#include "hci.h"					// Librairie Host Controller Interface
+#include "sm.h"						// Macros Security Manager
+#include "hal.h"					// Librairie Hardware Abstraction Layer
+
 //Using MMA8452 accelerometer. SDA on 28, SCL on 27. Writes gravities to the screen. 
 //Also brightens/dims LEDs 1-3 based on whether or not they are 'level'( 0 Gs)
  
@@ -65,6 +80,13 @@ int main() {
 	acc.writeRegister(MMA8452_CTRL_REG_5, 0x08);
 	// Active Mode
 	acc.writeRegister(MMA8452_CTRL_REG_1, 0x01);
+	
+	/* Initialize the BlueNRG HCI */
+	//HCI_Init();
+	//HCI_Init();
+
+		/* Initialize the BlueNRG SPI driver */
+	BNRG_SPI_Init();
 	
 	
 	while (1) {

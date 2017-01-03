@@ -1,0 +1,20 @@
+syntax: glob
+Debug\*
+Release\*
+*.opensdf
+*.old
+*.old01
+*.old02
+*.old03
+*.old04
+*.TMP
+*.o
+*.orig
+CodeDB\*
+VisualGDBCache\*
+*.h.bak
+*.cpp.bak
+*.h.orig
+*.cpp.orig
+*.sdf
+KNOCKLET_ACCE.v12.suo

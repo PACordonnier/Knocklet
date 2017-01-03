@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{98da7a8c-4d7e-48b5-a8cf-b9c42e28b7c1}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{8b013948-b695-438f-babd-a49fa48f5470}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{826d6bd9-3493-4c18-a3ff-fa2e221d297c}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Make files">
+      <UniqueIdentifier>{82f688d9-79ec-44a6-8a7b-1558874b8b62}</UniqueIdentifier>
+      <Extensions>*.mak</Extensions>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{505c171f-096b-488e-92b3-90b8bd4882cb}</UniqueIdentifier>
+      <Extensions>*.vgdbsettings</Extensions>
+    </Filter>
+    <Filter Include="Source files\mbed Files">
+      <UniqueIdentifier>{dd2d22c4-92c4-4e7d-b768-b59d32198b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\mbed Files">
+      <UniqueIdentifier>{6f483e99-7592-45f7-95ea-de5c910b8f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Accelerometer Files">
+      <UniqueIdentifier>{7f43e471-de43-423b-bb7a-509081abdaa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Accelerometer Files">
+      <UniqueIdentifier>{e19c2ef0-d779-4d4b-87cb-065d8e312f18}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_us_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_lp_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_rtc_time.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_board.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_mbed.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_no_rtos.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_alloc_wrappers.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_rtos.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_semihost_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\stubs.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_gpio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_critical.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_pinmap_common.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_posix.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\retarget.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\trng_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pwmout_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pinmap.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\sleep.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\stm_spi_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\lp_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\spi_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_irq_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\port_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\us_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralPins.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogout_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\mbed_overrides.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\serial_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\i2c_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogin_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Accelerometer\MMA8452.cpp">
+      <Filter>Source files\Accelerometer Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="debug.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="KNOCKLET_BRAC-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="release.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="KNOCKLET_BRAC-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="mbed.mak">
+      <Filter>Source files\mbed Files</Filter>
+    </None>
+    <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM\startup_stm32l073xx.S">
+      <Filter>Source files\mbed Files</Filter>
+    </None>
+    <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed">
+      <Filter>Header files\mbed Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSimd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTicker.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\i2c_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmInstr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pwmout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\port_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\PlatformMutex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\rtc_time.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc000.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_irq_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\toolchain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal\emac_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca9.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\dma_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\FunctionPointer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\sleep_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\Event.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\trng_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogin_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm3.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm7.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_helper.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\SingletonPtr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_const_structs.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\rtc_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimeout.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_math.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CircularBuffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\mbed_events.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_common_tables.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc300.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSecureAccess.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\us_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\lp_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmFunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Callback.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_debug.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0plus.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ethernet_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caFunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4_simd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\semihost_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\mbed.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\buffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DirHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_stats.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CThunk.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\wait_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Transaction.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\critical.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PwmOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pinmap.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Storage.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caInstr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca_mmu.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\serial_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\spi_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32_hal_legacy.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l073xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PortNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\mbed_rtx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PinNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_object.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\objects.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_def.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api_hal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx_hal_conf.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\common_objects.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\PeripheralPins.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Accelerometer\MMA8452.h">
+      <Filter>Header files\Accelerometer Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="mbed.xml">
+      <Filter>VisualGDB settings</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

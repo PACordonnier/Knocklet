@@ -386,6 +386,9 @@
 #ifndef __DQ_IBIT__
 #define __DQ_IBIT__ 0
 #endif
+#ifndef STM32L073xx
+#define STM32L073xx 1
+#endif
 #ifndef __DBL_MAX__
 #define __DBL_MAX__ double(1.7976931348623157e+308L)
 #endif
@@ -699,9 +702,6 @@
 #endif
 #ifndef __INT_FAST32_TYPE__
 #define __INT_FAST32_TYPE__ int
-#endif
-#ifndef OPTIMIZED_SPI
-#define OPTIMIZED_SPI 1
 #endif
 #ifndef __UINT_LEAST16_TYPE__
 #define __UINT_LEAST16_TYPE__ short unsigned int
@@ -1267,6 +1267,7 @@
 #endif
 
 // --- Include directories begin --- //
+//.
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/cmsis
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/cmsis/TOOLCHAIN_GCC
@@ -1294,8 +1295,9 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
 //Accelerometer
-//BlueNRG/BSP
+//BlueNRG/Drivers
 //BlueNRG/Middlewares
+//BlueNRG/Configurations
 // --- Include directories end --- //
 
 

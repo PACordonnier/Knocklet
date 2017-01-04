@@ -15,20 +15,31 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#ifdef __ICCARM__
-#define PACKED
-#else
+//#ifdef __ICCARM__
+//#define PACKED
+//#else
+//#ifdef __GNUC__
+//#undef __packed
+//#define __packed
+//#define PACKED __attribute__((packed))
+//#else
+//#define PACKED
+//#define __packed
+//#endif
+//#endif
+//
+///* Change this define to 1 if zero-length arrays are not supported by your compiler. */
+//#define VARIABLE_SIZE 0
+
 #ifdef __GNUC__
 #undef __packed
 #define __packed
 #define PACKED __attribute__((packed))
 #else
 #define PACKED
-#define __packed
-#endif
 #endif
 
 /* Change this define to 1 if zero-length arrays are not supported by your compiler. */
-#define VARIABLE_SIZE 0
+#define VARIABLE_SIZE
 
 #endif /* DOXYGEN_SHOULD_SKIP_THIS */

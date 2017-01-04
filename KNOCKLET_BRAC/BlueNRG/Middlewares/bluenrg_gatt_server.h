@@ -213,9 +213,10 @@ typedef __packed struct _charactFormat {
  * @name Unit
  * @{
  */
-#define UNIT_UNITLESS        0x2700
-#define UNIT_TEMP_CELSIUS    0x272F
-#define UNIT_PRESSURE_BAR    0x2780
+#define UNIT_UNITLESS        	0x2700
+#define UNIT_ELECTRIC_CURRENT 0x2704
+#define UNIT_TEMP_CELSIUS    	0x272F
+#define UNIT_PRESSURE_BAR    	0x2780
 /**
  * @}
  */

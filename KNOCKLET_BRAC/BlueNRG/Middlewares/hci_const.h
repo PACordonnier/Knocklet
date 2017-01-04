@@ -14,7 +14,6 @@
 #include "hal_types.h"
 #include "ble_clock.h"
 #include "link_layer.h"
-
 #include "hci.h"
 
 #define DEFAULT_TIMEOUT (CLOCK_SECOND/10)

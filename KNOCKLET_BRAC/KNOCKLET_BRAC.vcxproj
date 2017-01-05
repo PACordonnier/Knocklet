@@ -35,7 +35,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>.;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\TOOLCHAIN_GCC;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\docs;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\DeviceDefinitions;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\arm-eabi\thumb\cortex_m0plus;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\backward;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include-fixed;c:\sysgcc\arm-eabi\arm-eabi\sys-include;c:\sysgcc\arm-eabi\arm-eabi\include;Accelerometer;BlueNRG/Drivers;BlueNRG/Middlewares;BlueNRG/Configurations;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>.;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\TOOLCHAIN_GCC;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\docs;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\DeviceDefinitions;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\arm-eabi\thumb\cortex_m0plus;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\backward;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include-fixed;c:\sysgcc\arm-eabi\arm-eabi\sys-include;c:\sysgcc\arm-eabi\arm-eabi\include;Accelerometer;BlueNRG/BSP;BlueNRG/Middlewares;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -176,26 +176,27 @@
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\us_ticker.c" />
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\trng_api.c" />
     <ClCompile Include="Accelerometer\MMA8452.cpp" />
-    <ClCompile Include="BlueNRG\Configurations\bluenrg_interface.c" />
-    <ClCompile Include="BlueNRG\Configurations\clock.c" />
-    <ClCompile Include="BlueNRG\Configurations\cube_hal_l0.c" />
-    <ClCompile Include="BlueNRG\Configurations\stm32xx_it.c" />
-    <ClCompile Include="BlueNRG\Drivers\stm32l0xx_nucleo.c" />
-    <ClCompile Include="BlueNRG\Drivers\stm32_bluenrg_ble.c" />
+    <ClCompile Include="BlueNRG\BSP\stm32l0xx_nucleo.c" />
+    <ClCompile Include="BlueNRG\BSP\stm32_bluenrg_ble.c" />
     <ClCompile Include="BlueNRG\Middlewares\ble_list.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_gap_aci.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_gatt_aci.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_hal_aci.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_IFR.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_interface.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_updater_aci.c" />
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_utils.c" />
+    <ClCompile Include="BlueNRG\Middlewares\clock.c" />
+    <ClCompile Include="BlueNRG\Middlewares\cube_hal_l0.c" />
     <ClCompile Include="BlueNRG\Middlewares\gp_timer.c" />
     <ClCompile Include="BlueNRG\Middlewares\hci.c" />
     <ClCompile Include="BlueNRG\Middlewares\osal.c" />
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_gpio.c" />
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c" />
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stm32xx_it.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed" />
@@ -384,12 +385,9 @@
     <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PinNames.h" />
     <ClInclude Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PortNames.h" />
     <ClInclude Include="Accelerometer\MMA8452.h" />
-    <ClInclude Include="BlueNRG\Configurations\bluenrg_interface.h" />
-    <ClInclude Include="BlueNRG\Configurations\cube_hal.h" />
-    <ClInclude Include="BlueNRG\Configurations\stm32xx_it.h" />
-    <ClInclude Include="BlueNRG\Drivers\stm32l0xx_nucleo.h" />
-    <ClInclude Include="BlueNRG\Drivers\stm32l0xx_nucleo_bluenrg.h" />
-    <ClInclude Include="BlueNRG\Drivers\stm32_bluenrg_ble.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo_bluenrg.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32_bluenrg_ble.h" />
     <ClInclude Include="BlueNRG\Middlewares\ble_clock.h" />
     <ClInclude Include="BlueNRG\Middlewares\ble_list.h" />
     <ClInclude Include="BlueNRG\Middlewares\ble_status.h" />
@@ -400,10 +398,12 @@
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_aci.h" />
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_server.h" />
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_hal_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_interface.h" />
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.h" />
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_updater_aci.h" />
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_utils.h" />
     <ClInclude Include="BlueNRG\Middlewares\compiler.h" />
+    <ClInclude Include="BlueNRG\Middlewares\cube_hal.h" />
     <ClInclude Include="BlueNRG\Middlewares\debug.h" />
     <ClInclude Include="BlueNRG\Middlewares\gp_timer.h" />
     <ClInclude Include="BlueNRG\Middlewares\hal.h" />
@@ -419,6 +419,7 @@
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_spi.h" />
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.h" />
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h" />
+    <ClInclude Include="stm32xx_it.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="mbed.xml" />

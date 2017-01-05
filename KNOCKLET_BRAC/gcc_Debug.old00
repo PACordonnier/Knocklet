@@ -374,6 +374,9 @@
 #ifndef __BIGGEST_ALIGNMENT__
 #define __BIGGEST_ALIGNMENT__ 8
 #endif
+#ifndef USE_HAL_DRIVER
+#define USE_HAL_DRIVER 1
+#endif
 #ifndef __STDC_UTF_16__
 #define __STDC_UTF_16__ 1
 #endif
@@ -1295,9 +1298,8 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
 //Accelerometer
-//BlueNRG/Drivers
+//BlueNRG/BSP
 //BlueNRG/Middlewares
-//BlueNRG/Configurations
 // --- Include directories end --- //
 
 

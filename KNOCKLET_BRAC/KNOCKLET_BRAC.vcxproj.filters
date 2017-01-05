@@ -39,29 +39,23 @@
     <Filter Include="Source files\BlueNRG Files">
       <UniqueIdentifier>{a620316d-fa40-4419-a8ce-6c3663a871df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header files\BlueNRG Files\Middlewares">
-      <UniqueIdentifier>{36986c2c-8cee-4ec2-b53e-324bf30f9389}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source files\BlueNRG Files\Middlewares">
-      <UniqueIdentifier>{226e1409-0e95-4fee-947d-b59534443b74}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header files\Knocklet Files">
       <UniqueIdentifier>{b64ffa74-7c33-488c-9b9a-2043435cf713}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source files\Knocklet Files">
       <UniqueIdentifier>{bf1ee4e8-baad-4436-889f-bb7b518ffa6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header files\BlueNRG Files\Drivers">
-      <UniqueIdentifier>{20c0f2f0-5de9-4dba-9330-d59d25ae40db}</UniqueIdentifier>
+    <Filter Include="Header files\BlueNRG Files\BSP">
+      <UniqueIdentifier>{9e9b0a63-c7d7-4c0d-ab6c-c0a870ffc992}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\BlueNRG Files\Drivers">
-      <UniqueIdentifier>{fba2c517-eb6b-4aba-a202-8748077700be}</UniqueIdentifier>
+    <Filter Include="Header files\BlueNRG Files\Middlewares">
+      <UniqueIdentifier>{532449de-f730-4409-8ebf-ddb18c692fdd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\BlueNRG Files\Configurations">
-      <UniqueIdentifier>{d9e22500-081d-4367-a5ef-28bf932b1f9d}</UniqueIdentifier>
+    <Filter Include="Source files\BlueNRG Files\BSP">
+      <UniqueIdentifier>{52143a6a-e13a-40dc-b9cc-8c47bf0f57ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header files\BlueNRG Files\Configurations">
-      <UniqueIdentifier>{d921d8d0-9bfd-41ae-a766-c07447caf00e}</UniqueIdentifier>
+    <Filter Include="Source files\BlueNRG Files\Middlewares">
+      <UniqueIdentifier>{8bfbed4b-2d60-4018-9d79-04d7bef0077e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -410,14 +404,14 @@
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c">
       <Filter>Source files\mbed Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source files\Knocklet Files</Filter>
+    <ClCompile Include="stm32xx_it.c">
+      <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNRG\Drivers\stm32_bluenrg_ble.c">
-      <Filter>Source files\BlueNRG Files\Drivers</Filter>
+    <ClCompile Include="BlueNRG\BSP\stm32l0xx_nucleo.c">
+      <Filter>Source files\BlueNRG Files\BSP</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNRG\Drivers\stm32l0xx_nucleo.c">
-      <Filter>Source files\BlueNRG Files\Drivers</Filter>
+    <ClCompile Include="BlueNRG\BSP\stm32_bluenrg_ble.c">
+      <Filter>Source files\BlueNRG Files\BSP</Filter>
     </ClCompile>
     <ClCompile Include="BlueNRG\Middlewares\ble_list.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
@@ -434,6 +428,9 @@
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_IFR.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_interface.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
@@ -443,7 +440,16 @@
     <ClCompile Include="BlueNRG\Middlewares\bluenrg_utils.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\clock.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\cube_hal_l0.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
     <ClCompile Include="BlueNRG\Middlewares\gp_timer.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\hci.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
     <ClCompile Include="BlueNRG\Middlewares\osal.c">
@@ -455,19 +461,10 @@
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNRG\Configurations\bluenrg_interface.c">
-      <Filter>Source files\BlueNRG Files\Configurations</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNRG\Configurations\clock.c">
-      <Filter>Source files\BlueNRG Files\Configurations</Filter>
-    </ClCompile>
-    <ClCompile Include="BlueNRG\Configurations\cube_hal_l0.c">
-      <Filter>Source files\BlueNRG Files\Configurations</Filter>
-    </ClCompile>
-    <ClCompile Include="BlueNRG\Configurations\stm32xx_it.c">
-      <Filter>Source files\BlueNRG Files\Configurations</Filter>
-    </ClCompile>
-    <ClCompile Include="BlueNRG\Middlewares\hci.c">
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1024,14 +1021,17 @@
     <ClInclude Include="Accelerometer\MMA8452.h">
       <Filter>Header files\Accelerometer</Filter>
     </ClInclude>
-    <ClInclude Include="BlueNRG\Drivers\stm32_bluenrg_ble.h">
-      <Filter>Header files\BlueNRG Files\Drivers</Filter>
+    <ClInclude Include="stm32xx_it.h">
+      <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="BlueNRG\Drivers\stm32l0xx_nucleo.h">
-      <Filter>Header files\BlueNRG Files\Drivers</Filter>
+    <ClInclude Include="BlueNRG\BSP\stm32_bluenrg_ble.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
     </ClInclude>
-    <ClInclude Include="BlueNRG\Drivers\stm32l0xx_nucleo_bluenrg.h">
-      <Filter>Header files\BlueNRG Files\Drivers</Filter>
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo_bluenrg.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
     </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\ble_clock.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
@@ -1063,6 +1063,9 @@
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_hal_aci.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_interface.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
@@ -1075,6 +1078,9 @@
     <ClInclude Include="BlueNRG\Middlewares\compiler.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\cube_hal.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\debug.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
@@ -1085,6 +1091,9 @@
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\hal_types.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\hci.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\hci_const.h">
@@ -1115,18 +1124,6 @@
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h">
-      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
-    </ClInclude>
-    <ClInclude Include="BlueNRG\Configurations\bluenrg_interface.h">
-      <Filter>Header files\BlueNRG Files\Configurations</Filter>
-    </ClInclude>
-    <ClInclude Include="BlueNRG\Configurations\cube_hal.h">
-      <Filter>Header files\BlueNRG Files\Configurations</Filter>
-    </ClInclude>
-    <ClInclude Include="BlueNRG\Configurations\stm32xx_it.h">
-      <Filter>Header files\BlueNRG Files\Configurations</Filter>
-    </ClInclude>
-    <ClInclude Include="BlueNRG\Middlewares\hci.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
   </ItemGroup>

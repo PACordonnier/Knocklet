@@ -1,6 +1,5 @@
-Debug/bluenrg_interface.o: BlueNRG/Configurations/bluenrg_interface.c \
- BlueNRG/Configurations/bluenrg_interface.h \
- BlueNRG/Drivers/stm32_bluenrg_ble.h \
+Debug/bluenrg_interface.o: BlueNRG/Middlewares/bluenrg_interface.c \
+ BlueNRG/Middlewares/bluenrg_interface.h BlueNRG/BSP/stm32_bluenrg_ble.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/TARGET_NUCLEO_L073RZ/device/stm32l0xx_hal_conf.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h \
@@ -88,15 +87,15 @@ Debug/bluenrg_interface.o: BlueNRG/Configurations/bluenrg_interface.c \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_wwdg.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_pcd.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_pcd_ex.h \
- BlueNRG/Drivers/stm32l0xx_nucleo.h \
+ BlueNRG/BSP/stm32l0xx_nucleo.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
- BlueNRG/Drivers/stm32l0xx_nucleo_bluenrg.h \
- BlueNRG/Middlewares/hal_types.h BlueNRG/Middlewares/debug.h \
+ BlueNRG/BSP/stm32l0xx_nucleo_bluenrg.h BlueNRG/Middlewares/hal_types.h \
+ BlueNRG/Middlewares/debug.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\string.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\_locale.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\sys\string.h \
- BlueNRG/Middlewares/ble_status.h BlueNRG/Middlewares/hci.h \
- BlueNRG/Middlewares/hal_types.h BlueNRG/Middlewares/link_layer.h \
- BlueNRG/Middlewares/ble_list.h
+ BlueNRG/Middlewares/ble_status.h BlueNRG/Middlewares/hal_types.h \
+ BlueNRG/Middlewares/hci.h BlueNRG/Middlewares/link_layer.h \
+ BlueNRG/Middlewares/ble_status.h BlueNRG/Middlewares/ble_list.h

@@ -1,5 +1,5 @@
-Debug/cube_hal_l0.o: BlueNRG/Configurations/cube_hal_l0.c \
- BlueNRG/Configurations/cube_hal.h \
+Debug/cube_hal_l0.o: BlueNRG/Middlewares/cube_hal_l0.c \
+ BlueNRG/Middlewares/cube_hal.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/TARGET_NUCLEO_L073RZ/device/stm32l0xx_hal_conf.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h \
@@ -87,9 +87,8 @@ Debug/cube_hal_l0.o: BlueNRG/Configurations/cube_hal_l0.c \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_wwdg.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_pcd.h \
  C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_pcd_ex.h \
- BlueNRG/Drivers/stm32l0xx_nucleo.h \
+ BlueNRG/BSP/stm32l0xx_nucleo.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\stdlib.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\alloca.h \
- BlueNRG/Drivers/stm32l0xx_nucleo_bluenrg.h \
- BlueNRG/Drivers/stm32l0xx_nucleo.h
+ BlueNRG/BSP/stm32l0xx_nucleo_bluenrg.h BlueNRG/BSP/stm32l0xx_nucleo.h

@@ -703,6 +703,9 @@
 #ifndef __INT_FAST32_TYPE__
 #define __INT_FAST32_TYPE__ int
 #endif
+#ifndef OPTIMIZED_SPI
+#define OPTIMIZED_SPI 1
+#endif
 #ifndef __UINT_LEAST16_TYPE__
 #define __UINT_LEAST16_TYPE__ short unsigned int
 #endif
@@ -1295,9 +1298,8 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
 //Accelerometer
-//BlueNRG/Drivers
+//BlueNRG/BSP
 //BlueNRG/Middlewares
-//BlueNRG/Configurations
 // --- Include directories end --- //
 
 

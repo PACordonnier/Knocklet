@@ -16,6 +16,10 @@
 #ifndef __BLUENRG_GAP_ACI_H__
 #define __BLUENRG_GAP_ACI_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 /** @addtogroup Middlewares
  *  @{
  */
@@ -1252,5 +1256,8 @@ typedef __packed struct _evt_gap_reconnection_addr_IDB04A1{
 /**
  * @}
  */
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __BLUENRG_GAP_ACI_H__ */

@@ -404,9 +404,6 @@
     <ClCompile Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c">
       <Filter>Source files\mbed Files</Filter>
     </ClCompile>
-    <ClCompile Include="stm32xx_it.c">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="BlueNRG\BSP\stm32l0xx_nucleo.c">
       <Filter>Source files\BlueNRG Files\BSP</Filter>
     </ClCompile>
@@ -461,10 +458,25 @@
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BEvendef.cpp">
       <Filter>Source files\Knocklet Files</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c">
+    <ClCompile Include="Knocklet\BInitdef.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BLueproc.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BParadef.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32xx_it.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1021,9 +1033,6 @@
     <ClInclude Include="Accelerometer\MMA8452.h">
       <Filter>Header files\Accelerometer</Filter>
     </ClInclude>
-    <ClInclude Include="stm32xx_it.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="BlueNRG\BSP\stm32_bluenrg_ble.h">
       <Filter>Header files\BlueNRG Files\BSP</Filter>
     </ClInclude>
@@ -1125,6 +1134,24 @@
     </ClInclude>
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h">
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BEvendef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BInitdef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BLueproc.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BParadef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32xx_it.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

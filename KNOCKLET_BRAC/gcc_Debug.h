@@ -1300,6 +1300,7 @@
 //Accelerometer
 //BlueNRG/BSP
 //BlueNRG/Middlewares
+//Knocklet
 // --- Include directories end --- //
 
 

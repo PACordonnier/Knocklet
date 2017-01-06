@@ -3,4 +3,4 @@ Comment on envoie une tension mais pas une intensité avec une raspberry ?
 On essaie de faire blinker une led on a cramé la raspberry
 Je me tâte à y aller c'est le dernier gala de ma vie
 je sais compiler une commande linux
-Nan mais réfléhir, c'est pas mon truc
+Nan mais réfléchir, c'est pas mon truc

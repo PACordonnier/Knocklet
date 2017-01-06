@@ -1,0 +1,5 @@
+Si MySQL bug il suffit de le désinstaller de le réinstaller
+Comment on envoie une tension mais pas une intensité avec une raspberry ?
+On essaie de faire blinker une led on a cramé la raspberry
+Je me tâte à y aller c'est le dernier gala de ma vie
+je sais compiler une commande linux

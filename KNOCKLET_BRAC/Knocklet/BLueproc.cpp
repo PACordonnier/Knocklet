@@ -72,20 +72,21 @@ bool BLX__process(void)
 	
 	// Processing du BLE
 	HCI_Process();
+
 	
 	// Aucune procédure est en cours
-  if (BLP_proc == false)
-  {
+	if (BLP_proc == false)
+	{
 		// Nécessite un discoverable all
-    if (BLP_pdis == true)
-    {
+		if (BLP_pdis == true)
+		{
 			// Set du device en discoverable
 			if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
 			{
 				return false;
 			}
-    }
-
+		}
+	
 		// Nécessite un discoverable white list
 		else if (BLP_pwdi == true)
 		{
@@ -95,7 +96,7 @@ bool BLX__process(void)
 				return false;
 			}
 		}
-  }
+	}
 	
 	// Client non connecté
 	if (BEX_clie.find == false)
@@ -164,6 +165,10 @@ bool BLX__process(void)
 bool BLP_set_disc(unsigned mode)
 {
 	tBleStatus cret = BLE_STATUS_SUCCESS;	// Code retour
+	
+	// LOGO Corporate
+	// https://www.bluetooth.com/specifications/assigned-numbers/16-bit-uuids-for-members
+	uint8_t serviceUUIDList[] = { AD_TYPE_SERVICE_DATA, 0xE4, 0xFE };
 
 	const char name[] = { AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T' };
 
@@ -176,9 +181,9 @@ bool BLP_set_disc(unsigned mode)
 		{
 			return false;
 		}
-
-		// Set le device en discoverable général
-		cret = aci_gap_set_discoverable(ADV_IND, 0, 0, PUBLIC_ADDR, mode, sizeof(name), name, 0, NULL, 0, 0);
+		
+		//// Set le device en discoverable général
+		cret = aci_gap_set_discoverable(ADV_IND, 0, 0, PUBLIC_ADDR, mode, sizeof(name), name, 3, serviceUUIDList, 0, 0);
 		if (cret != BLE_STATUS_SUCCESS)
 		{
 			

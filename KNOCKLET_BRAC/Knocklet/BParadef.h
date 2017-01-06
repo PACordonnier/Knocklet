@@ -116,7 +116,7 @@ typedef struct						// Service generic access
 #define BPX_GENE_NAME "KNOCKLET"
 // https://devzone.nordicsemi.com/documentation/nrf51/4.4.0/html/group___b_l_e___a_p_p_e_a_r_a_n_c_e_s.html
 //#define BPX_GENE_APAR 576	// Appearance KEYRING
-#define BPX_GENE_APAR 192 // Apparence Generic Watch
+#define BPX_GENE_APAR 3138 // Apparence Wrist Worn
 #define BPX_GENE_SIZE -1	// Nombre d'attribut du service generic
 
 	BPX_SERV_BASE serv;			// Service generic
@@ -148,22 +148,18 @@ typedef struct						// Service custom
 {
 #define SERV_CUST(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x00,0x00)
 #define ATTR_CARA(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x01,0x00)
-#define ATTR_CARB(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x02,0x00)
-#define ATTR_CARC(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x03,0x00)
 #define CPFM_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x04); // Characteristic Presentation Format descriptor
 #define CCCD_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x02); // Client Characteristic Configuration descriptor
-#define BPS_DATA_SIZE	14	// Taille du service custom
+#define BPS_DATA_SIZE	8	// Taille du service custom
 
 	
 #define BPX_DESC_CCCD 2 // Taille des données de la CCCD (0x0100 pour notify only)
-#define	BPX_DESC_CPFM 7 // Taille des données de la CPFM (0x04FF0427000000 pour ampère)
+#define	BPX_DESC_CPFM 7 // Taille des données de la CPFM (0x04FF0027000000 pour unitless)
 #define BPX_CHAR_DATA 2 // Taille des données des characteristic
 	// Taille du service : (nb Charac *2) + (nb Desc *2) + 1
 	
 	BPX_SERV_BASE serv;			// Service Data Custom
-	BPX_CHAR_BASE carA;			// Characteristic en Read/Notify (vale = 2x valeB)
-	BPX_CHAR_BASE carB;			// Characteristic en Write/Notify (vale compris entre 0 et 10)
-	BPX_CHAR_BASE carC;			// Characterisitic en Write/Notify (vale varie entre 1 et 0)
+	BPX_CHAR_BASE carA;			// Characteristic en Read/Notify (nombre de tap)
 }BPS_DATA;
 
 typedef struct						// Paramètres du serveur GATT

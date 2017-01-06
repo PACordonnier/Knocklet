@@ -646,34 +646,6 @@ void BEX_requwrit(uint16_t hand, uint16_t clie, uint8_t leng, uint8_t *data)
 
 	// Fonction avec vérification de blok
 	
-		// Demande d'écriture sur la characteristic B
-	if (hand == para.BPX_data.carB.hand + 0x001)
-	{
-		// Blindage de la valeur
-		if(data[0] <= 0x0A)
-		{
-			blok = true;
-			
-			// Mise à jour de la characteristic B
-			para.BPX_data.carB.data.vale = data;
-			para.BPX_data.carB.data.updt = true;
-			
-			// Mise à jour de la characteristic A
-			para.BPX_data.carA.data.updt = true;
-		}
-	}
-	// Demande d'écriture sur la characteristic C
-	else if (hand == para.BPX_data.carC.hand + 0x001)
-	{
-		// Blindage de la valeur
-		if(data[0] == 0x00 || data[0] == 0x01)
-		{
-			blok = true;
-			para.BPX_data.carC.data.vale = data;
-			para.BPX_data.carC.data.updt = true;
-		}
-	}
-	
 	// Inversion du blok car la fonction aci_gatt_write_response() l'impose
 	blok = !blok;
 	// Un client est connecté

@@ -302,32 +302,10 @@ bool BPX_initcust(BPX_PARA *para)
 	false,
 	BPX_VALE_UI08,
 	(uint8_t*)BPX_CHAR_DATA);
-	
-	// Initialisation de la characteristic B
-	ATTR_CARB(para->BPX_data.carB.uuid, para->BPX_data.carB.size);
-	BPX_initchar(&para->BPX_data.carB,
-	ATTR_PERMISSION_NONE,
-	CHAR_PROP_NOTIFY | CHAR_PROP_WRITE,
-	GATT_NOTIFY_WRITE_REQ_AND_WAIT_FOR_APPL_RESP,
-	BPX_CHAR_XKEY,
-	false,
-	BPX_VALE_UI08,
-	(uint8_t*)BPX_CHAR_DATA);
-
-	// Initialisation de la characteristic C
-	ATTR_CARC(para->BPX_data.carC.uuid, para->BPX_data.carC.size);
-	BPX_initchar(&para->BPX_data.carC,
-	ATTR_PERMISSION_NONE,
-	CHAR_PROP_NOTIFY | CHAR_PROP_WRITE,
-	GATT_NOTIFY_WRITE_REQ_AND_WAIT_FOR_APPL_RESP,
-	BPX_CHAR_XKEY,
-	false,
-	BPX_VALE_UI08,
-	(uint8_t*)BPX_CHAR_DATA);
-	
-	// Initialisation du descriptor CCCD de la characteristic C
-	CCCD_CARC(para->BPX_data.carC.desc[0].uuid, para->BPX_data.carC.desc[0].size);
-	BPX_initdesc(&para->BPX_data.carC.desc[0],
+		
+	// Initialisation du descriptor CCCD de la characteristic A
+	CCCD_CARC(para->BPX_data.carA.desc[0].uuid, para->BPX_data.carA.desc[0].size);
+	BPX_initdesc(&para->BPX_data.carA.desc[0],
 	ATTR_PERMISSION_NONE,
 	ATTR_ACCESS_READ_ONLY,
 	GATT_DONT_NOTIFY_EVENTS,
@@ -336,9 +314,9 @@ bool BPX_initcust(BPX_PARA *para)
 	BPX_DESC_CCCD,
 	0);
 	
-	// Initialisation du descriptor CPFM de la characteristic C
-	CPFM_CARC(para->BPX_data.carC.desc[1].uuid, para->BPX_data.carC.desc[1].size);
-	BPX_initdesc(&para->BPX_data.carC.desc[1],
+	// Initialisation du descriptor CPFM de la characteristic A
+	CPFM_CARC(para->BPX_data.carA.desc[1].uuid, para->BPX_data.carA.desc[1].size);
+	BPX_initdesc(&para->BPX_data.carA.desc[1],
 	ATTR_PERMISSION_NONE,
 	ATTR_ACCESS_READ_ONLY,
 	GATT_DONT_NOTIFY_EVENTS,
@@ -399,14 +377,14 @@ bool BPX_confgene(BPX_PARA *para)
 		return false;
 	}
 
-	// Set le nom de l'apparence
-	para->BPX_gene.apar.data.vale[0] = 0xC0;
-	para->BPX_gene.apar.data.vale[1] = 0x00;
+	// Set le nom de l'apparence (3138	Wrist Worn)
+	para->BPX_gene.apar.data.vale[1] = 0x0C;
+	para->BPX_gene.apar.data.vale[0] = 0x42;
 	if (BPX_set_vale(para->BPX_gene.serv.hand, &para->BPX_gene.apar) == false)
 	{
 		return false;
 	}
-
+	
 	return true;
 }
 
@@ -477,36 +455,24 @@ bool BPX_confcust(BPX_PARA *para)
 		return false;
 	}
 	
-	// Configuration de la characteristic B
-	if (BPX_add_char(para->BPX_data.serv.hand, &para->BPX_data.carB) == false)
-	{
-		return false;
-	}
-	
-	// Configuration de la characteristic C
-	if (BPX_add_char(para->BPX_data.serv.hand, &para->BPX_data.carC) == false)
-	{
-		return false;
-	}
-	
-	// Set des descriptor de la characteristic C
+	// Set des descriptor de la characteristic A
 	
 	// Set du descriptor CCCD
-	para->BPX_data.carC.desc[0].vale[0] = 0x01;
-	para->BPX_data.carC.desc[0].vale[1] = 0x00;
-	
-	// Initialisation du descriptor CPFM de la characteristic C
-	para->BPX_data.carC.desc[1].vale[0] = 0x04;
-	para->BPX_data.carC.desc[1].vale[1] = 0xFF;
-	para->BPX_data.carC.desc[1].vale[2] = 0x04;
-	para->BPX_data.carC.desc[1].vale[3] = 0x27;
-	para->BPX_data.carC.desc[1].vale[4] = 0x00;
-	para->BPX_data.carC.desc[1].vale[5] = 0x00;
-	para->BPX_data.carC.desc[1].vale[6] = 0x00;
-	para->BPX_data.carC.desc[1].vale[7] = 0x00;
+	para->BPX_data.carA.desc[0].vale[0] = 0x01;
+	para->BPX_data.carA.desc[0].vale[1] = 0x00;
+					  
+	// Initialisation du descriptor CPFM de la characteristic A
+	para->BPX_data.carA.desc[1].vale[0] = 0x04;
+	para->BPX_data.carA.desc[1].vale[1] = 0xFF;
+	para->BPX_data.carA.desc[1].vale[2] = 0x00;
+	para->BPX_data.carA.desc[1].vale[3] = 0x27;
+	para->BPX_data.carA.desc[1].vale[4] = 0x00;
+	para->BPX_data.carA.desc[1].vale[5] = 0x00;
+	para->BPX_data.carA.desc[1].vale[6] = 0x00;
+	para->BPX_data.carA.desc[1].vale[7] = 0x00;
 	
 	// Ajout du descriptor CPFM
-	if (BPX_add_desc(para->BPX_data.serv.hand, para->BPX_data.carC.hand, &para->BPX_data.carC.desc[1]) == false)
+	if (BPX_add_desc(para->BPX_data.serv.hand, para->BPX_data.carA.hand, &para->BPX_data.carA.desc[1]) == false)
 	{
 		return false;
 	}
@@ -657,58 +623,8 @@ bool BPX_updtdata(BPX_PARA *para)
 	// Si demande de mise à jour sur la characteristic A
 	if (para->BPX_data.carA.data.updt == true)
 	{
-		// Valeur de la characteristic A = 2 fois valeur de la characteristic B;
-		para->BPX_data.carA.data.vale[0] = 2*para->BPX_data.carB.data.vale[0];
+		// Valeur de la characteristic A = nombre de tap
 		cret = BPX_set_vale(para->BPX_data.serv.hand, &para->BPX_data.carA);
-		if (cret == false)
-		{
-			return false;
-		}
-	}
-	
-	// Si demande de mise à jour sur la characteristic B
-  if (para->BPX_data.carB.data.updt == true)
-	{
-		// On set la valeur sur serveur GATT
-		cret = BPX_set_vale(para->BPX_data.serv.hand, &para->BPX_data.carB);
-		if (cret == false)
-		{
-			return false;
-		}
-	}
-	
-	// Si demande de mise à jour sur la characteristic C
-	if (para->BPX_data.carC.data.updt == true)
-	{
-		// Inversion de la valeur + blink de la LED (soit 0, soit 1) si BPS de client connecté
-		if (BEX_clie.find == false)
-		{
-			if (para->BPX_data.carC.data.vale[0] == 0x01)
-			{
-				para->BPX_data.carC.data.vale[0] = 0x00;
-				//BSP_LED_Off(LED2);
-			}
-			else 
-			{
-				para->BPX_data.carC.data.vale[0] = 0x01;
-				//BSP_LED_On(LED2);
-			}
-		}
-		// Si un client est connecté, la LED est éteinte si la valeur de la characteristic C est égale à 0. 
-		else
-		{
-			if (para->BPX_data.carC.data.vale[0] == 0x00)
-			{
-				//BSP_LED_Off(LED2);
-			}
-			else
-			{
-				//BSP_LED_On(LED2);
-			}
-		}
-		
-		// On set la valeur sur serveur GATT
-		cret = BPX_set_vale(para->BPX_data.serv.hand, &para->BPX_data.carC);
 		if (cret == false)
 		{
 			return false;

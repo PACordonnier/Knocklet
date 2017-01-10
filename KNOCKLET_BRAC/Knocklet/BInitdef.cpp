@@ -183,12 +183,12 @@ bool BIX_conf_srv(void)
 	if (BIX_blms == true)
 	{
 		// Set du role du master
-		BIX_role = GAP_CENTRAL_ROLE_IDB05A1 | GAP_PERIPHERAL_ROLE_IDB05A1;
+		BIX_role = GAP_CENTRAL_ROLE_IDB05A1;
 	}
 	else
 	{
 		// Set du role du master
-		BIX_role = GAP_CENTRAL_ROLE_IDB04A1 | GAP_PERIPHERAL_ROLE_IDB04A1;
+		BIX_role = GAP_CENTRAL_ROLE_IDB04A1;
 	}
 	   
 	// Configuration de l'adresse publique du device BLE

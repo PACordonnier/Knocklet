@@ -102,30 +102,31 @@ bool BLX__process(void)
 	}
 	
 	// Aucune procédure est en cours
-	if (BLP_proc == false)
+	else if (BLP_proc == false)
 	{
-		// Nécessite un discoverable all
-		if (BLP_pdis == true)
-		{
-			// Set du device en discoverable
-			if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
-			{
-				return false;
-			}
-		}
-	
-		// Nécessite un discoverable white list
-		else if (BLP_pwdi == true)
-		{
-			// Set du device en discoverable
-			if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
-			{
-				return false;
-			}
-		}
+		//// Nécessite un discoverable all
+		//if (BLP_pdis == true)
+		//{
+		//	// Set du device en discoverable
+		//	if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
+		//	{
+		//		return false;
+		//	}
+		//}
+		//
+		//// Nécessite un discoverable white list
+		//else if (BLP_pwdi == true)
+		//{
+		//	// Set du device en discoverable
+		//	if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
+		//	{
+		//		return false;
+		//	}
+		//}
 	
 		// Demande de scan des devices
-		else if (BLP_scan == true)
+		//else
+			if (BLP_scan == true)
 		{
 			// Scan des devices
 			if (BLP_findslav() == false)

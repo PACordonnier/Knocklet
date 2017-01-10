@@ -176,19 +176,19 @@ bool BIX_conf_srv(void)
 	BIX_addr[4] = 0x00; 
 	BIX_addr[5] = 0x05;
 	   	
-	//Mode 2 : slave or master, 1 connection, RAM1 and RAM2(large GATT DB)
-	mode = 0x02;
+	// Mode 3: master/slave, 8 connections, RAM1 and RAM2.
+	mode = 0x04;
 	
 	// Bluetooth-ms Device
 	if (BIX_blms == true)
 	{
-		// Set du role du slave
-		BIX_role = GAP_PERIPHERAL_ROLE_IDB05A1;
+		// Set du role du master
+		BIX_role = GAP_CENTRAL_ROLE_IDB05A1 | GAP_PERIPHERAL_ROLE_IDB05A1;
 	}
 	else
 	{
-		// Set du role du slave
-		BIX_role = GAP_PERIPHERAL_ROLE_IDB04A1;
+		// Set du role du master
+		BIX_role = GAP_CENTRAL_ROLE_IDB04A1 | GAP_PERIPHERAL_ROLE_IDB04A1;
 	}
 	   
 	// Configuration de l'adresse publique du device BLE

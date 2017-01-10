@@ -47,6 +47,7 @@ typedef struct	   // Définition d'un client
 * VARIABLES EXTERNALISEES
 *---------------------------------------------------------------------------*/
 extern BEX_CONN BEX_clie; 			// Handle du client connecte
+extern BEX_CONN BEX_slav; 			// Handles du slave
 
 /*----------------------------------------------------------------------------
 * BEX : Traitements généraux
@@ -59,10 +60,11 @@ bool		BEX_gap_even(void *pack);																									// Evénement GAP
 bool		BEX_connclie(uint16_t hand, tBDAddr addr, uint8_t stat);									// Connexion d'un client
 void		BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat);									// Déconnexion d'un client
 bool		BEX_gap_done(uint8_t code, uint8_t stat, uint8_t *data);									// Procédure du GAP serveur complète
-bool		BEX_gattdone(uint8_t code);																								// Procédure du GATT serveur complète
-void		BEX_requread(uint16_t hand, uint16_t clie);																// Requête de lecture
-void		BEX_requwrit(uint16_t hand, uint16_t clie, uint8_t leng, uint8_t *data);	// Requête d'écriture
+bool		BEX_gattdone(uint8_t code);																	// Procédure du GATT serveur complète
+void		BEX_requread(uint16_t hand, uint16_t clie);													// Requête de lecture
+void		BEX_requwrit(uint16_t hand, uint16_t clie, uint8_t leng, uint8_t *data);					// Requête d'écriture
 void		BEX_var_attr(uint16_t hand, uint8_t leng, uint8_t *data);									// This function is called attribute value change
+void		BEX_devfound(uint8_t type, tBDAddr addr, uint8_t leng, uint8_t rssi);						// Device Found
 #ifdef __cplusplus
 }
 #endif

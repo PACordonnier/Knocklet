@@ -201,6 +201,7 @@
     <ClCompile Include="Knocklet\BLueproc.cpp" />
     <ClCompile Include="Knocklet\BParadef.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SEqutask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed" />
@@ -429,6 +430,7 @@
     <ClInclude Include="Knocklet\BLueproc.h" />
     <ClInclude Include="Knocklet\BParadef.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="SEqutask.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="mbed.xml" />

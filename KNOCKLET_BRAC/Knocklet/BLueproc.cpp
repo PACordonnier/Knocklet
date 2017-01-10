@@ -17,6 +17,8 @@
 #include "bluenrg_gap_aci.h"		// Header file with GAP commands for BlueNRG FW6.3.
 #include "mbed.h"					// Librairie Mbed
 
+DigitalIn test(PC_13);
+
 /*----------------------------------------------------------------------------
 * ALLOCATION DE VARIABLES
 *---------------------------------------------------------------------------*/
@@ -27,7 +29,10 @@ bool		BLP_pdis; 	// Demande de procedure discoverable en cours
 bool		BLP_pwdi; 	// Demande de procedure discoverable avec whitelist
 bool		BLP_conn; 	// Flag d'un device connecté
 bool		BLP_pcon; 	// Demande de procédure de connexion
-int			BLP_seco;		// Valeur de la seconde actuelle
+bool		BLP_scan; 	// Demande de procedure de scan des clients
+bool		BLP_slav;	// Slave connecté sur le master
+bool		BLP_send; 	// Envoi d'une requête d'écriture sur le device
+bool		BLP_stop;	// Arret de la procédure de scan
 
 /*----------------------------------------------------------------------------
 * BLX_initproc() : Initialisation des flags des procédures ble
@@ -49,11 +54,12 @@ bool BLX_initproc(void)
 	BLP_pdis = false;
 	BLP_pwdi = false;
 	BLP_conn = false;
-	BLP_pcon = false;;
-	
-	// Initialisation de la seconde
-	BLP_seco = -1;
-	
+	BLP_pcon = false;
+	BLP_scan = false;
+	BLP_slav = false;
+	BLP_send = false;
+	BLP_stop = false;
+		
 	return true;
 }
 
@@ -72,7 +78,28 @@ bool BLX__process(void)
 	
 	// Processing du BLE
 	HCI_Process();
-
+	
+	if (test.read() == false)
+	{
+		BLP_scan = true;
+	}
+	
+	if (BLP_stop == true)
+	{
+		cret = aci_gap_terminate_gap_procedure(GAP_GENERAL_DISCOVERY_PROC);
+		if (cret != BLE_STATUS_SUCCESS)
+		{
+					
+		}
+				
+		// Demande de procédure de connexion
+		else
+		{
+			BLP_stop = false;
+			BLP_proc = BLP_PROC_NONE;
+			BLP_pcon = true;
+		}
+	}
 	
 	// Aucune procédure est en cours
 	if (BLP_proc == false)
@@ -96,57 +123,43 @@ bool BLX__process(void)
 				return false;
 			}
 		}
-	}
 	
-	// Client non connecté
-	if (BEX_clie.find == false)
-	{
-		// Vérification du temps pour la mise à jour sur la characteristic C
-		if (BLX_veritime() == false)
+		// Demande de scan des devices
+		else if (BLP_scan == true)
+		{
+			// Scan des devices
+			if (BLP_findslav() == false)
+			{
+				return false;
+			}
+		}
+		
+		// Demande de connexion sur le slave
+		else if (BLP_pcon == true)
+		{
+			// Procédure de connexion
+			if (BLP_connecte(BEX_slav.addr) == false)
+			{
+				return false;
+			}
+		}
+	
+		// Demande d'écriture sur le slave
+		else if (BLP_send == true)
+		{
+			// Procédure d'écriture
+			if (BLP_writslav(BEX_slav.hand) == false)
+			{
+				return false;
+			}
+		}				
+	
+		// Mise à jour des données BLE
+		if (BPX_updtdata(&para) == false)
 		{
 			return false;
 		}
 	}
-	
-	// Mise à jour des données BLE
-	if (BPX_updtdata(&para) == false)
-	{
-		return false;
-	}
-	
-	//// Si appui sur le boutton, clean de la white list
-	//if (BSP_PB_GetState(BUTTON_KEY) == RESET)
-	//{
-	//	// On nettoie la database où est stocké l'adresse dans la whitelist
-	//	if (aci_gap_clear_security_database() != BLE_STATUS_SUCCESS)
-	//	{
-	//		return false;
-	//	}
-	//	else
-	//	{
-	//		// Device non bonded
-	//		if (BLX_bond == true)
-	//		{
-	//			BLX_bond = false;
-	//		}
-	//		// On test si l'on est dans le mode discoverable
-	//		if (BLP_disc == true)
-	//		{
-	//			// Arrêt du mode discoverable
-	//			cret = aci_gap_set_non_discoverable();
-	//			if (cret != BLE_STATUS_SUCCESS)
-	//			{
-	//				
-	//			}
-	//			else
-	//			{
-	//				// Le device n'est plus en mode discoverable
-	//				BLP_disc = false;
-	//				BLP_pdis = true;
-	//			}
-	//		}
-	//	}
-	//}
 
 	return true;
 }
@@ -209,6 +222,96 @@ bool BLP_set_disc(unsigned mode)
 
 	return true;
 }
+
+/*----------------------------------------------------------------------------
+* BLP_findslav() : Tentative de recherche des équipements BLE
+*-----------------------------------------------------------------------------
+* Input  :
+* Output : -
+* Return : -
+*-----------------------------------------------------------------------------
+*
+*---------------------------------------------------------------------------*/
+bool BLP_findslav(void)
+{
+	tBleStatus cret; // Code retour
+
+	// Lancement du scan general des devices BLE
+	if (BLP_proc != GAP_GENERAL_DISCOVERY_PROC)
+
+	// Procedure en cours
+	BLP_proc = GAP_GENERAL_DISCOVERY_PROC;
+
+	// Lancement de la procedure de scan
+	cret =  aci_gap_start_general_discovery_proc(BLX_SCAN_INTR, BLX_SCAN_WIND, PUBLIC_ADDR, 0x00);
+	if (cret != BLE_STATUS_SUCCESS)
+	{
+		// Besoin d'un scan
+		BLP_scan = true;
+
+		return false;
+	}
+	
+	  // Demande de scan terminé
+	BLP_scan = false;
+
+	return true;
+}
+
+/*----------------------------------------------------------------------------
+* BLP_connecte() : Tentative de connexion à un client
+*-----------------------------------------------------------------------------
+* Input  : - Adresse du client
+* Output : -
+* Return : -
+*-----------------------------------------------------------------------------
+*
+*---------------------------------------------------------------------------*/
+bool BLP_connecte(tBDAddr addr)
+{
+	tBleStatus cret; // Code retour
+
+		// Le device est en discoverable
+	if (BLP_disc == true)
+	{
+		// Désactivation du mode discoverable
+		cret = aci_gap_set_non_discoverable();
+		if (cret != BLE_STATUS_SUCCESS)
+		{
+			
+		}
+		else
+		{
+			// Le device n'est pas en discoverable
+			BLP_disc = false;
+		}
+	}
+	
+	// Procedure en cours
+	BLP_proc = GAP_DIRECT_CONNECTION_ESTABLISHMENT_PROC;
+
+	// Lancement de la procedure de connexion
+	cret = aci_gap_create_connection(BLX_SCAN_INTR, BLX_SCAN_WIND, PUBLIC_ADDR, addr, PUBLIC_ADDR, BLX_CONN_MINI, BLX_CONN_MAXI, BLX_SLAV_LATE, BLX_SUPE_TOUT, BLX_MINI_NEED, BLX_MAXI_NEED);
+	if (cret != BLE_STATUS_SUCCESS)
+	{
+	  // if command queue up in GATT
+		if (cret == 0x86)
+		{
+			
+		}
+
+		// Besoin d'une connexion
+		BLP_pcon = true;
+
+		// Il n'y a pas une procedure en cours
+		BLP_proc = BLP_PROC_NONE;
+
+		return false;
+	}
+
+	return true;
+}
+
 
 /*----------------------------------------------------------------------------
 * BLX_clearble() : Efface la security database du BLE
@@ -348,5 +451,34 @@ bool BLX_veritime(void)
 	//	// Demande de mise à jour sur la characteristic C
 	//	para.BPX_data.carC.data.updt = true;
 	//}
+	return true;
+}
+
+/*----------------------------------------------------------------------------
+* BLP_writslav() : Ecriture sur la characteristic du slave  
+*-----------------------------------------------------------------------------
+* Input  : - Connection handle
+* Output : -
+* Return : - Success or not
+*-----------------------------------------------------------------------------
+* 
+*---------------------------------------------------------------------------*/
+bool BLP_writslav(uint16_t hand)
+{
+	tBleStatus cret;                    // Code retour  
+	
+	// Lancement de la procedure d'écriture d'une characteristique sur le slave
+	//cret = aci_gatt_write_charac_value(hand, para.BPX_data.carC.data.hand, PAX_VALE_UI08, para.PAX_data.carC.data.vale);
+	if (cret != BLE_STATUS_SUCCESS)
+	{
+		return false;
+	}
+	
+	// Plus besoin d'écriture sur le slave
+	BLP_send = false;
+	
+	// Procédure en cours
+	BLP_proc = 1;
+		
 	return true;
 }

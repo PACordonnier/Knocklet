@@ -21,7 +21,8 @@
 /*----------------------------------------------------------------------------
 * ALLOCATION DE VARIABLES
 *---------------------------------------------------------------------------*/
-BEX_CONN BEX_clie; // Handles du client
+BEX_CONN BEX_clie;	// Handle du client
+BEX_CONN BEX_slav;	// Handle du slave
 
 /*----------------------------------------------------------------------------
 * HCI_Event_CB() : Receive packet
@@ -127,6 +128,8 @@ bool BEX_metaeven(void *pack)
 	// A device has been discovered (only for BlueNRG_MS)
 	case EVT_LE_ADVERTISING_REPORT:
 		{
+			le_advertising_info *even = (le_advertising_info *)(meta->data + 1); // evt->data[0] isnumber of reports (On BlueNRG-MS is always 1)
+			BEX_devfound(even->evt_type, even->bdaddr, even->data_length, even->data_RSSI[even->data_length]);
 
 		}
 		break;
@@ -136,7 +139,7 @@ bool BEX_metaeven(void *pack)
 	case EVT_LE_CONN_COMPLETE:
 		{
 			evt_le_connection_complete *even = (evt_le_connection_complete *)meta->data;
-    	BEX_connclie(even->handle, even->peer_bdaddr, even->status);
+    		BEX_connclie(even->handle, even->peer_bdaddr, even->status);
 		}
 		break;
 
@@ -452,14 +455,14 @@ bool BEX_gap_even(void *pack)
 *---------------------------------------------------------------------------*/
 bool BEX_connclie(uint16_t hand, tBDAddr addr, uint8_t stat)
 {
-	// API connecté
-	BEX_clie.find = true;
-
-	// Set du master api
-	BEX_clie.hand = hand;
-	BEX_clie.stat = stat;
-	memcpy(BEX_clie.addr, addr, sizeof(tBDAddr));
-	BLP_conn = true;
+	// Slave connecté, 
+	BLP_slav = true;
+	BLP_pcon = false;
+		
+	BEX_slav.find = true;
+	BEX_slav.hand = hand;
+	BEX_slav.stat = stat;
+	memcpy(BEX_slav.addr, addr, sizeof(tBDAddr));
 	
 	return true;
 }
@@ -679,3 +682,42 @@ void BEX_var_attr(uint16_t hand, uint8_t leng, uint8_t *data)
 		break;
 	}
 }
+
+/*----------------------------------------------------------------------------
+* BEX_devfound() : Device Found
+*-----------------------------------------------------------------------------
+* Input  : - Type of event (@ref ADV_IND, @ref ADV_DIRECT_IND, @ref ADV_SCAN_IND, @ref ADV_NONCONN_IND, @ref SCAN_RSP)
+*          - Address of the peer device found during scanning.
+*          - Length of advertising or scan response data.
+*          - Advertising or scan response data + RSSI. RSSI is last octect (signed integer).
+* Output : -
+* Return : - 
+*-----------------------------------------------------------------------------
+* 
+*---------------------------------------------------------------------------*/
+void BEX_devfound(uint8_t type, tBDAddr addr, uint8_t leng, uint8_t rssi)
+{   			
+	tBleStatus cret; // Code retour
+	
+	// Vérification de l'adresse du slave
+	if (addr[0] == 0xA5 && addr[1] == 0x78 && addr[2] == 0x5E && addr[3] == 0xEB && addr[4] == 0x27 && addr[5] == 0xB8)
+	{
+		// Le slave est connectable
+		if (type == ADV_IND)
+		{
+			// Aucun slave trouvé précédemment
+			if (BEX_slav.find == false)
+			{	    		
+				// Le slave a été trouvé
+				BEX_slav.find = true;
+				
+				// On sauvegarde l'adresse du slave
+				memcpy((uint8_t*)BEX_slav.addr, (uint8_t*)addr, sizeof(tBDAddr)); 
+				
+				// Arrêt de la procédure de discovery
+				BLP_stop = true;	
+			}
+		}
+	}
+}
+

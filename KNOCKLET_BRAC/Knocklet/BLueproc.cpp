@@ -81,7 +81,14 @@ bool BLX__process(void)
 	
 	if (test.read() == false)
 	{
-		BLP_scan = true;
+		//BLP_scan = true;
+		
+		para.BPX_data.carA.data.vale[0] = 't';
+		para.BPX_data.carA.data.vale[1] = 'e';
+		para.BPX_data.carA.data.vale[2] = 's';
+		char name[] = { AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T' };
+		para.BPX_data.carA.data.vale[3] = 't';
+		para.BPX_data.carA.data.updt = true;
 	}
 	
 	if (BLP_stop == true)
@@ -104,29 +111,29 @@ bool BLX__process(void)
 	// Aucune procédure est en cours
 	else if (BLP_proc == false)
 	{
-		//// Nécessite un discoverable all
-		//if (BLP_pdis == true)
-		//{
-		//	// Set du device en discoverable
-		//	if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
-		//	{
-		//		return false;
-		//	}
-		//}
-		//
-		//// Nécessite un discoverable white list
-		//else if (BLP_pwdi == true)
-		//{
-		//	// Set du device en discoverable
-		//	if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
-		//	{
-		//		return false;
-		//	}
-		//}
+		// Nécessite un discoverable all
+		if (BLP_pdis == true)
+		{
+			// Set du device en discoverable
+			if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
+			{
+				return false;
+			}
+		}
+		
+		// Nécessite un discoverable white list
+		else if (BLP_pwdi == true)
+		{
+			// Set du device en discoverable
+			if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
+			{
+				return false;
+			}
+		}
 	
 		// Demande de scan des devices
 		//else
-			if (BLP_scan == true)
+		if (BLP_scan == true)
 		{
 			// Scan des devices
 			if (BLP_findslav() == false)
@@ -469,7 +476,7 @@ bool BLP_writslav(uint16_t hand)
 	tBleStatus cret;                    // Code retour  
 	
 	// Lancement de la procedure d'écriture d'une characteristique sur le slave
-	//cret = aci_gatt_write_charac_value(hand, para.BPX_data.carC.data.hand, PAX_VALE_UI08, para.PAX_data.carC.data.vale);
+	cret = aci_gatt_write_charac_value(hand, para.BPX_data.carA.data.hand, BPX_VALE_UI08, para.BPX_data.carA.data.vale);
 	if (cret != BLE_STATUS_SUCCESS)
 	{
 		return false;

@@ -65,15 +65,15 @@ typedef struct
 #define BPX_DESC_XKEY 16 // Encryption Key
 	
 	uint16_t	hand;												// Characteristic Descriptor Handler
-	uint8_t	  size;												// Size of UUID
-	uint8_t		uuid[BPX_UUID__128];				// UUID
+	uint8_t		size;												// Size of UUID
+	uint8_t		uuid[BPX_UUID__128];								// UUID
 	uint8_t		leng;												// Value Length
-	uint8_t		*vale;											// Value
+	uint8_t		*vale;												// Value
 	uint8_t		secu;												// Security Permissions
 	uint8_t		acce;												// Access Permissions
 	uint8_t		even;												// GATT Event Mask
 	uint8_t		xkey;												// Encryption Key Size
-	bool			isva;												// IsVariable
+	bool		isva;												// IsVariable
 }BPX_DESC_BASE;
 
 // http://www.st.com/content/ccc/resource/technical/document/user_manual/6d/a1/5b/6c/dc/ab/48/76/DM00162667.pdf/files/DM00162667.pdf/jcr:content/translations/en.DM00162667.pdf
@@ -92,15 +92,15 @@ typedef struct // Définition d'une characteristic de base
 
 	uint16_t			hand;									// Attribut Handler Characteristic
 	uint8_t				size;									// Size of UUID
-	uint8_t				uuid[BPX_UUID__128];	// UUID
+	uint8_t				uuid[BPX_UUID__128];					// UUID
 	uint8_t				leng;									// Value Length
 	uint8_t				secu;									// Security Permissions
 	uint8_t				prop;									// Characteristic Properties
 	uint8_t				even;									// GATT Event Mask
 	uint8_t				xkey;									// Encryption Key Size
-	bool					isva;									// IsVariable
-	BPX_VALE_BASE	data;									// Characteristic value
-	BPX_DESC_BASE desc[2];							// Characteristic descriptor (2 descriptor max)
+	bool				isva;									// IsVariable
+	BPX_VALE_BASE		data;									// Characteristic value
+	BPX_DESC_BASE		desc[2];								// Characteristic descriptor (2 descriptor max)
 }BPX_CHAR_BASE;
 
 /*----------------------------------------------------------------------------
@@ -146,8 +146,9 @@ typedef struct						// Service de device information
 
 typedef struct						// Service custom
 {
-#define SERV_CUST(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x00,0x00)
-#define ATTR_CARA(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x06,0x10,0x19,0x94, 0x22,0x09, 0x19,0x94, 0x82,0xd0, 0x00,0x02,0xa5,0x01,0x01,0x00)
+// HEXA TO ASCII = MAGIE 62 6f 69 72 65 64 65 6c 61 6c 63 6f 6f 6c 21
+#define SERV_CUST(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x21,0x00)
+#define ATTR_CARA(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x21,0x01)
 #define CPFM_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x04); // Characteristic Presentation Format descriptor
 #define CCCD_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x02); // Client Characteristic Configuration descriptor
 #define BPS_DATA_SIZE	8	// Taille du service custom
@@ -162,7 +163,7 @@ typedef struct						// Service custom
 	BPX_CHAR_BASE carA;			// Characteristic en Read/Notify (nombre de tap)
 }BPS_DATA;
 
-typedef struct						// Paramètres du serveur GATT
+typedef struct					// Paramètres du serveur GATT
 {
 	//	Variables
 	BPS_GENE BPX_gene;			// Service generic access

@@ -464,6 +464,10 @@ bool BEX_connclie(uint16_t hand, tBDAddr addr, uint8_t stat)
 	BEX_slav.stat = stat;
 	memcpy(BEX_slav.addr, addr, sizeof(tBDAddr));
 	
+	// NICOLAW
+	// On écrit sur le slave
+	BLP_send = true;
+	
 	return true;
 }
 

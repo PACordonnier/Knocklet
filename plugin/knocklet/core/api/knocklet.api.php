@@ -55,53 +55,38 @@ if (isset($argv)) {
 			throw new Exception(__('Clé API invalide', __FILE__), -32001);
 		}
 
-		/*             * ************************config*************************** */
-/*		if ($jsonrpc->getMethod() == 'config::byKey') {
-			$jsonrpc->makeSuccess(config::byKey($params['key'], $params['plugin'], $params['default']));
+
+		/*             * ***********************Version********************************* */
+		if ($jsonrpc->getMethod() == 'version') {
+			$jsonrpc->makeSuccess(jeedom::version());
+		}
+		/*             * ***********************isOk********************************* */
+		if ($jsonrpc->getMethod() == 'jeedom::isOk') {
+			$jsonrpc->makeSuccess(jeedom::isOK());
 		}
 
-		if ($jsonrpc->getMethod() == 'config::save') {
-			$jsonrpc->makeSuccess(config::save($params['key'], $params['value'], $params['plugin']));
+		/*             * ***********************Datetime********************************* */
+		if ($jsonrpc->getMethod() == 'datetime') {
+			$jsonrpc->makeSuccess(getmicrotime());
 		}
 
-		if (isset($params['plugin']) && $params['plugin'] != '' && $params['plugin'] != 'core') {
-			log::add('api', 'info', 'Demande pour le plugin : ' . secureXSS($params['plugin']));
-			include_file('core', $params['plugin'], 'api', $params['plugin']);
-		} else */ {
-			/*             * ***********************Version********************************* */
-			if ($jsonrpc->getMethod() == 'version') {
-				$jsonrpc->makeSuccess(jeedom::version());
-			}
+		/*             * ***********************Knocklet********************************* */
+		if ($jsonrpc->getMethod() == 'knock') {
+			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])))
+				$jsonrpc->makeSuccess("OK !");
+			
+			else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
 
-			/*             * ***********************isOk********************************* */
-			if ($jsonrpc->getMethod() == 'jeedom::isOk') {
-				$jsonrpc->makeSuccess(jeedom::isOK());
-			}
-
-			/*             * ***********************Datetime********************************* */
-			if ($jsonrpc->getMethod() == 'datetime') {
-				$jsonrpc->makeSuccess(getmicrotime());
-			}
-
-			/*             * ************************Commande*************************** */
-			if ($jsonrpc->getMethod() == 'cmd::all') {
-				$return = array();
-				foreach (cmd::all() as $cmd) {
-					$return[] = $cmd->exportApi();
-				}
-				$jsonrpc->makeSuccess($return);
-			}
-
-
-			/*             * ************************************************************************ */
+			
 		}
-		throw new Exception('Aucune méthode correspondante : ' . secureXSS($jsonrpc->getMethod()), -32500);
+
+	throw new Exception('Aucune méthode correspondante : ' . secureXSS($jsonrpc->getMethod()), -32500);
 /*         * *********Catch exeption*************** */
 	} catch (Exception $e) {
-		$message = $e->getMessage();
-		$jsonrpc = new jsonrpc(init('request'));
-		$errorCode = (is_numeric($e->getCode())) ? -32000 - $e->getCode() : -32599;
-		$jsonrpc->makeError($errorCode, $message);
+	$message = $e->getMessage();
+	$jsonrpc = new jsonrpc(init('request'));
+	$errorCode = (is_numeric($e->getCode())) ? -32000 - $e->getCode() : -32599;
+	$jsonrpc->makeError($errorCode, $message);
 	}
 }
 ?>

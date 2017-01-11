@@ -479,6 +479,9 @@
     <ClCompile Include="BlueNRG\Middlewares\stm32xx_it.c">
       <Filter>Source files\BlueNRG Files\Middlewares</Filter>
     </ClCompile>
+    <ClCompile Include="SEqutask.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -1151,6 +1154,9 @@
       <Filter>Header files\BlueNRG Files\Middlewares</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SEqutask.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

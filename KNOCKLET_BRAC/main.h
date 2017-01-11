@@ -35,10 +35,10 @@ extern "C" {
 #include "stm32_bluenrg_ble.h"
 #include "bluenrg_utils.h"
 
-#include "BInitdef.h"	// Initialisation de la board
-#include "BLueproc.h"	// Gestionnaire des procédures BLE
+#include "BInitdef.h"				// Initialisation de la board
+#include "BLueproc.h"				// Gestionnaire des procédures BLE
 
-int	main(void);							// Main	
+int	main(void);						// Main	
 bool coreinit(void);				// Initialisation du système
 bool coreconf(void);				// Configuration du système
 bool coreloop(void);				// Loop du CORE

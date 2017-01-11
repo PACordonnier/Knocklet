@@ -34,11 +34,7 @@ extern bool			BLP_pdis;					// Flag de discoverable device BLE
 extern bool			BLP_pwdi;					// Demande de procedure discoverable avec whitelist
 extern bool			BLP_conn;					// Flag d'un device connecté
 extern bool			BLP_pcon;					// Demande de procédure de connexion
-extern bool			BLP_scan;					// Demande de procedure de scan des clients
-extern bool			BLP_slav;					// Slave connecté sur le master
-extern bool			BLP_send;					// Envoi d'une requête d'écriture sur le device
-extern bool			BLP_stop;					// Arret de la procédure de scan
-
+	
 /*----------------------------------------------------------------------------
 * CONSTANTES
 *---------------------------------------------------------------------------*/
@@ -66,12 +62,8 @@ extern bool			BLP_stop;					// Arret de la procédure de scan
 bool BLX_initproc(void);					// Initialisation des flags des procédures ble
 bool BLX__process(void);					// Processing de la communication BLE
 bool BLP_set_disc(unsigned mode);			// Puts the device in connectable mode
-bool BLP_findslav(void);					// Tentative de recherche des équipements BLE
-bool BLP_connecte(tBDAddr addr);			// Tentative de connexion à un client
 bool BLX_clearble(void);					// Efface la security database du BLE
 void BLX_stop_ble(void);					// Arrêt du device BLE
-bool BLX_veritime(void);					// Vérification du temps pour la mise à jour sur la characteristic C 
-bool BLP_writslav(uint16_t hand);			// Ecriture sur la characteristic du slave 
 	
 #ifdef __cplusplus
 }

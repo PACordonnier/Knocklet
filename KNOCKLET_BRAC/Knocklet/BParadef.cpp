@@ -461,7 +461,7 @@ bool BPX_confcust(BPX_PARA *para)
 	para->BPX_data.carA.desc[0].vale[0] = 0x01;
 	para->BPX_data.carA.desc[0].vale[1] = 0x00;
 					  
-	// Initialisation du descriptor CPFM de la characteristic A
+	// Initialisation du descriptor CPFM de la characteristic A (unitless)
 	para->BPX_data.carA.desc[1].vale[0] = 0x04;
 	para->BPX_data.carA.desc[1].vale[1] = 0xFF;
 	para->BPX_data.carA.desc[1].vale[2] = 0x00;
@@ -625,9 +625,15 @@ bool BPX_updtdata(BPX_PARA *para)
 	{
 		// Valeur de la characteristic A = nombre de tap
 		cret = BPX_set_vale(para->BPX_data.serv.hand, &para->BPX_data.carA);
+		// IF SET_VALE OK, cret == 1 (wtf ??)
 		if (cret == false)
 		{
 			return false;
+		}
+		else
+		// Update réussi, on active le mode discoverable
+		{
+			BLP_pdis = true;
 		}
 	}
 	

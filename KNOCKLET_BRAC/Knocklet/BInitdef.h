@@ -30,9 +30,9 @@ extern uint32_t BIX_pass;										// Pin d'authentification
 /*----------------------------------------------------------------------------
 * CONSTANTES
 *---------------------------------------------------------------------------*/
-#define BIX_ADR1_CORP 0x06									// Addresse corporate(1 byte de l'adresse du device BLE)
-#define BIX_ADR2_CORP 0x10									// Addresse corporate(2 byte de l'adresse du device BLE)
-#define BIX_ADR3_CORP 0x94									// Addresse corporate(3 byte de l'adresse du device BLE)
+#define BIX_ADR1_CORP 0x4b									// Addresse corporate(1 byte de l'adresse du device BLE)
+#define BIX_ADR2_CORP 0x4E									// Addresse corporate(2 byte de l'adresse du device BLE)
+#define BIX_ADR3_CORP 0x4F									// Addresse corporate(3 byte de l'adresse du device BLE)
 #define BIX_SIZE_CORP 3										// Taille de l'adresse corporate
 #define BIX_DEVI_SIZE 7										// Taille d'une adresse stockée dans la security database (EEPROM BLE)
 #define BIX_MAXI_DEVI 12									// Maximum number of devices bonded saved in the security database (EEPROM BLE)

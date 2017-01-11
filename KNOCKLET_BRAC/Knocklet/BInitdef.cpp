@@ -77,7 +77,6 @@ bool BIX_configur(void)
 	BEX_clie.hand = BEX_DECO_CLIE;
 	BEX_clie.stat = 0;
 	memset(BEX_clie.addr, 0, sizeof(BEX_clie.addr));
-		
 	memset(BIX_corp, 0, sizeof(BIX_corp));
 	
 	// Reset BlueNRG hardware
@@ -102,7 +101,7 @@ bool BIX_configur(void)
 	}
 	
 	/* Set output power level */
-  cret = aci_hal_set_tx_power_level(1,4);
+	cret = aci_hal_set_tx_power_level(1,4);
 	if (cret != BLE_STATUS_SUCCESS) 
 	{
 		return false;
@@ -167,14 +166,14 @@ bool BIX_conf_srv(void)
 	uint8_t	   mode; // Mode de configuration
 	
 	// Set de l'address corporate
-	BIX_addr[0] = BIX_corp[0] = BIX_ADR1_CORP;
-	BIX_addr[1] = BIX_corp[1] = BIX_ADR2_CORP; 
-	BIX_addr[2] = BIX_corp[2] = BIX_ADR3_CORP; 
+	BIX_addr[5] = BIX_corp[0] = BIX_ADR1_CORP;
+	BIX_addr[4] = BIX_corp[1] = BIX_ADR2_CORP; 
+	BIX_addr[3] = BIX_corp[2] = BIX_ADR3_CORP; 
 	
 	// Set l'adresse du client unique
-	BIX_addr[3] = 0xE1; 
-	BIX_addr[4] = 0x00; 
-	BIX_addr[5] = 0x05;
+	BIX_addr[2] = 0x00; 
+	BIX_addr[1] = 0x00; 
+	BIX_addr[0] = 0x01;
 	   	
 	// Mode 2 : slave or master, 1 connection, RAM1 and RAM2(large GATT DB)
 	mode = 0x02;
@@ -182,13 +181,13 @@ bool BIX_conf_srv(void)
 	// Bluetooth-ms Device
 	if (BIX_blms == true)
 	{
-		// Set du role du master
+		// Set du role du slave
 		BIX_role = GAP_PERIPHERAL_ROLE_IDB05A1;
 	}
 	else
 	{
-		// Set du role du master
-		BIX_role = GAP_PERIPHERAL_ROLE_IDB05A1;
+		// Set du role du slave
+		BIX_role = GAP_PERIPHERAL_ROLE_IDB04A1;
 	}
 	   
 	// Configuration de l'adresse publique du device BLE
@@ -246,14 +245,6 @@ bool BIX_conf_srv(void)
 		return false;
 	}
 	
-	//// Mise à jour du nom du device
-	//const char name[] = { AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T' };
-	//cret = aci_gatt_update_char_value(para.BPX_gene.serv.hand, para.BPX_gene.name.hand, NO_WHITE_LIST_USE, sizeof(name), (uint8_t *)name);
-	//if (cret != BLE_STATUS_SUCCESS) 
-	//{
-	//	return false;
-	//}
-	
 	return true;
 }
 
@@ -301,7 +292,7 @@ bool BIX_conf_wlt(void)
 {
 	tBleStatus cret;								// Code retour
 	uint8_t	   numb;								// Nombre de device
-	uint8_t	   list[7]; 						// Liste des devices
+	uint8_t	   list[7]; 							// Liste des devices
 
 	// Récupération des adresses des appareils bonded
 	cret = aci_gap_get_bonded_devices(&numb, list, sizeof(list));
@@ -321,13 +312,6 @@ bool BIX_conf_wlt(void)
 		{
 			return false;
 		}
-		// On demande de lancer une procedure de discoverable whitelist all
-		BLP_pwdi = true;
-	}
-	// Pas de device dans la white list, on passe en discoverable all
-	else
-	{
-		BLP_pdis = true;
 	}
 	
 	return true;

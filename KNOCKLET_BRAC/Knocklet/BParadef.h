@@ -147,17 +147,16 @@ typedef struct						// Service de device information
 typedef struct						// Service custom
 {
 // HEXA TO ASCII = MAGIE 62 6f 69 72 65 64 65 6c 61 6c 63 6f 6f 6c 21
-#define SERV_CUST(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x21,0x00)
-#define ATTR_CARA(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x21,0x01)
+#define SERV_CUST(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x00,0x00)
+#define ATTR_CARA(uuid, size) BPX_COPY_UUID__128			(uuid, size, 0x62,0x6f,0x69,0x72, 0x65,0x64, 0x65,0x6c, 0x61,0x6c, 0x63,0x6f,0x6f,0x6c,0x01,0x00)
 #define CPFM_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x04); // Characteristic Presentation Format descriptor
 #define CCCD_CARC(uuid, size) BPX_COPY_UUID___16			(uuid, size, 0x29,0x02); // Client Characteristic Configuration descriptor
 #define BPS_DATA_SIZE	8	// Taille du service custom
 
-	
 #define BPX_DESC_CCCD 2 // Taille des données de la CCCD (0x0100 pour notify only)
 #define	BPX_DESC_CPFM 7 // Taille des données de la CPFM (0x04FF0027000000 pour unitless)
 #define BPX_CHAR_DATA 2 // Taille des données des characteristic
-	// Taille du service : (nb Charac *2) + (nb Desc *2) + 1
+// Taille du service : (nb Charac *2) + (nb Desc *2) + 1
 	
 	BPX_SERV_BASE serv;			// Service Data Custom
 	BPX_CHAR_BASE carA;			// Characteristic en Read/Notify (nombre de tap)

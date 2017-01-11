@@ -1,9 +1,9 @@
 /**
   ******************************************************************************
   * @file    main.c
-  * @author  Law & Hurabielle
+  * @author  Nicolas LAW
   * @version V1.0.0
-  * @date    29-September-2016
+  * @date    05-January-2017
   * @brief   main du programme
   ******************************************************************************/
 
@@ -23,13 +23,7 @@ int main(void)
    *  - Low Level Initialization
    */
 	HAL_Init();
-	
-	/* Configure the User Button in GPIO Mode */
-	BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
-	
-	  /* Configure LED2 */
-	//BSP_LED_Init(LED2);
-	
+		
 	/* Configure the system clock */
 	SystemClock_Config();
 

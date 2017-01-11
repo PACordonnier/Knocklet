@@ -18,7 +18,7 @@ foreach ($eqLogics as $eqLogic) {
 }
 ?>
            </ul>
-       </div>
+      </div>
    </div>
 
    <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
@@ -43,7 +43,12 @@ foreach ($eqLogics as $eqLogic) {
 }
 ?>
 </div>
-<p> ici ya quoi?</p>
+<div class="cursor expertModeVisible" id="bt_recupCmd" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;">
+        <center>
+            <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
+        </center>
+        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676"><center>{{Configuration}}</center><p style="margin:0; padding:0;"><center>{{des knocks}}</center></p></span>
+    </div>
 </div>
 
 <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
@@ -75,6 +80,7 @@ foreach (object::all() as $object) {
             <div class="col-sm-9">
                <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
                <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
+                <p>checkbox activer visible</p>
            </div>
        </div>
        <div class="form-group">
@@ -110,5 +116,5 @@ foreach (object::all() as $object) {
 </div>
 </div>
 
-<?php include_file('desktop', 'template', 'js', 'template');?>
+<?php include_file('desktop', 'template', 'js', 'knocklet');?>
 <?php include_file('core', 'plugin.template', 'js');?>

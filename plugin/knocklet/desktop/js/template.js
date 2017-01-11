@@ -27,10 +27,11 @@ function addCmdToTable(_cmd) {
     if (!isset(_cmd.configuration)) {
         _cmd.configuration = {};
     }
+    alert("I am an alert box!");
     var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
     tr += '<td>';
     tr += '<span class="cmdAttr" data-l1key="id" style="display:none;"></span>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" style="width : 140px;" placeholder="{{Nom}}">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" style="width : 140px;" placeholder="{{Nom?}}">';
     tr += '</td>';
     tr += '<td>';
     tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
@@ -51,3 +52,9 @@ function addCmdToTable(_cmd) {
     }
     jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
 }
+
+
+$('#bt_recupCmd').on('click', function () {
+	 $('#md_modal').dialog({title: "{{Configuration des knocks}}"});
+    $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configKnock').dialog('open');
+});

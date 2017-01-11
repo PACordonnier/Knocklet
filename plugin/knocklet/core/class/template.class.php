@@ -19,10 +19,32 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
+/*
+class knockConvert {
+       //  * *************************Attributs****************************** 
+        private $braceletId;
+        private $moduleId;
+        private $knocks;
+        private $cmdId;
+
+        function __construct($braceletId,$moduleId,$knocks,$cmdId){
+                $this->braceletId=$braceletId;
+                $this->moduleId=$moduleId;
+                $this->knocks=$knocks;
+                $this->cmdId=cmdId;
+        }
+
+	function save($file){
+		file_put_contents($file, $braceletId . " ". $moduleId . " " . $knocks . " " . cmdId, FILE_APPEND);
+	}
+
+}
+*/
+
 class template extends eqLogic {
     /*     * *************************Attributs****************************** */
-
-
+	private $knockArray=array();
+	private $configFile="/tmp/knocklet/config";
 
     /*     * ***********************Methode static*************************** */
 
@@ -51,6 +73,43 @@ class template extends eqLogic {
 
 
     /*     * *********************Méthodes d'instance************************* */
+    private function createTriplet($bId,$mId,$knocks) {
+	return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
+
+    }
+ 
+    public function load() {/*
+	$this->knockArray["a"]=self::createTriplet(1,0,3);
+	$this->knockArray["b"]=self::createTriplet(5,4,2);
+	$this->knockArray["c"]=self::createTriplet(0,5,1);
+	$this->knockArray["d"]=self::createTriplet(5,2,0);*/
+	$handle = fopen($this->configFile, "r");
+	if ($handle) {
+    		while (($line = fgets($handle)) !== false) {
+			$line = str_replace("\n","",$line);
+			$data = explode(" ",$line);
+			$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
+		}
+
+	    	fclose($handle);
+	} else {
+    // error opening the file.
+	} 
+    	}
+
+    public function printAll() {
+	print_r($this->knockArray);
+    }
+
+    private function saveKnock($cid,$knock){
+	file_put_contents($this->configFile,$cid . " " . $knock["braceletId"] . " " . $knock["moduleId"] . " " . $knock["knocks"] . "\n", FILE_APPEND | LOCK_EX);
+
+    }
+    public function saveAll() {
+	unlink($this->configFile);
+	foreach ($this->knockArray as $key => $value)
+		self::saveKnock($key,$value);
+    }
 
     public function preInsert() {
         
@@ -117,4 +176,10 @@ class templateCmd extends cmd {
     /*     * **********************Getteur Setteur*************************** */
 }
 
+
+$test = new template;
+$test->load();
+//$test->printAll();
+$test->saveAll();
+echo $test->arrayKnock;
 ?>

@@ -41,12 +41,20 @@ class knockConvert {
 }
 */
 
-class template extends eqLogic {
+class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
 	private $knockArray=array();
-	private $configFile="/tmp/knocklet/config";
+	private $configFile="jemecherche";
 
     /*     * ***********************Methode static*************************** */
+
+	public static function saveConfigFromSerialized($serial) {
+		$array=unserialize($serial);
+		$knock = new knocklet(1);
+		$knock->knockArray = $array;
+		$knock->saveAll();
+
+	}
 
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
@@ -70,19 +78,25 @@ class template extends eqLogic {
       }
      */
 
-
-
     /*     * *********************Méthodes d'instance************************* */
+
+    function __construct($a){
+	if($a!=1) self::load();
+    }
+
+
     private function createTriplet($bId,$mId,$knocks) {
 	return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
 
     }
- 
-    public function load() {/*
-	$this->knockArray["a"]=self::createTriplet(1,0,3);
-	$this->knockArray["b"]=self::createTriplet(5,4,2);
-	$this->knockArray["c"]=self::createTriplet(0,5,1);
-	$this->knockArray["d"]=self::createTriplet(5,2,0);*/
+
+
+    public function add($cid,$bid,$mid,$knocks) {
+	$this->knockArray[$cid]=self::createTriplet($bid,$mid,$knocks);
+
+    }
+
+    public function load() {
 	$handle = fopen($this->configFile, "r");
 	if ($handle) {
     		while (($line = fgets($handle)) !== false) {
@@ -93,12 +107,20 @@ class template extends eqLogic {
 
 	    	fclose($handle);
 	} else {
-    // error opening the file.
-	} 
-    	}
+	    // error opening the file.
+	}
+    }
+
+
+    public function getTripletFromId($cid) {
+        if(array_key_exists($cid,$this->knockArray))
+                return $this->knockArray[$cid];
+        else return false;
+    }
 
     public function printAll() {
 	print_r($this->knockArray);
+	echo serialize($this->knockArray);
     }
 
     private function saveKnock($cid,$knock){
@@ -153,7 +175,7 @@ class template extends eqLogic {
     /*     * **********************Getteur Setteur*************************** */
 }
 
-class templateCmd extends cmd {
+class knockletCmd extends cmd {
     /*     * *************************Attributs****************************** */
 
 
@@ -176,10 +198,4 @@ class templateCmd extends cmd {
     /*     * **********************Getteur Setteur*************************** */
 }
 
-
-$test = new template;
-$test->load();
-//$test->printAll();
-$test->saveAll();
-echo $test->arrayKnock;
 ?>

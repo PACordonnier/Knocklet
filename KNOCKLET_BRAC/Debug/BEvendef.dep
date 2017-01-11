@@ -1,6 +1,6 @@
-Debug/BEvendef.o: Knocklet/BEvendef.cpp Knocklet/BEvendef.h \
- BlueNRG/Middlewares/link_layer.h BlueNRG/Middlewares/ble_status.h \
- BlueNRG/Middlewares/hal_types.h \
+Debug/BEvendef.o: Knocklet/BEvendef.cpp Knocklet/ACcelero.h \
+ Knocklet/BEvendef.h BlueNRG/Middlewares/link_layer.h \
+ BlueNRG/Middlewares/ble_status.h BlueNRG/Middlewares/hal_types.h \
  c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include\stdint.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\stdint.h \
  c:\sysgcc\arm-eabi\arm-eabi\sys-include\machine\_default_types.h \

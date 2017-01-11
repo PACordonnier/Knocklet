@@ -117,4 +117,4 @@ Debug/main.o: main.cpp main.h \
  BlueNRG/Middlewares/osal.h BlueNRG/BSP/stm32_bluenrg_ble.h \
  BlueNRG/BSP/stm32l0xx_nucleo_bluenrg.h \
  BlueNRG/Middlewares/bluenrg_utils.h Knocklet/BInitdef.h \
- Knocklet/BLueproc.h
+ Knocklet/BLueproc.h Knocklet/ACcelero.h

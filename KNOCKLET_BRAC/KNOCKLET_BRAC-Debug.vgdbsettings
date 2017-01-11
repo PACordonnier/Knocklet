@@ -167,7 +167,7 @@
   <UserDefinedVariables />
   <ImportedPropertySheets />
   <CodeSense>
-    <Enabled>False</Enabled>
+    <Enabled>Unknown</Enabled>
     <CFLAGS>-Wno-int-to-pointer-cast</CFLAGS>
     <CXXFLAGS>-Wno-int-to-pointer-cast</CXXFLAGS>
     <ExternalSourceFileList />

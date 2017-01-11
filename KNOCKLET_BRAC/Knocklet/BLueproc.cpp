@@ -17,8 +17,6 @@
 #include "bluenrg_gap_aci.h"		// Header file with GAP commands for BlueNRG FW6.3.
 #include "mbed.h"					// Librairie Mbed
 
-DigitalIn test(PC_13);
-
 /*----------------------------------------------------------------------------
 * ALLOCATION DE VARIABLES
 *---------------------------------------------------------------------------*/
@@ -68,15 +66,9 @@ bool BLX__process(void)
 	
 	// Processing du BLE
 	HCI_Process();
-	
-	if (test.read() == false)
-	{
-		para.BPX_data.carA.data.vale[0] = 0x01;
-		para.BPX_data.carA.data.updt = true;
-	}
-	
+		
 	// Aucune procédure est en cours
-	else if (BLP_proc == false)
+	if (BLP_proc == false)
 	{
 		// Nécessite un discoverable all
 		if (BLP_pdis == true)

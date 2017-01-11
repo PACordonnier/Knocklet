@@ -196,12 +196,12 @@
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c" />
     <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c" />
     <ClCompile Include="BlueNRG\Middlewares\stm32xx_it.c" />
+    <ClCompile Include="Knocklet\ACcelero.cpp" />
     <ClCompile Include="Knocklet\BEvendef.cpp" />
     <ClCompile Include="Knocklet\BInitdef.cpp" />
     <ClCompile Include="Knocklet\BLueproc.cpp" />
     <ClCompile Include="Knocklet\BParadef.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SEqutask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed" />
@@ -425,12 +425,12 @@
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.h" />
     <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h" />
     <ClInclude Include="BlueNRG\Middlewares\stm32xx_it.h" />
+    <ClInclude Include="Knocklet\ACcelero.h" />
     <ClInclude Include="Knocklet\BEvendef.h" />
     <ClInclude Include="Knocklet\BInitdef.h" />
     <ClInclude Include="Knocklet\BLueproc.h" />
     <ClInclude Include="Knocklet\BParadef.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="SEqutask.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="mbed.xml" />

@@ -37,7 +37,8 @@ extern "C" {
 
 #include "BInitdef.h"				// Initialisation de la board
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
-
+#include "ACcelero.h"				// Gestionnaire de l'accéleromètre
+	
 int	main(void);						// Main	
 bool coreinit(void);				// Initialisation du système
 bool coreconf(void);				// Configuration du système

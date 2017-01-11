@@ -30,7 +30,9 @@ extern Serial pc;
 
 // Connect module at I2C address using I2C port pins sda and scl
 MMA8452::MMA8452(PinName sda, PinName scl, int frequency) : _i2c(sda, scl) , _frequency(frequency) {
-   MMA8452_DBG("Creating MMA8452");
+   
+	// NICOLAW
+	//MMA8452_DBG("Creating MMA8452");
    
    // set I2C frequency
    _i2c.frequency(_frequency);
@@ -45,7 +47,8 @@ MMA8452::MMA8452(PinName sda, PinName scl, int frequency) : _i2c(sda, scl) , _fr
    _dynamicRange = DYNAMIC_RANGE_UNKNOWN;
    setDynamicRange(DYNAMIC_RANGE_2G);
    
-   MMA8452_DBG("Done");
+	// NICOLAW
+   //MMA8452_DBG("Done");
 }
 
 

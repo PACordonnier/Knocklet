@@ -27,7 +27,7 @@ int main(void)
 	/* Configure the system clock */
 	SystemClock_Config();
 
-		// Initialisation du système
+	// Initialisation du système
 	if (coreinit() == false)
 	{ 
 		cret = false;
@@ -62,8 +62,14 @@ int main(void)
 *-----------------------------------------------------------------------------
 *---------------------------------------------------------------------------*/
 bool coreinit(void)
-{	
-  // Initialisation du gestionnaire ble
+{		
+	// Initialisation des paramètres de l'accéleromètre
+	if (ACX_acceinit() == false)
+	{
+		return false;
+	}
+	
+	// Initialisation du gestionnaire ble
 	if (BIX_init_ble() == false)
 	{
 		return false;
@@ -81,7 +87,13 @@ bool coreinit(void)
 *-----------------------------------------------------------------------------
 *---------------------------------------------------------------------------*/
 bool coreconf(void)
-{
+{	
+	// Configuration de l'accéleromètre
+	if (ACX_acceconf() == false)
+	{
+		return false;
+	}
+	
 	// Configuration du BLE
 	if (BIX_configur() == false)
 	{
@@ -101,7 +113,13 @@ bool coreconf(void)
 *---------------------------------------------------------------------------*/
 bool coreloop(void)
 {
-	// Processing du sequenceur
+	// Process de l'accéleromètre
+	if (ACX__process() == false)
+	{
+		return false;
+	}
+	
+	// Process du Bluetooth
 	if (BLX__process() == false)
 	{
 		return false;

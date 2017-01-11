@@ -7,6 +7,7 @@
   * @brief   Définition des évènements relatifs au BLE
   ******************************************************************************/
 
+#include "ACcelero.h"				// Gestionnaire de l'accéleromètre
 #include "BEvendef.h"				// Définition des évènements relatifs au BLE
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
 #include "BParadef.h"				// Définition des paramètres relatifs au BLE
@@ -488,22 +489,19 @@ void BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat)
 
 	// Déconnexion du client
 	BLP_disc = false;
+	BLP_conn = false;
 	
 	// Libération du client
 	BEX_clie.find = false;
 	BEX_clie.hand = BEX_DECO_CLIE;
 	BEX_clie.stat = 0;
 	memset(BEX_clie.addr, 0, sizeof(BEX_clie.addr));
+	
+	// Remise à zéro de la valeur
+	para.BPX_data.carA.data.vale[0] = 0x00;
 
-	// On demande de réactiver une procédure de discovery
-	if (BLX_bond == true && BLP_pwdi == false)
-	{
-		BLP_pwdi = true;
-	}
-	else 
-	{
-		BLP_pdis = true;
-	}
+	// On réactive l'interrupt de l'accéleromètre
+	ACX_stop = true;
 }
 
 /*----------------------------------------------------------------------------
@@ -520,7 +518,7 @@ void BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat)
 bool BEX_gap_done(uint8_t code, uint8_t stat, uint8_t *data)
 {
 	// Plus de procédure en cours
-  BLP_proc = false;
+	BLP_proc = false;
 
 	// Sélection du code procédure
 	switch (code)

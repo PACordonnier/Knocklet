@@ -49,17 +49,12 @@ class knocklet extends eqLogic {
     /*     * ***********************Methode static*************************** */
 
 	public static function saveConfigFromJson($js) {
+		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
 		$array=json_decode($js);
 		$knock = new knocklet(1);
-//		file_put_contents("ici",$array[1][0],FILE_APPEND);
-		
 		foreach($array as $key => $value){
-//	                file_put_contents("ici","coucozeferhju\n".$key,FILE_APPEND);
 			$knock->add($key,$value[0],$value[1],$value[2]);
-//			file_put_contents("ici",$knock->knockArray[$key]."\n",FILE_APPEND);
-
 		}
-		
 		$knock->saveAll();
 	}
 
@@ -89,22 +84,27 @@ class knocklet extends eqLogic {
     /*     * *********************Méthodes d'instance************************* */
 
     function __construct($a){
+	//Constructeur de la classe
+	//Si appelée sans paramètre, les configurations sont chargées depuis le fichier
 	if($a!=1) self::load();
     }
 
 
     private function createTriplet($bId,$mId,$knocks) {
+	//retourne un tableau contenant les informations pour chaque "key"
 	return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
 
     }
 
 
     public function add($cid,$bid,$mid,$knocks) {
+	//Ajouter un élément au tableau
 	$this->knockArray[$cid]=self::createTriplet($bid,$mid,$knocks);
 
     }
 
     public function load() {
+	//Charge les informations depuis le fichier de configuration
 	$handle = fopen($this->configFile, "r");
 	if ($handle) {
     		while (($line = fgets($handle)) !== false) {
@@ -122,33 +122,35 @@ class knocklet extends eqLogic {
 
 
     public function getTripletFromId($cid) {
+	//Retourne le triplet correspondant à l'ID envoyé
+	//Retourne false si ce triplet n'existe pas
         if(array_key_exists($cid,$this->knockArray))
                 return $this->knockArray[$cid];
         else return false;
     }
 
     public function getIdFromTriplet($bid,$mid,$knocks) {
-//	print_r(self::createTriplet($bid,$mid,$knocks));
-//	print_r($this->knockArray["2"]);
+	//retourne l'ID correspondant au triplet envoyé
+	//retourne faux si la commande recherchée n'exsite pas 
         foreach ($this->knockArray as $key => $value){
 			if(self::createTriplet($bid,$mid,$knocks) == $this->knockArray[$key])
 				return $key;
 		}
-
-//	echo (self::createTriplet($bid,$mid,$knocks) == $this->knockArray["3"]);
-//	return array_search($this->knockArray,self::createTriplet($bid,$mid,$knocks));
-return "false";
+	return false;
     }
 
     public function printAll() {
+	//affiche toutes les configurations chargées en mémoire
 	print_r($this->knockArray);
     }
 
     private function saveKnock($cid,$knock){
+	//Ecrit la configuration d'une commande dans le tableau
 	file_put_contents($this->configFile,$cid . " " . $knock["braceletId"] . " " . $knock["moduleId"] . " " . $knock["knocks"] . "\n", FILE_APPEND | LOCK_EX);
 
     }
     public function saveAll() {
+	//Ecrit toutes les confirurations dans le fichier de config
 	unlink($this->configFile);
 	foreach ($this->knockArray as $key => $value)
 		self::saveKnock($key,$value);

@@ -26,8 +26,9 @@ extern bool	ACX_stop;		// Désactivation de l'interrupt pendant l'échange Bluetoo
 /*----------------------------------------------------------------------------
 * CONSTANTES
 *---------------------------------------------------------------------------*/
-#define ACX_ACCE_GOOD 0
-#define ACX_ACCE_TOUT 800
+#define ACX_ACCE_GOOD 0		// Valeur retour si fonction MMA8452 OK
+#define ACX_ACCE_TOUT 600	// Fenêtre de temps pour effectuer X tap (se renouvelle à chaque tap)
+#define ACX_ACCE_NMAX 5		// Nombre de taps maximum
 
 /*----------------------------------------------------------------------------
 * ACX : Traitements généraux

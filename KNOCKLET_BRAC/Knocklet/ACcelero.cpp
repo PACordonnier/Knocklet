@@ -177,7 +177,7 @@ bool ACX__process(void)
 		Printf("ACX__process: Nombre de taps: %d", ACX_ntap);
 		
 		// Blindage de la valeur
-		if (ACX_ntap > 5)
+		if (ACX_ntap > ACX_ACCE_NMAX)
 		{
 			// Trop de tap détecté
 			Printf("ACX__process: Taps ignore");

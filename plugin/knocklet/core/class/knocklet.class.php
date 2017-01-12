@@ -48,10 +48,18 @@ class knocklet extends eqLogic {
 
     /*     * ***********************Methode static*************************** */
 
-	public static function saveConfigFromSerialized($serial) {
-		$array=unserialize($serial);
+	public static function saveConfigFromJson($js) {
+		$array=json_decode($js);
 		$knock = new knocklet(1);
-		$knock->knockArray = $array;
+//		file_put_contents("ici",$array[1][0],FILE_APPEND);
+		
+		foreach($array as $key => $value){
+//	                file_put_contents("ici","coucozeferhju\n".$key,FILE_APPEND);
+			$knock->add($key,$value[0],$value[1],$value[2]);
+//			file_put_contents("ici",$knock->knockArray[$key]."\n",FILE_APPEND);
+
+		}
+		
 		$knock->saveAll();
 	}
 

@@ -82,10 +82,14 @@ if (isset($argv)) {
 			//TODO enlever le new, passer les fonctions en static
 				$knocklet= new knocklet();
 				$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
-				$cmd = cmd::byId($cid);
-				$cmd->execCmd($_REQUEST);
-				$jsonrpc->makeSuccess("OK !");
+				if($cid == false)
+					throw new Exception('Combinaison non liée à une commande', -32602);
+				else{
+					$cmd = cmd::byId($cid);
+					$cmd->execCmd($_REQUEST);
+					$jsonrpc->makeSuccess("OK !");
 				}
+			}
 
 			else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
 

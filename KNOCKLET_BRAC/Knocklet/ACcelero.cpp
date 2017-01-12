@@ -9,6 +9,7 @@
 #include "MMA8452.h"	// Librairie de l'accéleromètre
 #include "ACcelero.h"	// Gestionnaire de l'accéleromètre
 #include "BParadef.h"	// Définition des paramètres relatifs au BLE
+#include "main.h"		// Include du CORE
 
 /*----------------------------------------------------------------------------
 * ALLOCATION DE VARIABLES
@@ -18,7 +19,6 @@ InterruptIn		ACX_taps(PB_2);					// Interrupt détectant un tap
 Timer			ACX_time;						// Timer lorsqu'un tap est détecté
 uint8_t			ACX_ntap;						// Nombres de tap
 bool			ACX_stop;						// Désactivation de l'interrupt pendant l'échange Bluetooth
-
 /*----------------------------------------------------------------------------
 * ACX_intefonc() : Fonction lorsque une interruption est détecté
 *-----------------------------------------------------------------------------
@@ -174,16 +174,26 @@ bool ACX__process(void)
 		ACX_time.stop();
 		ACX_time.reset();
 		
-		// Désactivation de l'interrupt
-		ACX_taps.disable_irq(); 
- 
-		//pc.printf("\n nombre de taps %d", Tap);
-		// Récupération du nombre de tap pour les données Bluetooth
-		para.BPX_data.carA.data.vale[0] = ACX_ntap;
+		Printf("ACX__process: Nombre de taps: %d", ACX_ntap);
 		
-		// Activation du flag pour mise à jour Bluetooth
-		para.BPX_data.carA.data.updt = true;
-		
+		// Blindage de la valeur
+		if (ACX_ntap > 5)
+		{
+			// Trop de tap détecté
+			Printf("ACX__process: Taps ignore");
+		}
+		else
+		{
+			// Tap valide
+			Printf("ACX__process: Taps OK, demarrage process Bluetooth");
+			// Désactivation de l'interrupt
+			ACX_taps.disable_irq(); 
+			// Récupération du nombre de tap pour les données Bluetooth
+			para.BPX_data.carA.data.vale[0] = ACX_ntap;
+			// Activation du flag pour mise à jour Bluetooth
+			para.BPX_data.carA.data.updt = true;
+		}
+
 		// Remise à zéro du nombre de tap
 		ACX_ntap = 0;     
 	}

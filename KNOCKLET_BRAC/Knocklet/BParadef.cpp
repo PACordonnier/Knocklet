@@ -10,6 +10,7 @@
 #include "BEvendef.h"				// Définition des évènements relatifs au BLE
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
 #include "BParadef.h"				// Définition des paramètres relatifs au BLE
+#include "main.h"					// Include du CORE
 
 #include "stm32_bluenrg_ble.h"		// Initialisation BLE
 #include "bluenrg_gatt_aci.h"		// Header file with GATT commands for BlueNRG FW6.3.s
@@ -33,24 +34,28 @@ bool BPX_initdata(BPX_PARA *para)
 	// Initialisation des flags des procédures BLE
 	if (BLX_initproc() == false)
 	{
+		Printf("BPX_initdata: Init procedures fail");
 		return false;
 	}
 	
 	// Initialisation du service generic
 	if (BPX_initgene(para) == false)
 	{
+		Printf("BPX_initdata: Init service generic fail");
 		return false;
 	}
 
 	// Initialisation du service device information
 	if (BPX_initdevi(para) == false)
 	{
+		Printf("BPX_initdata: Init service device information fail");
 		return false;
 	}
 
 	// Initialisation du service custom
 	if (BPX_initcust(para) == false)
 	{
+		Printf("BPX_initdata: Init service custom fail");
 		return false;
 	}
 
@@ -296,27 +301,16 @@ bool BPX_initcust(BPX_PARA *para)
 	ATTR_CARA(para->BPX_data.carA.uuid, para->BPX_data.carA.size);
 	BPX_initchar(&para->BPX_data.carA,
 	ATTR_PERMISSION_NONE,
-	CHAR_PROP_NOTIFY | CHAR_PROP_READ,
+	CHAR_PROP_READ,
 	GATT_DONT_NOTIFY_EVENTS,
 	BPX_CHAR_XKEY,
 	false,
 	BPX_VALE_UI08,
 	(uint8_t*)BPX_CHAR_DATA);
 		
-	// Initialisation du descriptor CCCD de la characteristic A
-	CCCD_CARC(para->BPX_data.carA.desc[0].uuid, para->BPX_data.carA.desc[0].size);
-	BPX_initdesc(&para->BPX_data.carA.desc[0],
-	ATTR_PERMISSION_NONE,
-	ATTR_ACCESS_READ_ONLY,
-	GATT_DONT_NOTIFY_EVENTS,
-	BPX_DESC_XKEY,
-	false,
-	BPX_DESC_CCCD,
-	0);
-	
 	// Initialisation du descriptor CPFM de la characteristic A
-	CPFM_CARC(para->BPX_data.carA.desc[1].uuid, para->BPX_data.carA.desc[1].size);
-	BPX_initdesc(&para->BPX_data.carA.desc[1],
+	CPFM_CARC(para->BPX_data.carA.desc[0].uuid, para->BPX_data.carA.desc[0].size);
+	BPX_initdesc(&para->BPX_data.carA.desc[0],
 	ATTR_PERMISSION_NONE,
 	ATTR_ACCESS_READ_ONLY,
 	GATT_DONT_NOTIFY_EVENTS,
@@ -342,18 +336,21 @@ bool BPX_confdata(BPX_PARA *para)
 	// Configuration du service generic
 	if (BPX_confgene(para) == false)
 	{
+		Printf("BPX_confdata: Configure service generic fail");
 		return false;
 	}
 
 	// Configuration du service device information
 	if (BPX_confdevi(para) == false)
 	{
+		Printf("BPX_confdata: Configure service device information fail");
 		return false;
 	}
 
 	// Configuration du service custom
 	if (BPX_confcust(para) == false)
 	{
+		Printf("BPX_confdata: Configure service custom fail");
 		return false;
 	}
 
@@ -374,6 +371,7 @@ bool BPX_confgene(BPX_PARA *para)
 	// Set le nom du device
 	if (BPX_set_vale(para->BPX_gene.serv.hand, &para->BPX_gene.name) == false)
 	{
+		Printf("BPX_confgene: Set device name fail");
 		return false;
 	}
 
@@ -382,6 +380,7 @@ bool BPX_confgene(BPX_PARA *para)
 	para->BPX_gene.apar.data.vale[0] = 0x42;
 	if (BPX_set_vale(para->BPX_gene.serv.hand, &para->BPX_gene.apar) == false)
 	{
+		Printf("BPX_confgene: Set apparence fail");
 		return false;
 	}
 	
@@ -402,30 +401,35 @@ bool BPX_confdevi(BPX_PARA *para)
 	// Configuration du service device information
 	if (BPX_add_serv(&para->BPX_devi.serv) == false)
 	{
+		Printf("BPX_confdevi: Add service device information fail");
 		return false;
 	}
 
 	// Configuration de la characteristic du model number
 	if (BPX_add_char(para->BPX_devi.serv.hand, &para->BPX_devi.modl) == false)
 	{
+		Printf("BPX_confdevi: Add characteristic model number fail");
 		return false;
 	}
 
 	// Set le nom du model number
 	if (BPX_set_vale(para->BPX_devi.serv.hand, &para->BPX_devi.modl) == false)
 	{
+		Printf("BPX_confdevi: Set characteristic model number fail");
 		return false;
 	}
 
 	// Configuration de la characteristic du numéro de série
 	if (BPX_add_char(para->BPX_devi.serv.hand, &para->BPX_devi.seri) == false)
 	{
+		Printf("BPX_confdevi: Add characteristic serial number fail");
 		return false;
 	}
 
 	// Set le nom du numéro de série
 	if (BPX_set_vale(para->BPX_devi.serv.hand, &para->BPX_devi.seri) == false)
 	{
+		Printf("BPX_confdevi: Set characteristic serial number fail");
 		return false;
 	}
 
@@ -446,35 +450,33 @@ bool BPX_confcust(BPX_PARA *para)
 	// Configuration du service Custom
 	if (BPX_add_serv(&para->BPX_data.serv) == false)
 	{
+		Printf("BPX_confcust: Add service custom fail");
 		return false;
 	}
 	
 	// Configuration de la characteristic A
 	if (BPX_add_char(para->BPX_data.serv.hand, &para->BPX_data.carA) == false)
 	{
+		Printf("BPX_confcust: Add characteristic A fail");
 		return false;
 	}
 	
-	// Set des descriptor de la characteristic A
-	
-	// Set du descriptor CCCD
-	para->BPX_data.carA.desc[0].vale[0] = 0x01;
-	para->BPX_data.carA.desc[0].vale[1] = 0x00;
-					  
+	// Set des descriptor de la characteristic A					  
 	// Initialisation du descriptor CPFM de la characteristic A (unitless)
-	para->BPX_data.carA.desc[1].vale[0] = 0x04;
-	para->BPX_data.carA.desc[1].vale[1] = 0xFF;
-	para->BPX_data.carA.desc[1].vale[2] = 0x00;
-	para->BPX_data.carA.desc[1].vale[3] = 0x27;
-	para->BPX_data.carA.desc[1].vale[4] = 0x00;
-	para->BPX_data.carA.desc[1].vale[5] = 0x00;
-	para->BPX_data.carA.desc[1].vale[6] = 0x00;
-	para->BPX_data.carA.desc[1].vale[7] = 0x00;
+	para->BPX_data.carA.desc[0].vale[0] = 0x04;
+	para->BPX_data.carA.desc[0].vale[1] = 0xFF;
+	para->BPX_data.carA.desc[0].vale[2] = 0x00;
+	para->BPX_data.carA.desc[0].vale[3] = 0x27;
+	para->BPX_data.carA.desc[0].vale[4] = 0x00;
+	para->BPX_data.carA.desc[0].vale[5] = 0x00;
+	para->BPX_data.carA.desc[0].vale[6] = 0x00;
+	para->BPX_data.carA.desc[0].vale[7] = 0x00;	
 	
-	// Ajout du descriptor CPFM
-	if (BPX_add_desc(para->BPX_data.serv.hand, para->BPX_data.carA.hand, &para->BPX_data.carA.desc[1]) == false)
-	{
-		return false;
+	  // Ajout du descriptor CPFM 
+	if (BPX_add_desc(para->BPX_data.serv.hand, para->BPX_data.carA.hand, &para->BPX_data.carA.desc[0]) == false) 
+	{ 
+		Printf("BPX_confcust: Add descriptor CPFM fail");
+		return false; 
 	}
 	
 	return true;

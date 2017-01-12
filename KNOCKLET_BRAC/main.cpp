@@ -7,7 +7,13 @@
   * @brief   main du programme
   ******************************************************************************/
 
-#include "main.h"
+#include "main.h"	// Include du CORE
+#include "mbed.h"	// Librairie mbed
+
+/*----------------------------------------------------------------------------
+* ALLOCATION DE VARIABLES                                                     
+*---------------------------------------------------------------------------*/
+Serial pc(PA_2, PA_3);	// Port Série pour Debug
 
 int main(void)
 {
@@ -27,15 +33,20 @@ int main(void)
 	/* Configure the system clock */
 	SystemClock_Config();
 
+	// Reconfiguration du baud rate après SystemClock_Config()
+	pc.baud(9600);
+	
 	// Initialisation du système
 	if (coreinit() == false)
-	{ 
+	{
+		Printf("main: Initialisation Core fail");
 		cret = false;
 	}
 	
 	// Configuration du système
 	if (coreconf() == false)
 	{ 
+		Printf("main: Configuration Core fail");
 		cret = false;
 	}
 	
@@ -66,12 +77,14 @@ bool coreinit(void)
 	// Initialisation des paramètres de l'accéleromètre
 	if (ACX_acceinit() == false)
 	{
+		Printf("coreinit: Initialisation accelerometre fail");
 		return false;
 	}
 	
-	// Initialisation du gestionnaire ble
+	// Initialisation du gestionnaire BLE
 	if (BIX_init_ble() == false)
 	{
+		Printf("coreinit: Initialisation BLE fail");
 		return false;
 	}
    
@@ -91,12 +104,14 @@ bool coreconf(void)
 	// Configuration de l'accéleromètre
 	if (ACX_acceconf() == false)
 	{
+		Printf("coreconf: Configuration accelerometre fail");
 		return false;
 	}
 	
 	// Configuration du BLE
 	if (BIX_configur() == false)
 	{
+		Printf("coreconf: Configuration BLE fail");
 		return false;
 	}
 	
@@ -116,14 +131,39 @@ bool coreloop(void)
 	// Process de l'accéleromètre
 	if (ACX__process() == false)
 	{
+		Printf("coreloop: Process accelerometre fail");
 		return false;
 	}
 	
 	// Process du Bluetooth
 	if (BLX__process() == false)
 	{
+		Printf("coreloop: Process BLE fail");
 		return false;
 	}
     
 	return true;
+}
+
+/*----------------------------------------------------------------------------
+* Printf() : Printf avec delay pour le Serial et retour ligne
+*-----------------------------------------------------------------------------
+* Input  : -
+* Output : -
+* Return : - Succes or not
+*-----------------------------------------------------------------------------
+*---------------------------------------------------------------------------*/
+void Printf(const char *format, ...)
+{
+	char	dest[256];
+	va_list argptr;
+	if (pc.writeable())
+	{
+		va_start(argptr, format);
+		vsprintf(dest, format, argptr);
+		va_end(argptr);
+		pc.printf(dest);
+		pc.printf("\r\n");
+		wait_ms(5);
+	}
 }

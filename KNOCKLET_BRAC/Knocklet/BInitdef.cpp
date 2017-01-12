@@ -10,6 +10,7 @@
 #include "BInitdef.h"				// Initialisation de la board
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
 #include "BParadef.h"				// Définition des paramètres relatifs au BLE
+#include "main.h"					// Include du CORE
 
 #include "stm32_bluenrg_ble.h"		// Initialisation BLE
 #include "bluenrg_gatt_aci.h"		// Header file with GATT commands for BlueNRG FW6.3.
@@ -51,6 +52,7 @@ bool BIX_init_ble(void)
 	// Initialisation du gestionnaire de données BLE;
 	if (BPX_initdata(&para) == false)
 	{
+		Printf("BIX_init_ble: Initdata fail");
 		return false;
 	}
 	
@@ -85,18 +87,21 @@ bool BIX_configur(void)
 	// Récupération de la configuration hardware
 	if (BIX_get_hard() == false)
 	{
+		Printf("BIX_configur: BIX_get_hard fail");
 		return false;
 	}
 	
 	// Configuration du serveur
 	if (BIX_conf_srv() == false)
 	{
+		Printf("BIX_configur: BIX_conf_srv fail");
 		return false;
 	}
 	
 	// Configuration des données BLE
 	if (BPX_confdata(&para) == false)
 	{
+		Printf("BIX_configur: BPX_confdata fail");
 		return false;
 	}
 	
@@ -194,7 +199,7 @@ bool BIX_conf_srv(void)
 	cret = aci_hal_write_config_data(CONFIG_DATA_PUBADDR_OFFSET, CONFIG_DATA_PUBADDR_LEN, BIX_addr);	  
 	if (cret != BLE_STATUS_SUCCESS) 
 	{
-		//printf("BIX_conf_srv: Setting BD_ADDR failed.");
+		Printf("BIX_conf_srv: Setting BD_ADDR fail %02x", cret);
 		return false;
 	}
 	
@@ -202,6 +207,7 @@ bool BIX_conf_srv(void)
 	cret = aci_hal_write_config_data(CONFIG_DATA_MODE_OFFSET, CONFIG_DATA_MODE_LEN, &mode);
 	if (cret != BLE_STATUS_SUCCESS) 
 	{
+		Printf("BIX_conf_srv: Setting role fail %02x", cret);
 		return false;
 	}
 
@@ -209,6 +215,7 @@ bool BIX_conf_srv(void)
 	cret = aci_gatt_init();	   
 	if (cret != BLE_STATUS_SUCCESS) 
 	{
+		Printf("BIX_conf_srv: GATT init fail %02x", cret);
 		return false;
 	}
 
@@ -219,6 +226,7 @@ bool BIX_conf_srv(void)
 		cret = aci_gap_init_IDB05A1(BIX_role, PRIVACY_DISABLED, BPX_VALE_TEXT, &para.BPX_gene.serv.hand, &para.BPX_gene.name.hand, &para.BPX_gene.apar.hand);
 		if (cret != BLE_STATUS_SUCCESS) 
 		{
+			Printf("BIX_conf_srv: GAP init fail %02x", cret);
 			return false;
 		}  
 	}
@@ -229,6 +237,7 @@ bool BIX_conf_srv(void)
 		cret = aci_gap_init_IDB04A1(BIX_role, &para.BPX_gene.serv.hand, &para.BPX_gene.name.hand, &para.BPX_gene.apar.hand);
 		if (cret != BLE_STATUS_SUCCESS)
 		{
+			Printf("BIX_conf_srv: GAP init fail %02x", cret);
 			return false;
 		}
 	}
@@ -236,12 +245,14 @@ bool BIX_conf_srv(void)
 	// Configuration de la sécurité du device BLE
 	if (BIX_conf_sec() == false)
 	{
+		Printf("BIX_conf_srv: BIX_conf_sec fail");
 		return false;
 	}
 		
 	// Configuration de la white list du device BLE
 	if (BIX_conf_wlt() == false)
 	{
+		Printf("BIX_conf_srv: BIX_conf_wlt fail");
 		return false;
 	}
 	
@@ -273,6 +284,7 @@ bool BIX_conf_sec(void)
 		BONDING);
 	if (cret != BLE_STATUS_SUCCESS) 
 	{
+		Printf("BIX_conf_sec: Set authentification fail %02x", cret);
 		return false;
 	}  
 
@@ -298,6 +310,7 @@ bool BIX_conf_wlt(void)
 	cret = aci_gap_get_bonded_devices(&numb, list, sizeof(list));
 	if (cret != BLE_STATUS_SUCCESS)
 	{
+		Printf("BIX_conf_wlt: Get bonded device fail %02x", cret);
 		return false;
 	}
 	
@@ -310,6 +323,7 @@ bool BIX_conf_wlt(void)
 		cret = aci_gap_configure_whitelist();
 		if (cret != BLE_STATUS_SUCCESS)
 		{
+			Printf("BIX_conf_wlt: Configure whitelist fail %02x", cret);
 			return false;
 		}
 	}

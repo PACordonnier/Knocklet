@@ -216,4 +216,10 @@ Debug/ACcelero.o: Knocklet/ACcelero.cpp Accelerometer/MMA8452.h \
  c:\users\nicolas\appdata\local\visualgdb\embeddedbsps\arm-eabi\com.sysprogs.arm.mbed\platform/rtc_time.h \
  c:\users\nicolas\appdata\local\visualgdb\embeddedbsps\arm-eabi\com.sysprogs.arm.mbed\platform/Callback.h \
  c:\users\nicolas\appdata\local\visualgdb\embeddedbsps\arm-eabi\com.sysprogs.arm.mbed\platform/FunctionPointer.h \
- Knocklet/ACcelero.h Knocklet/BParadef.h
+ Knocklet/ACcelero.h Knocklet/BParadef.h main.h \
+ BlueNRG/Middlewares/cube_hal.h BlueNRG/BSP/stm32l0xx_nucleo.h \
+ c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\stdlib.h \
+ BlueNRG/BSP/stm32l0xx_nucleo_bluenrg.h BlueNRG/BSP/stm32l0xx_nucleo.h \
+ Knocklet/BInitdef.h BlueNRG/Middlewares/link_layer.h \
+ BlueNRG/Middlewares/ble_status.h BlueNRG/Middlewares/hal_types.h \
+ Knocklet/BLueproc.h Knocklet/ACcelero.h

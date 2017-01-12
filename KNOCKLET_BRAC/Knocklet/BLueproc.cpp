@@ -10,6 +10,7 @@
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
 #include "BEvendef.h"				// Définition des évènements relatifs au BLE
 #include "BParadef.h"				// Définition des paramètres relatifs au BLE
+#include "main.h"					// Include du CORE
 
 #include "hci.h"					// Librairie Host Controller Interface
 #include "bluenrg_gatt_aci.h"		// Header file with GATT commands for BlueNRG FW6.3.
@@ -76,6 +77,7 @@ bool BLX__process(void)
 			// Set du device en discoverable
 			if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
 			{
+				Printf("BLX__process: Mode discoverable no white list fail");
 				return false;
 			}
 		}
@@ -86,6 +88,7 @@ bool BLX__process(void)
 			// Set du device en discoverable
 			if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
 			{
+				Printf("BLX__process: Mode discoverable white list for all fail");
 				return false;
 			}
 		}
@@ -93,6 +96,7 @@ bool BLX__process(void)
 		// Mise à jour des données BLE
 		if (BPX_updtdata(&para) == false)
 		{
+			Printf("BLX__process: Update data fail");
 			return false;
 		}
 	}

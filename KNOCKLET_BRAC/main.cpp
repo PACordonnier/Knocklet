@@ -52,6 +52,8 @@ int main(void)
 		cret = false;
 	}
 	
+	Printf("main: Init et Config OK");
+
 	// Boucle de processing
 	while (cret)
 	{

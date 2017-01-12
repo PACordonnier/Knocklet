@@ -71,16 +71,28 @@ bool BLX__process(void)
 	// Aucune procédure est en cours
 	if (BLP_proc == false)
 	{
-		// Nécessite un discoverable all
+		// Nécessite un broadcast
 		if (BLP_pdis == true)
 		{
 			// Set du device en discoverable
-			if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
+			if (BLP_setbroad() == false)
 			{
 				Printf("BLX__process: Mode discoverable no white list fail");
 				return false;
 			}
 		}
+
+		// NICOLAW
+		//// Nécessite un discoverable all
+		//if (BLP_pdis == true)
+		//{
+		//	// Set du device en discoverable
+		//	if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
+		//	{
+		//		Printf("BLX__process: Mode discoverable no white list fail");
+		//		return false;
+		//	}
+		//}
 		
 		// Nécessite un discoverable white list
 		else if (BLP_pwdi == true)
@@ -98,6 +110,43 @@ bool BLX__process(void)
 		{
 			Printf("BLX__process: Update data fail");
 			return false;
+		}
+	}
+
+	return true;
+}
+
+/*----------------------------------------------------------------------------
+* BLP_setbroad() : Puts the device in broadcast mode
+*-----------------------------------------------------------------------------
+* Input  : -
+* Output : -
+* Return : -
+*-----------------------------------------------------------------------------
+* 
+* 
+* 
+*---------------------------------------------------------------------------*/
+bool BLP_setbroad(void)
+{
+	tBleStatus cret = BLE_STATUS_SUCCESS;	// Code retour
+
+	// Flag de vérification
+	if (BLP_disc == false)
+	{
+		uint8_t serviceUUIDList[] = { 0x0A, AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T', '1',
+		0x12, 0x21, 0x00,0x00,0x6c,0x6f,0x6f,0x63, 0x6c,0x61, 0x6c,0x65, 0x64,0x65, 0x72,0x69,0x6f,0x62, para.BPX_data.carA.data.vale[0]};
+		cret = aci_gap_set_broadcast_mode(0, 0, ADV_NONCONN_IND, PUBLIC_ADDR, 0x1E, serviceUUIDList, 0, NULL);
+		if (cret != BLE_STATUS_SUCCESS)
+		{
+			Printf("BLP_setbroad: Set broadcast mode fail %02x", cret);
+			return false;
+		}
+		
+		else
+		{
+			// Activation du flag de device discoverable
+			BLP_disc = true;
 		}
 	}
 
@@ -135,11 +184,12 @@ bool BLP_set_disc(unsigned mode)
 			return false;
 		}
 		
-		//// Set le device en discoverable général
-		cret = aci_gap_set_discoverable(ADV_IND, 0, 0, PUBLIC_ADDR, mode, sizeof(name), name, 3, serviceUUIDList, 0, 0);
+		// Set le device en discoverable général
+		cret = aci_gap_set_discoverable(ADV_NONCONN_IND, 0, 0, PUBLIC_ADDR, mode, sizeof(name), name, 3, serviceUUIDList, 0, 0);
 		if (cret != BLE_STATUS_SUCCESS)
 		{
-			
+			Printf("BLP_set_disc: Set discoverable fail %02x", cret);
+			return false;
 		}
 		else
 		{

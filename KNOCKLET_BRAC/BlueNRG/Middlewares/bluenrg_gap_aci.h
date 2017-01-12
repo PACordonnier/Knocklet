@@ -1063,7 +1063,7 @@ tBleStatus aci_gap_get_bonded_devices(uint8_t *num_devices, uint8_t *device_list
  * 					 @endcode
  * @return Value indicating success or error code.
  */
-tBleStatus aci_gap_set_broadcast_mode_IDB05A1(uint16_t adv_interv_min, uint16_t adv_interv_max, uint8_t adv_type,
+tBleStatus aci_gap_set_broadcast_mode(uint16_t adv_interv_min, uint16_t adv_interv_max, uint8_t adv_type,
                                       uint8_t own_addr_type, uint8_t adv_data_length, const uint8_t *adv_data,  uint8_t num_whitelist_entries,
                                       const uint8_t *addr_array);
 

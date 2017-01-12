@@ -61,6 +61,7 @@ extern bool			BLP_pcon;					// Demande de procédure de connexion
 *---------------------------------------------------------------------------*/
 bool BLX_initproc(void);					// Initialisation des flags des procédures ble
 bool BLX__process(void);					// Processing de la communication BLE
+bool BLP_setbroad(void);					// Puts the device in broadcast mode
 bool BLP_set_disc(unsigned mode);			// Puts the device in connectable mode
 bool BLX_clearble(void);					// Efface la security database du BLE
 void BLX_stop_ble(void);					// Arrêt du device BLE

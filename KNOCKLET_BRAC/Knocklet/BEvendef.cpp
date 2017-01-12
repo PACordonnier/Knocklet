@@ -510,7 +510,6 @@ void BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat)
 	
 	// Déconnexion du client slave
 	Printf("BEX_decoclie: EVT_DISCONN_COMPLETE: Deconnexion du client (hand: %02x, reason: %02x, status: %02x)", hand, reas, stat);
-		
 	
 	// Déconnexion du client
 	BLP_disc = false;

@@ -44,7 +44,7 @@ class knockConvert {
 class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
 	private $knockArray=array();
-	private $configFile="jemecherche";
+	private $configFile="/usr/share/nginx/www/jeedom/plugins/knocklet/data/config";
 
     /*     * ***********************Methode static*************************** */
 
@@ -53,8 +53,8 @@ class knocklet extends eqLogic {
 		$knock = new knocklet(1);
 		$knock->knockArray = $array;
 		$knock->saveAll();
-
 	}
+
 
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
@@ -102,7 +102,8 @@ class knocklet extends eqLogic {
     		while (($line = fgets($handle)) !== false) {
 			$line = str_replace("\n","",$line);
 			$data = explode(" ",$line);
-			$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
+			if($data[3]!=0)
+				$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
 		}
 
 	    	fclose($handle);
@@ -118,9 +119,21 @@ class knocklet extends eqLogic {
         else return false;
     }
 
+    public function getIdFromTriplet($bid,$mid,$knocks) {
+//	print_r(self::createTriplet($bid,$mid,$knocks));
+//	print_r($this->knockArray["2"]);
+        foreach ($this->knockArray as $key => $value){
+			if(self::createTriplet($bid,$mid,$knocks) == $this->knockArray[$key])
+				return $key;
+		}
+
+//	echo (self::createTriplet($bid,$mid,$knocks) == $this->knockArray["3"]);
+//	return array_search($this->knockArray,self::createTriplet($bid,$mid,$knocks));
+return "false";
+    }
+
     public function printAll() {
 	print_r($this->knockArray);
-	echo serialize($this->knockArray);
     }
 
     private function saveKnock($cid,$knock){

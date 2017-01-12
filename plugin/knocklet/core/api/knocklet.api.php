@@ -70,12 +70,20 @@ if (isset($argv)) {
 			$jsonrpc->makeSuccess(getmicrotime());
 		}
 
+
+
 		/*             * ***********************Knocklet********************************* */
 		if ($jsonrpc->getMethod() == 'knock') {
 			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
 				$now = date("Y-m-d H:i:s");
 				$text = $now."\n"."[braceletId]= ".$params['braceletId']."\n[moduleId]= ".$params['moduleId']."\n[knocks]= ".$params['knocks']."\n\n";
 				file_put_contents("/tmp/knockletAPI", $text, FILE_APPEND);
+				
+			//TODO enlever le new, passer les fonctions en static
+				$knocklet= new knocklet();
+				$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+				$cmd = cmd::byId($cid);
+				$cmd->execCmd($_REQUEST);
 				$jsonrpc->makeSuccess("OK !");
 				}
 

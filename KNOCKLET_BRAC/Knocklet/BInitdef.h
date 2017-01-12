@@ -36,7 +36,7 @@ extern uint32_t BIX_pass;										// Pin d'authentification
 #define BIX_SIZE_CORP 3										// Taille de l'adresse corporate
 #define BIX_DEVI_SIZE 7										// Taille d'une adresse stockée dans la security database (EEPROM BLE)
 #define BIX_MAXI_DEVI 12									// Maximum number of devices bonded saved in the security database (EEPROM BLE)
-
+	
 /*----------------------------------------------------------------------------
 * BIX : Traitements généraux
 *---------------------------------------------------------------------------*/

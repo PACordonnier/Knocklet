@@ -79,7 +79,7 @@ bool ACX_acceconf(void)
 {
 	// Standby mode TEST
 	// pc.printf("Value registre standby: %d\n",acc.standby());
-	int test;
+	
 	// Standby Mode
 	if (ACX_acce.standby() != ACX_ACCE_GOOD)
 	{
@@ -185,13 +185,18 @@ bool ACX__process(void)
 		else
 		{
 			// Tap valide
-			Printf("ACX__process: Taps OK, demarrage process Bluetooth");
+			Printf("ACX__process: Taps OK");
 			// Désactivation de l'interrupt
-			ACX_taps.disable_irq(); 
+			ACX_taps.disable_irq();
+#if BRAC_ACTI_XBLE
 			// Récupération du nombre de tap pour les données Bluetooth
 			para.BPX_data.carA.data.vale[0] = ACX_ntap;
 			// Activation du flag pour mise à jour Bluetooth
 			para.BPX_data.carA.data.updt = true;
+#else 
+			// Activation du flag pour réactiver l'interrupt
+			ACX_stop = true;
+#endif // BRAC_ACTI_XBLE	
 		}
 
 		// Remise à zéro du nombre de tap

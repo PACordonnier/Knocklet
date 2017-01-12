@@ -175,10 +175,18 @@ bool BIX_conf_srv(void)
 	BIX_addr[4] = BIX_corp[1] = BIX_ADR2_CORP; 
 	BIX_addr[3] = BIX_corp[2] = BIX_ADR3_CORP; 
 	
+	// Choix du bracelet
+#if BRAC_ACTI_NUM1
 	// Set l'adresse du client unique
 	BIX_addr[2] = 0x00; 
 	BIX_addr[1] = 0x00; 
 	BIX_addr[0] = 0x01;
+#else
+	// Set l'adresse du client unique
+	BIX_addr[2] = 0x00; 
+	BIX_addr[1] = 0x00; 
+	BIX_addr[0] = 0x02;
+#endif // BRAC_NUM1
 	   	
 	// Mode 2 : slave or master, 1 connection, RAM1 and RAM2(large GATT DB)
 	mode = 0x02;

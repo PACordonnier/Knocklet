@@ -18,7 +18,8 @@ Serial pc(PA_2, PA_3);	// Port Série pour Debug
 int main(void)
 {
 	bool cret = true; // Code retour
-	
+
+#if BRAC_ACTI_XBLE
 	/* STM32Cube HAL library initialization:
    *  - Configure the Flash prefetch, Flash preread and Buffer caches
    *  - Systick timer is configured by default as source of time base, but user
@@ -28,7 +29,8 @@ int main(void)
    *    handled in milliseconds basis.
    *  - Low Level Initialization
    */
-	HAL_Init();
+	HAL_Init();	  
+#endif // BRAC_ACTI_XBLE
 		
 	/* Configure the system clock */
 	SystemClock_Config();
@@ -73,21 +75,25 @@ int main(void)
 *-----------------------------------------------------------------------------
 *---------------------------------------------------------------------------*/
 bool coreinit(void)
-{		
+{	
+#if BRAC_ACTI_ACCE
 	// Initialisation des paramètres de l'accéleromètre
 	if (ACX_acceinit() == false)
 	{
 		Printf("coreinit: Initialisation accelerometre fail");
 		return false;
-	}
-	
+	}		  
+#endif // BRAC_ACTI_ACCE
+
+#if BRAC_ACTI_XBLE
 	// Initialisation du gestionnaire BLE
 	if (BIX_init_ble() == false)
 	{
 		Printf("coreinit: Initialisation BLE fail");
 		return false;
-	}
-   
+	}			  
+#endif // BRAC_ACTI_XBLE
+	
 	return true;
 }
 
@@ -101,20 +107,24 @@ bool coreinit(void)
 *---------------------------------------------------------------------------*/
 bool coreconf(void)
 {	
+#if BRAC_ACTI_ACCE
 	// Configuration de l'accéleromètre
 	if (ACX_acceconf() == false)
 	{
 		Printf("coreconf: Configuration accelerometre fail");
 		return false;
 	}
-	
+#endif // BRAC_ACTI_ACCE
+
+#if BRAC_ACTI_XBLE
 	// Configuration du BLE
 	if (BIX_configur() == false)
 	{
 		Printf("coreconf: Configuration BLE fail");
 		return false;
-	}
-	
+	}		  
+#endif // BRAC_ACTI_XBLE
+
 	return true;
 }
 
@@ -128,19 +138,23 @@ bool coreconf(void)
 *---------------------------------------------------------------------------*/
 bool coreloop(void)
 {
+#if BRAC_ACTI_ACCE
 	// Process de l'accéleromètre
 	if (ACX__process() == false)
 	{
 		Printf("coreloop: Process accelerometre fail");
 		return false;
 	}
-	
+#endif // BRAC_ACTI_ACCE
+
+#if BRAC_ACTI_XBLE
 	// Process du Bluetooth
 	if (BLX__process() == false)
 	{
 		Printf("coreloop: Process BLE fail");
 		return false;
-	}
+	}		  
+#endif // BRAC_ACTI_XBLE
     
 	return true;
 }
@@ -155,6 +169,7 @@ bool coreloop(void)
 *---------------------------------------------------------------------------*/
 void Printf(const char *format, ...)
 {
+#if BRAC_ACTI_LOGS
 	char	dest[256];
 	va_list argptr;
 	if (pc.writeable())
@@ -166,4 +181,5 @@ void Printf(const char *format, ...)
 		pc.printf("\r\n");
 		wait_ms(5);
 	}
+#endif // BRAC_ACTI_LOGS
 }

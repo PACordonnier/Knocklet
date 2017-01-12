@@ -15,7 +15,6 @@ extern "C" {
 
 
 #include "cube_hal.h"
-	
 #include "BInitdef.h"				// Initialisation de la board
 #include "BLueproc.h"				// Gestionnaire des procédures BLE
 #include "ACcelero.h"				// Gestionnaire de l'accéleromètre
@@ -25,6 +24,15 @@ bool coreinit(void);					// Initialisation du système
 bool coreconf(void);					// Configuration du système
 bool coreloop(void);					// Loop du CORE
 void Printf(const char *format, ...);	// Printf avec delay pour le Serial et retour ligne
+	
+/*----------------------------------------------------------------------------
+* CONFIGURATION                                              
+*---------------------------------------------------------------------------*/
+#define BRAC_ACTI_NUM1 1								// Mettre à 1 pour bracelet numéro 1
+#define BRAC_ACTI_LOGS 1								// Activation ou non des logs
+#define BRAC_ACTI_ACCE 1								// Activation ou non de l'accéleromètre
+#define BRAC_ACTI_XBLE 1								// Activation ou non du Bluetooth
+	
 #ifdef __cplusplus
 }
 #endif

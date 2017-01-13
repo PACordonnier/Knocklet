@@ -56,8 +56,6 @@ bool		BEX_metaeven(void *pack);																	// Evénement Meta
 bool		BEX_vendeven(void *pack);																	// Evénement Vendor
 bool		BEX_gatteven(void *pack);																	// Evénement GATT
 bool		BEX_gap_even(void *pack);																	// Evénement GAP
-bool		BEX_connclie(uint16_t hand, tBDAddr addr, uint8_t stat);									// Connexion d'un client
-void		BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat);									// Déconnexion d'un client
 bool		BEX_gap_done(uint8_t code, uint8_t stat, uint8_t *data);									// Procédure du GAP serveur complète
 bool		BEX_gattdone(uint8_t code);																	// Procédure du GATT serveur complète
 void		BEX_requread(uint16_t hand, uint16_t clie);													// Requête de lecture

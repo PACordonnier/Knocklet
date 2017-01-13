@@ -80,7 +80,6 @@ void HCI_Event_CB(void *pckt)
 		{
 			evt_disconn_complete *deco = (evt_disconn_complete *)pack;
 			// If the disconnection was not successful, the value of the reason parameter can be ignored by the Host
-			BEX_decoclie(deco->handle, deco->reason, deco->status);
 		}
 		break;
 
@@ -138,13 +137,7 @@ bool BEX_metaeven(void *pack)
 	case EVT_LE_CONN_COMPLETE:
 		{
 			evt_le_connection_complete *even = (evt_le_connection_complete *)meta->data;
-    		BEX_connclie(even->handle, even->peer_bdaddr, even->status);
-			Printf("BEX_metaeven: EVT_LE_CONN_COMPLETE: interval: %04x, latency: %04x, supervision_timeout: %04x, master_clock_accuracy: %02x",
-				even->interval,
-				even->latency,
-				even->supervision_timeout,
-				even->master_clock_accuracy);
-		}
+    	}
 		break;
 
     // Mise à jour du status de connexion
@@ -452,77 +445,6 @@ bool BEX_gap_even(void *pack)
 }
 
 /*----------------------------------------------------------------------------
-* BEX_connclie() : Connexion d'un client
-*-----------------------------------------------------------------------------
-* Input  : - Handle du client
-*          - Adresse du client
-*          - Status du client
-* Output : -
-* Return : - Success or not
-*-----------------------------------------------------------------------------
-*
-*---------------------------------------------------------------------------*/
-bool BEX_connclie(uint16_t hand, tBDAddr addr, uint8_t stat)
-{		
-	Printf("BEX_connclie: EVT_LE_CONN_COMPLETE: Connexion (adresse: %02x:%02x:%02x:%02x:%02x:%02x) hand: %02x, status %02x",
-		addr[5],
-		addr[4],
-		addr[3],
-		addr[2],
-		addr[1],
-		addr[0],
-		hand,
-		stat);
-	
-	// API connecté
-	BEX_clie.find = true;
-
-	// Set du master api
-	BEX_clie.hand = hand;
-	BEX_clie.stat = stat;
-	memcpy(BEX_clie.addr, addr, sizeof(tBDAddr));
-	BLP_conn = true;
-			
-	return true;
-}
-
-/*----------------------------------------------------------------------------
-* BEX_decoclie() : Déconnexion d'un client
-*-----------------------------------------------------------------------------
-* Input  : - Handle déconnecté
-*          - Reason
-*          - Status
-* Output : -
-* Return : -
-*-----------------------------------------------------------------------------
-*
-*---------------------------------------------------------------------------*/
-void BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat)
-{
-	tBleStatus cret; // Code retour
-
-	// Page 806 La bible ble v4.1
-	cret = aci_gap_terminate(hand, reas);
-	if (cret != ERR_UNKNOWN_CONN_IDENTIFIER)
-	{
-		
-	}
-	
-	// Déconnexion du client slave
-	Printf("BEX_decoclie: EVT_DISCONN_COMPLETE: Deconnexion du client (hand: %02x, reason: %02x, status: %02x)", hand, reas, stat);
-	
-	// Déconnexion du client
-	BLP_disc = false;
-	BLP_conn = false;
-	
-	// Libération du client
-	BEX_clie.find = false;
-	BEX_clie.hand = BEX_DECO_CLIE;
-	BEX_clie.stat = 0;
-	memset(BEX_clie.addr, 0, sizeof(BEX_clie.addr));
-}
-
-/*----------------------------------------------------------------------------
 * BEX_gap_done() : Procédure du gap serveur complète
 *-----------------------------------------------------------------------------
 * Input  : - Code de procédure
@@ -551,13 +473,7 @@ bool BEX_gap_done(uint8_t code, uint8_t stat, uint8_t *data)
 		// Connection done
 		case GAP_DIRECT_CONNECTION_ESTABLISHMENT_PROC:
 			{
-				Printf("BEX_gap_done: Procedure de connexion termine");
-				
-				// Plus besoin de se connecter
-				BLP_conn = false;
-				
-				// Aucune procédure en cours
-				BLP_proc = 0;
+
 			}
 			break;
 		

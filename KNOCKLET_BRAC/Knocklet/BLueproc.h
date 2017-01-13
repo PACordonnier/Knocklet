@@ -29,11 +29,6 @@ extern "C" {
 extern bool			BLX_bond;					// Device bonded
 
 extern uint8_t		BLP_proc;					// Procedure en cours
-extern bool			BLP_disc;					// Demande de procedure discovery en cours
-extern bool			BLP_pdis;					// Flag de discoverable device BLE
-extern bool			BLP_pwdi;					// Demande de procedure discoverable avec whitelist
-extern bool			BLP_conn;					// Flag d'un device connecté
-extern bool			BLP_pcon;					// Demande de procédure de connexion
 extern bool			BLP_broa;					// Demande de procedure broadcast mode
 	
 /*----------------------------------------------------------------------------
@@ -59,6 +54,7 @@ extern bool			BLP_broa;					// Demande de procedure broadcast mode
 	
 #define BLP_TYPE_NAME 0x0A				// Size du type AD_TYPE_COMPLETE_LOCAL_NAME
 #define	BLP_TYPE_DATA 0x12				// Size du type AD_TYPE_SERVICE_DATA_128_BIT_UUID
+#define BLP_BROA_TIME 2000				// Temps d'activation du broadcast mode
 
 /*----------------------------------------------------------------------------
 * BLX : Traitements généraux
@@ -66,9 +62,6 @@ extern bool			BLP_broa;					// Demande de procedure broadcast mode
 bool BLX_initproc(void);					// Initialisation des flags des procédures ble
 bool BLX__process(void);					// Processing de la communication BLE
 bool BLP_setbroad(void);					// Puts the device in broadcast mode
-bool BLP_set_disc(unsigned mode);			// Puts the device in connectable mode
-bool BLX_clearble(void);					// Efface la security database du BLE
-void BLX_stop_ble(void);					// Arrêt du device BLE
 	
 #ifdef __cplusplus
 }

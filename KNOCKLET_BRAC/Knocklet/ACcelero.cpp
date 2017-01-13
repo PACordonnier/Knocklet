@@ -169,15 +169,14 @@ bool ACX__process(void)
 	
 	// Durée sans tap dépasse le délai maximum
 	if (ACX_time.read_ms() > ACX_ACCE_TOUT) 
-	{    
-		// Arrêt et reset du timer
+	{   	// Arrêt et reset du timer
 		ACX_time.stop();
 		ACX_time.reset();
 		
 		Printf("ACX__process: Nombre de taps: %d", ACX_ntap);
 		
 		// Blindage de la valeur
-		if (ACX_ntap > ACX_ACCE_NMAX)
+		if (ACX_ntap > ACX_ACCE_NMAX || ACX_ntap == 0 || ACX_ntap == 1)
 		{
 			// Trop de tap détecté
 			Printf("ACX__process: Taps ignore");

@@ -38,6 +38,10 @@ int main(void)
 	// Reconfiguration du baud rate après SystemClock_Config()
 	pc.baud(9600);
 	
+	// NICOLAW TEST
+	NVIC_SetPriority(EXTI2_3_IRQn, 0);
+	NVIC_SetPriority(EXTI0_1_IRQn, 1);
+	
 	// Initialisation du système
 	if (coreinit() == false)
 	{
@@ -52,7 +56,7 @@ int main(void)
 		cret = false;
 	}
 	
-	Printf("main: Init et Config OK");
+	if (cret != false) Printf("main: Init et Config OK");
 
 	// Boucle de processing
 	while (cret)

@@ -41,12 +41,23 @@ class knockConvert {
 }
 */
 
-class template extends eqLogic {
+class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
 	private $knockArray=array();
-	private $configFile="/tmp/knocklet/config";
+	private $configFile="/usr/share/nginx/www/jeedom/plugins/knocklet/data/config";
 
     /*     * ***********************Methode static*************************** */
+
+	public static function saveConfigFromJson($js) {
+		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
+		$array=json_decode($js);
+		$knock = new knocklet(1);
+		foreach($array as $key => $value){
+			$knock->add($key,$value[0],$value[1],$value[2]);
+		}
+		$knock->saveAll();
+	}
+
 
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
@@ -70,42 +81,76 @@ class template extends eqLogic {
       }
      */
 
-
-
     /*     * *********************Méthodes d'instance************************* */
+
+    function __construct($a){
+	//Constructeur de la classe
+	//Si appelée sans paramètre, les configurations sont chargées depuis le fichier
+	if($a!=1) self::load();
+    }
+
+
     private function createTriplet($bId,$mId,$knocks) {
+	//retourne un tableau contenant les informations pour chaque "key"
 	return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
 
     }
- 
-    public function load() {/*
-	$this->knockArray["a"]=self::createTriplet(1,0,3);
-	$this->knockArray["b"]=self::createTriplet(5,4,2);
-	$this->knockArray["c"]=self::createTriplet(0,5,1);
-	$this->knockArray["d"]=self::createTriplet(5,2,0);*/
+
+
+    public function add($cid,$bid,$mid,$knocks) {
+	//Ajouter un élément au tableau
+	$this->knockArray[$cid]=self::createTriplet($bid,$mid,$knocks);
+
+    }
+
+    public function load() {
+	//Charge les informations depuis le fichier de configuration
 	$handle = fopen($this->configFile, "r");
 	if ($handle) {
     		while (($line = fgets($handle)) !== false) {
 			$line = str_replace("\n","",$line);
 			$data = explode(" ",$line);
-			$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
+			if($data[3]!=0)
+				$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
 		}
 
 	    	fclose($handle);
 	} else {
-    // error opening the file.
-	} 
-    	}
+	    // error opening the file.
+	}
+    }
+
+
+    public function getTripletFromId($cid) {
+	//Retourne le triplet correspondant à l'ID envoyé
+	//Retourne false si ce triplet n'existe pas
+        if(array_key_exists($cid,$this->knockArray))
+                return $this->knockArray[$cid];
+        else return false;
+    }
+
+    public function getIdFromTriplet($bid,$mid,$knocks) {
+	//retourne l'ID correspondant au triplet envoyé
+	//retourne faux si la commande recherchée n'exsite pas 
+        foreach ($this->knockArray as $key => $value){
+			if(self::createTriplet($bid,$mid,$knocks) == $this->knockArray[$key])
+				return $key;
+		}
+	return false;
+    }
 
     public function printAll() {
+	//affiche toutes les configurations chargées en mémoire
 	print_r($this->knockArray);
     }
 
     private function saveKnock($cid,$knock){
+	//Ecrit la configuration d'une commande dans le tableau
 	file_put_contents($this->configFile,$cid . " " . $knock["braceletId"] . " " . $knock["moduleId"] . " " . $knock["knocks"] . "\n", FILE_APPEND | LOCK_EX);
 
     }
     public function saveAll() {
+	//Ecrit toutes les confirurations dans le fichier de config
 	unlink($this->configFile);
 	foreach ($this->knockArray as $key => $value)
 		self::saveKnock($key,$value);
@@ -153,7 +198,7 @@ class template extends eqLogic {
     /*     * **********************Getteur Setteur*************************** */
 }
 
-class templateCmd extends cmd {
+class knockletCmd extends cmd {
     /*     * *************************Attributs****************************** */
 
 
@@ -176,10 +221,4 @@ class templateCmd extends cmd {
     /*     * **********************Getteur Setteur*************************** */
 }
 
-
-$test = new template;
-$test->load();
-//$test->printAll();
-$test->saveAll();
-echo $test->arrayKnock;
 ?>

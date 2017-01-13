@@ -43,12 +43,33 @@ foreach ($eqLogics as $eqLogic) {
 }
 ?>
 </div>
-<div class="cursor expertModeVisible" id="bt_recupCmd" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;">
-        <center>
+  
+
+    <div class="cursor expertModeVisible" id="bt_recupCmd" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
+        <center style="width: 15%;">
             <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
         </center>
-        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676"><center>{{Configuration}}</center><p style="margin:0; padding:0;"><center>{{des knocks}}</center></p></span>
+        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
+		<center style="width: 15%;">{{Configuration}}</center>
+		<p style="margin:0; padding:0;">
+			<center   style="width: 15%; margin-bottom: 5%;">{{des knocks}}</center>
+		</p>
+	</span>
+	
+	<center style="width: 15%;">
+            <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
+        </center style="width: 15%;">
+        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
+                <center style="width: 15%;">{{Configuration}}</center>
+                <p style="margin:0; padding:0;">
+                        <center style="width: 15%;">{{des knocks V2}}</center>
+                </p>
+        </span>
+
+
     </div>
+   
+
 </div>
 
 <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
@@ -80,18 +101,17 @@ foreach (object::all() as $object) {
             <div class="col-sm-9">
                <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
                <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
-                <p>checkbox activer visible</p>
            </div>
        </div>
        <div class="form-group">
-        <label class="col-sm-3 control-label">{{template param 1}}</label>
+        <label class="col-sm-3 control-label">{{Adresse du bracelet:}}</label>
         <div class="col-sm-3">
             <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" placeholder="param1"/>
         </div>
     </div>
 </fieldset>
 </form>
-
+<?php /*
 <legend>{{Template}}</legend>
 <a class="btn btn-success btn-sm cmdAction" data-action="add"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
 <table id="table_cmd" class="table table-bordered table-condensed">
@@ -112,9 +132,11 @@ foreach (object::all() as $object) {
         </div>
     </fieldset>
 </form>
+*/ ?>
+</div>
 
 </div>
-</div>
 
-<?php include_file('desktop', 'template', 'js', 'knocklet');?>
+<?php include_file('desktop', 'knocklet', 'js', 'knocklet');?>
+<?php include_file('core', 'knocklet', 'class', 'knocklet');?>
 <?php include_file('core', 'plugin.template', 'js');?>

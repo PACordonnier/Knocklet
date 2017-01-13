@@ -1,5 +1,4 @@
-<?php
-/* This file is part of Jeedom.
+<?php /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
+include_once "../../core/class/knocklet.class.php";
 
 if (!isConnect('admin')) {
 	throw new Exception('401 Unauthorized');
@@ -119,33 +119,36 @@ if (!isConnect('admin')) {
 <div class='network' nid='' id="div_templateNetwork">
     <div class="container-fluid">
         <div id="content">
-                <div id="graph_network" class="tab-pane">
-                    <table class="table table-bordered table-condensed" style="width: 100%;position:relative;margin-top : 25px;">
+                <div id="config_knocks" class="tab-pane">
+                    <table  class="table table-bordered table-condensed" style="width: 100%;position:relative;margin-top : 25px;">
                         <thead>
-                        <tr class="knockConf_table">
+                        <tr class="knockConf_table_titles">
                             <th colspan="1">{{Knock}}</th>
                             <th colspan="1">{{ID du bracelet}}</th>
                             <th colspan="1">{{ID du module}}</th>
                             <th colspan="1">{{Nombre de knock}}</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="config_knock">
 
 
                 <?php
+
+			$temp = new knocklet();
+			echo $temp->getTripletFromId("12");
+
                         foreach(cmd::all() as $cmd)
                         {
-
-                               echo  '<tr><td>'.$cmd->getId()."   ".$cmd->getName().'</td>';
-                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control" data-l1key="idBracelet" /></td>';
-                               echo  '<td><input type="text" class="eqLogicAttr form-control" data-l1key="idModule" /></td>';
-			       echo  '<td><input type="text" class="eqLogicAttr form-control" data-l1key="nbKnock" /></td>';
+                               echo  '<tr ID="'.$cmd->getId().'"><td>'.$cmd->getId()."   ".$cmd->getName().'</td>';
+                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["braceletId"].'" /></td>';
+                               echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["moduleId"].'" /></td>';
+			       echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["knocks"].'" /></td>';
                                echo  '</tr>';
                         }
                 ?>
                         </tbody>
                     </table>
-            	    <a class="btn btn-success eqLogicAction" data-action="save"><i class="fa fa-check-circle"></i>{{Sauvegarder}}</a>
+            	    <div class="btn btn-success eqLogicAction" id="saveCmds"><i class="fa fa-check-circle"></i>{{Sauvegarder}}</div>
                     <div id="graph-node-name"></div>
                 </div>
             </div>
@@ -153,5 +156,4 @@ if (!isConnect('admin')) {
     </div>
 </div>
 </div>
-<?php include_file('desktop', 'network', 'js', 'openzwave');?>
-
+<?php include_file('desktop', 'knocklet', 'js', 'knocklet');?>

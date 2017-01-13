@@ -27,6 +27,7 @@ bool		BLP_disc; 	// Flag de discoverable device BLE
 bool		BLP_pdis; 	// Demande de procedure discoverable en cours
 bool		BLP_pwdi; 	// Demande de procedure discoverable avec whitelist
 bool		BLP_conn; 	// Flag d'un device connecté
+bool		BLP_broa;	// Demande de procedure broadcast mode
 
 /*----------------------------------------------------------------------------
 * BLX_initproc() : Initialisation des flags des procédures ble
@@ -57,7 +58,7 @@ bool BLX_initproc(void)
 *-----------------------------------------------------------------------------
 * Input  : -
 * Output : -
-* Return : -
+* Return : - Success or not
 *-----------------------------------------------------------------------------
 *
 *---------------------------------------------------------------------------*/
@@ -72,35 +73,12 @@ bool BLX__process(void)
 	if (BLP_proc == false)
 	{
 		// Nécessite un broadcast
-		if (BLP_pdis == true)
+		if (BLP_broa == true)
 		{
 			// Set du device en discoverable
 			if (BLP_setbroad() == false)
 			{
 				Printf("BLX__process: Mode discoverable no white list fail");
-				return false;
-			}
-		}
-
-		// NICOLAW
-		//// Nécessite un discoverable all
-		//if (BLP_pdis == true)
-		//{
-		//	// Set du device en discoverable
-		//	if (BLP_set_disc(NO_WHITE_LIST_USE) == false)
-		//	{
-		//		Printf("BLX__process: Mode discoverable no white list fail");
-		//		return false;
-		//	}
-		//}
-		
-		// Nécessite un discoverable white list
-		else if (BLP_pwdi == true)
-		{
-			// Set du device en discoverable
-			if (BLP_set_disc(WHITE_LIST_FOR_ALL) == false)
-			{
-				Printf("BLX__process: Mode discoverable white list for all fail");
 				return false;
 			}
 		}
@@ -121,7 +99,7 @@ bool BLX__process(void)
 *-----------------------------------------------------------------------------
 * Input  : -
 * Output : -
-* Return : -
+* Return : - Success or not
 *-----------------------------------------------------------------------------
 * 
 * 
@@ -130,13 +108,17 @@ bool BLX__process(void)
 bool BLP_setbroad(void)
 {
 	tBleStatus cret = BLE_STATUS_SUCCESS;	// Code retour
+	uint8_t adve[] = {
+		// Nom Public
+		BLP_TYPE_NAME, AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T', '1',
+		// Adresse du Service
+		BLP_TYPE_DATA, AD_TYPE_SERVICE_DATA_128_BIT_UUID, 0x00, 0x00, 0x6c, 0x6f, 0x6f, 0x63, 0x6c, 0x61, 0x6c, 0x65, 0x64, 0x65, 0x72, 0x69, 0x6f, 0x62, para.BPX_data.carA.data.vale[0] };
 
 	// Flag de vérification
 	if (BLP_disc == false)
 	{
-		uint8_t serviceUUIDList[] = { 0x0A, AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T', '1',
-		0x12, 0x21, 0x00,0x00,0x6c,0x6f,0x6f,0x63, 0x6c,0x61, 0x6c,0x65, 0x64,0x65, 0x72,0x69,0x6f,0x62, para.BPX_data.carA.data.vale[0]};
-		cret = aci_gap_set_broadcast_mode(0, 0, ADV_NONCONN_IND, PUBLIC_ADDR, 0x1E, serviceUUIDList, 0, NULL);
+		// Set broadcast mode
+		cret = aci_gap_set_broadcast_mode(0x00A0, 0x00A0, ADV_NONCONN_IND, PUBLIC_ADDR, sizeof(adve), adve, 0, NULL);
 		if (cret != BLE_STATUS_SUCCESS)
 		{
 			Printf("BLP_setbroad: Set broadcast mode fail %02x", cret);
@@ -145,8 +127,27 @@ bool BLP_setbroad(void)
 		
 		else
 		{
-			// Activation du flag de device discoverable
-			BLP_disc = true;
+			// Attente que le recepteur recoit la valeur
+			wait_ms(2000);
+
+			// On arrete le broadcast
+			cret = aci_gap_set_non_discoverable();
+			if (cret != BLE_STATUS_SUCCESS)
+			{
+				Printf("BLP_setbroad: Set non discoverable mode fail %02x", cret);
+				return false;
+			}
+			else
+			{
+				// Process broadcast termine
+				BLP_broa = false;
+				// Remise à zero de la valeur
+				para.BPX_data.carA.data.vale[0] = 0x00;
+
+				// On reactive l'interrupt de l'accelerometre
+				Printf("BEX_decoclie: Reactivation de l'accelerometre");
+				ACX_stop = true;
+			}
 		}
 	}
 

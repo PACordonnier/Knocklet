@@ -142,6 +142,7 @@
 
 /* service data AD type */
 #define AD_TYPE_SERVICE_DATA					(0x16)	
+#define AD_TYPE_SERVICE_DATA_128_BIT_UUID		(0x21)
 
 /* manufaturer specific data AD type */
 #define AD_TYPE_MANUFACTURER_SPECIFIC_DATA		(0xFF)

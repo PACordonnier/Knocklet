@@ -633,9 +633,9 @@ bool BPX_updtdata(BPX_PARA *para)
 			return false;
 		}
 		else
-		// Update réussi, on active le mode discoverable
+		// Update réussi, on active le mode broadcast
 		{
-			BLP_pdis = true;
+			BLP_broa = true;
 		}
 	}
 	

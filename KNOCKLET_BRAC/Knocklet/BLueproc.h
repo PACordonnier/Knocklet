@@ -34,11 +34,12 @@ extern bool			BLP_pdis;					// Flag de discoverable device BLE
 extern bool			BLP_pwdi;					// Demande de procedure discoverable avec whitelist
 extern bool			BLP_conn;					// Flag d'un device connecté
 extern bool			BLP_pcon;					// Demande de procédure de connexion
+extern bool			BLP_broa;					// Demande de procedure broadcast mode
 	
 /*----------------------------------------------------------------------------
 * CONSTANTES
 *---------------------------------------------------------------------------*/
-#define BLX_SIZE_ADDR 6						// Taille de l'adresse du serveur
+#define BLX_SIZE_ADDR 6					// Taille de l'adresse du serveur
 
 #define BLX_SCAN_INTR 0x0800			// Scan interval when LE scan start Time Range: 2.5 msec to 10240 msec (0x0004 to 0x4000)
 #define BLX_SCAN_WIND 0x1000			// Duration of LE scan start Time Range: 2.5 msec to 10240 msec (0x0004 to 0x4000)
@@ -54,7 +55,10 @@ extern bool			BLP_pcon;					// Demande de procédure de connexion
 #define BLX_MINI_NEED 0x0050			// Minimum length of connection need 0x0000 - 0xFFFF
 #define BLX_MAXI_NEED 0x0050			// Minimum length of connection need 0x0000 - 0xFFFF
 
-#define BLP_PROC_NONE 0						// Aucune procedure en cours
+#define BLP_PROC_NONE 0					// Aucune procedure en cours
+	
+#define BLP_TYPE_NAME 0x0A				// Size du type AD_TYPE_COMPLETE_LOCAL_NAME
+#define	BLP_TYPE_DATA 0x12				// Size du type AD_TYPE_SERVICE_DATA_128_BIT_UUID
 
 /*----------------------------------------------------------------------------
 * BLX : Traitements généraux

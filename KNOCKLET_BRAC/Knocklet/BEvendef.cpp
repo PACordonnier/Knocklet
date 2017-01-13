@@ -520,13 +520,6 @@ void BEX_decoclie(uint16_t hand, uint8_t reas, uint8_t stat)
 	BEX_clie.hand = BEX_DECO_CLIE;
 	BEX_clie.stat = 0;
 	memset(BEX_clie.addr, 0, sizeof(BEX_clie.addr));
-	
-	// Remise à zéro de la valeur
-	para.BPX_data.carA.data.vale[0] = 0x00;
-
-	// On réactive l'interrupt de l'accéleromètre
-	Printf("BEX_decoclie: Reactivation de l'accelerometre");
-	ACX_stop = true;
 }
 
 /*----------------------------------------------------------------------------

@@ -13,8 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
- */
-
+ 
 
 $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 /*
@@ -57,4 +56,34 @@ function addCmdToTable(_cmd) {
 $('#bt_recupCmd').on('click', function () {
 	 $('#md_modal').dialog({title: "{{Configuration des knocks}}"});
     $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configKnock').dialog('open');
+});
+
+$('#saveCmds').on('click',function (){
+
+var returnTable= [];
+var container = document.getElementById('config_knock');
+var datas = container.getElementsByTagName('input');
+var cmds = container.getElementsByTagName('tr');
+var i = 0;
+
+
+var nbcmd=0;
+for (var j = 0; j < cmds.length; j++) {
+
+    	
+	if(datas[i].value!==""&&datas[i+1].value!==""&&datas[i+2].value!==""){
+		returnTable[cmds[j].id]=[datas[i].value, datas[i+1].value, datas[i+2].value];
+		nbcmd++;		  
+	}
+	i+=3;        
+	
+    }
+
+
+console.log(returnTable);
+console.log(JSON.stringify(returnTable));
+console.log(nbcmd);
+
+$.post('plugins/knocklet/core/api/save.api.php', {save: JSON.stringify(returnTable)});
+
 });

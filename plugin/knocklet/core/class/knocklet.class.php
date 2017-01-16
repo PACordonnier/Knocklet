@@ -19,28 +19,6 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
-/*
-class knockConvert {
-       //  * *************************Attributs****************************** 
-        private $braceletId;
-        private $moduleId;
-        private $knocks;
-        private $cmdId;
-
-        function __construct($braceletId,$moduleId,$knocks,$cmdId){
-                $this->braceletId=$braceletId;
-                $this->moduleId=$moduleId;
-                $this->knocks=$knocks;
-                $this->cmdId=cmdId;
-        }
-
-	function save($file){
-		file_put_contents($file, $braceletId . " ". $moduleId . " " . $knocks . " " . cmdId, FILE_APPEND);
-	}
-
-}
-*/
-
 class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
 	private $knockArray=array();
@@ -58,7 +36,36 @@ class knocklet extends eqLogic {
 		$knock->saveAll();
 	}
 
+	public static function macExists($mac){
+		$bool =false;
+		foreach (eqLogic::byType("knocklet") as $eqLogic) {
+			if($eqLogic->getConfiguration("MAC") == $mac)
+				$bool = true ;
+		}
+		return $bool;
+	}
 
+	public static function createBracelet($name,$mac){
+		if(!self::macExists($mac)){
+			$eqLogic = new eqLogic();
+			$eqLogic->setEqType_name('knocklet');
+			$eqLogic->setName($name);
+			$eqLogic->setConfiguration("type","bracelet");
+			$eqLogic->setConfiguration("MAC",$mac);
+			$eqLogic->save();
+		}
+	}
+
+	public static function createModule($name,$macAddr){
+		if(!self::macExists($mac)){
+			$eqLogic = new eqLogic();
+			$eqLogic->setEqType_name('knocklet');
+			$eqLogic->setName($name);
+			$eqLogic->setConfiguration("type","module");
+			$eqLogic->setConfiguration("MAC",$mac);
+			$eqLogic->save();
+		}
+	}
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
       public static function cron() {

@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -26,14 +25,14 @@ if (isset($argv)) {
 		}
 	}
 }
-{
+
 	try {
 		$IP = getClientIp();
 		$request = init('request');
 		if ($request == '') {
 			$request = file_get_contents("php://input");
 		}
-		log::add('api', 'info', $request . ' - IP :' . $IP);
+		log::add('apiKnocklet', 'info', $request . ' - IP :' . $IP);
 
 		$jsonrpc = new jsonrpc($request);
 
@@ -75,23 +74,35 @@ if (isset($argv)) {
 		/*             * ***********************Knocklet********************************* */
 		if ($jsonrpc->getMethod() == 'knock') {
 			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
+			//TODO enlever ces logs
 				$now = date("Y-m-d H:i:s");
 				$text = $now."\n"."[braceletId]= ".$params['braceletId']."\n[moduleId]= ".$params['moduleId']."\n[knocks]= ".$params['knocks']."\n\n";
 				file_put_contents("/tmp/knockletAPI", $text, FILE_APPEND);
-				
-			//TODO enlever le new, passer les fonctions en static
-				$knocklet= new knocklet();
-				$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
-				if($cid == false)
-					throw new Exception('Combinaison non liée à une commande', -32602);
-				else{
-					$cmd = cmd::byId($cid);
-					$cmd->execCmd($_REQUEST);
-					$jsonrpc->makeSuccess("OK !");
-				}
-			}
 
-			else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
+				if ($params["knocks"]=="ff"){
+			//TODO enlever ça aussi
+					/*$bracelet = json_encode(array("type"=>"bracelet","id"=>$params["braceletId"]));
+					$module = json_encode(array("type"=>"module","id"=>$params["moduleId"]));
+					file_put_contents("/tmp/syncTest",$bracelet."\n".$module."\n",FILE_APPEND);*/
+					knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
+					knocklet::createModule("Nouveau module",$params['moduleId']);
+					$jsonrpc->makeSuccess("Demande d'initialisation ...");
+
+				}
+				else{
+			//TODO enlever le new, passer les fonctions en static
+					$knocklet= new knocklet();
+					$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+					if($cid == false)
+						throw new Exception('La combinaison ne correspond à aucune commande', -32602);
+					else{
+						$cmd = cmd::byId($cid);
+						$cmd->execCmd($_REQUEST);
+						$jsonrpc->makeSuccess("OK !");
+					}
+				}
+
+			}else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
 
 		}
 
@@ -103,5 +114,5 @@ if (isset($argv)) {
 	$errorCode = (is_numeric($e->getCode())) ? -32000 - $e->getCode() : -32599;
 	$jsonrpc->makeError($errorCode, $message);
 	}
-}
+
 ?>

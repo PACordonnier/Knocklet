@@ -1,0 +1,3 @@
+//Installer avahi daemon
+sudo apt-get install avahi-daemon avahi-dnsconfd avahi-discover avahi-utils libnss-mdns
+

@@ -39,8 +39,9 @@ int main(void)
 	pc.baud(9600);
 	
 	// NICOLAW TEST
-	NVIC_SetPriority(EXTI2_3_IRQn, 0);
-	NVIC_SetPriority(EXTI0_1_IRQn, 1);
+	//NVIC_SetPriority(EXTI4_15_IRQn, 0);
+	//NVIC_SetPriority(EXTI2_3_IRQn, 1);
+	//NVIC_SetPriority(EXTI0_1_IRQn, 2);
 	
 	// Initialisation du système
 	if (coreinit() == false)

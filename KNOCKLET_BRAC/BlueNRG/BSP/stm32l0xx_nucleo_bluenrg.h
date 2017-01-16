@@ -150,7 +150,7 @@
 #define RTC_WAKEUP_IRQHandler        RTC_IRQHandler
 
 //EXTI External Interrupt for user button
-#define PUSH_BUTTON_EXTI_IRQHandler  EXTI4_15_IRQHandler
+#define PUSH_BUTTON_EXTI_IRQHandler	EXTI4_15_IRQHandler
 
 /**
   * @}

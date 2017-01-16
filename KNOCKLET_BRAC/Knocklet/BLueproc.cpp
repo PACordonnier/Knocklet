@@ -104,7 +104,8 @@ bool BLP_setbroad(void)
 #if BRAC_ACTI_NUM1
 		// Nom Public
 		BLP_TYPE_NAME, AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T', '1', 
-#else		// Nom Public
+#else
+		// Nom Public
 		BLP_TYPE_NAME, AD_TYPE_COMPLETE_LOCAL_NAME, 'K', 'N', 'O', 'C', 'K', 'L', 'E', 'T', '2', 
 #endif // BRAC_ACTI_NUM1
 		// Adresse du Service

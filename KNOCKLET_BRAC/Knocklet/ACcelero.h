@@ -33,6 +33,7 @@ extern bool	ACX_stop;		// Désactivation de l'interrupt pendant l'échange Bluetoo
 /*----------------------------------------------------------------------------
 * ACX : Traitements généraux
 *---------------------------------------------------------------------------*/
+void ACX_buttfonc(void);	// Fonction lorsque le boutton de configuration est activé
 void ACX_intefonc(void);	// Fonction lorsque une interruption est détecté
 bool ACX_acceinit(void);	// Initialisation des paramètres de l'accéleromètre
 bool ACX_acceconf(void);	// Configuration de l'accéleromètre

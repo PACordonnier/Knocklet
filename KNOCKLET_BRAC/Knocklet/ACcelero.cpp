@@ -16,9 +16,42 @@
 *---------------------------------------------------------------------------*/
 MMA8452			ACX_acce(PB_9, PB_8, 100000);	// Connection de l'accéleromètre (I2C: sda, scl, frequency)
 InterruptIn		ACX_taps(PB_2);					// Interrupt détectant un tap
+InterruptIn		ACX_butt(PC_13);				// Interrupt du mode configuration
 Timer			ACX_time;						// Timer lorsqu'un tap est détecté
 uint8_t			ACX_ntap;						// Nombres de tap
 bool			ACX_stop;						// Désactivation de l'interrupt pendant l'échange Bluetooth
+
+/*----------------------------------------------------------------------------
+* ACX_buttfonc() : Fonction lorsque le boutton de configuration est activé
+*-----------------------------------------------------------------------------
+* Input  : - 
+* Output : -
+* Return : - Success or not
+*-----------------------------------------------------------------------------
+*
+*---------------------------------------------------------------------------*/
+void ACX_buttfonc(void) 
+{ 
+	// Désactivation des interrupt
+	ACX_taps.disable_irq();
+	ACX_butt.disable_irq();
+	
+	// Arrêt et reset du timer
+	ACX_time.stop();
+	ACX_time.reset();
+	
+#if BRAC_ACTI_XBLE
+	// Récupération du nombre de tap pour les données Bluetooth
+	para.BPX_data.carA.data.vale[0] = -1;
+	// Activation du flag pour mise à jour Bluetooth
+	para.BPX_data.carA.data.updt = true;
+	
+	// Log
+	Printf("ACX_buttfonc: Broadcast Configuration");
+#endif // BRAC_ACTI_XBLE
+	
+}  
+
 /*----------------------------------------------------------------------------
 * ACX_intefonc() : Fonction lorsque une interruption est détecté
 *-----------------------------------------------------------------------------
@@ -59,6 +92,9 @@ bool ACX_acceinit(void)
 {
 	// Initialisation de la variable d'arrêt de l'interrupt
 	ACX_stop = false;
+	
+	// Initialisation de l'interrupt Button
+	ACX_butt.rise(&ACX_buttfonc);
 	
 	// Initialisation de l'interrupt sur le Core
 	ACX_taps.rise(&ACX_intefonc);
@@ -162,6 +198,7 @@ bool ACX__process(void)
 	{
 		// Réactivation de l'interrupt
 		ACX_taps.enable_irq();
+		ACX_butt.enable_irq();
 		
 		// Remise à zéro du flag
 		ACX_stop = false;
@@ -169,7 +206,8 @@ bool ACX__process(void)
 	
 	// Durée sans tap dépasse le délai maximum
 	if (ACX_time.read_ms() > ACX_ACCE_TOUT) 
-	{   	// Arrêt et reset du timer
+	{   	
+		// Arrêt et reset du timer
 		ACX_time.stop();
 		ACX_time.reset();
 		
@@ -185,8 +223,9 @@ bool ACX__process(void)
 		{
 			// Tap valide
 			Printf("ACX__process: Taps OK");
-			// Désactivation de l'interrupt
+			// Désactivation des interrupts
 			ACX_taps.disable_irq();
+			ACX_butt.disable_irq();
 #if BRAC_ACTI_XBLE
 			// Récupération du nombre de tap pour les données Bluetooth
 			para.BPX_data.carA.data.vale[0] = ACX_ntap;

@@ -15,7 +15,7 @@
 * ALLOCATION DE VARIABLES
 *---------------------------------------------------------------------------*/
 MMA8452			ACX_acce(PB_9, PB_8, 100000);	// Connection de l'accéleromètre (I2C: sda, scl, frequency)
-InterruptIn		ACX_taps(PB_2);					// Interrupt détectant un tap
+InterruptIn		ACX_taps(PC_2);					// Interrupt détectant un tap
 InterruptIn		ACX_butt(PC_13);				// Interrupt du mode configuration
 Timer			ACX_time;						// Timer lorsqu'un tap est détecté
 uint8_t			ACX_ntap;						// Nombres de tap
@@ -63,6 +63,7 @@ void ACX_buttfonc(void)
 *---------------------------------------------------------------------------*/
 void ACX_intefonc(void) 
 { 
+	Printf("ACX_intefonc: Tap detecte");
 	// Si le timer est inactif
 	if (ACX_time.read_ms() == 0) 
 	{ 

@@ -7,11 +7,12 @@ class ScanDelegate(DefaultDelegate):
     def handleDiscovery(self, dev, isNewDev, isNewData):
         if isNewDev:
             print "Discovered device", dev.addr
+            print dev.getScanData()
         elif isNewData:
             print "Received new data from", dev.addr
 
 scanner = Scanner().withDelegate(ScanDelegate())
-devices = scanner.scan(0.1)
+devices = scanner.scan(7.1)
 
 for dev in devices:
     print "Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi)

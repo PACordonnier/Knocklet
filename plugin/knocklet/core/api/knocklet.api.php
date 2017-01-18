@@ -91,12 +91,15 @@ if (isset($argv)) {
 				}
 				else{
 			//TODO corriger ici
-					$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
-					if($cid == false)
+					$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+					//TODO faire pareil pour les scenario
+					if(count($cids) == 0) // TODO || count($scenarios)
 						throw new Exception('La combinaison ne correspond à aucune commande', -32602);
 					else{
-						$cmd = cmd::byId($cid);
-						$cmd->execCmd($_REQUEST);
+						foreach($cids as $cid){
+							$cmd = cmd::byId($cid);
+							$cmd->execCmd($_REQUEST);
+						}
 						$jsonrpc->makeSuccess("OK !");
 					}
 				}

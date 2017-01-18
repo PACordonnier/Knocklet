@@ -46,6 +46,21 @@ class knocklet extends eqLogic {
 		return config::byKey("cmd::".$id,"knocklet");
 	}
 
+	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
+		$cmds = array();
+		foreach(config::searchKey("cmd","knocklet") as $tab){
+			$key = $tab["key"];
+			$cmd = $tab["value"];
+			if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks) $cmds[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
+		}
+		return $cmds;
+	}
+
+	public static function getScenarioIdFromTriplet($bid,$mid,$knocks){
+                //TODO getScnerarioIdFromTriplet
+        }
+
+
 	public static function macExists($mac){
 		$bool =false;
 		foreach (eqLogic::byType("knocklet") as $eqLogic) {

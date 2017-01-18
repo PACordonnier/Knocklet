@@ -90,8 +90,7 @@ if (isset($argv)) {
 
 				}
 				else{
-			//TODO enlever le new, passer les fonctions en static
-					$knocklet= new knocklet();
+			//TODO corriger ici
 					$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
 					if($cid == false)
 						throw new Exception('La combinaison ne correspond à aucune commande', -32602);

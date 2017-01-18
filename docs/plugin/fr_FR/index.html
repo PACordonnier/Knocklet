@@ -1,0 +1,1905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_template">Template</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_description">Description</h3>
+<div class="paragraph"><p>Plugin servant de base pour les plugins.
+Attention lors de l&#8217;utilisation à bien remplacer tous les templates par l&#8217;id de votre plugin.</p></div>
+<hr />
+</div>
+<div class="sect2">
+<h3 id="_création_plugin_partie_1_l_8217_arborescence">Création plugin partie 1 : l&#8217;arborescence</h3>
+<div class="paragraph"><p>Voici comment ça se décompose, tout d’abord un dossier du nom de votre plugin (son identifiant unique plus exactement) qui doit contenir les sous-dossiers suivants :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+3rdparty : dossier contenant les librairies externes utilisées dans le plugin (exemple pour le plugin SMS une librairie pour la communication série en php)
+</p>
+</li>
+<li>
+<p>
+core : dossier contenant tous les fichiers de fonctionnement interne
+</p>
+</li>
+<li>
+<p>
+class : dossier contenant la classe du plugin
+</p>
+</li>
+<li>
+<p>
+php : dossier pouvant contenir des fonctions ne devant pas forcément appartenir à une classe (souvent utilisé pour permettre l’inclusion de multiples classes ou fichiers de configuration d’un seul coup)
+</p>
+</li>
+<li>
+<p>
+config : fichier de configuration du plugin
+</p>
+</li>
+<li>
+<p>
+ajax : dossier contenant les fichiers cibles d’appels AJAX
+</p>
+</li>
+<li>
+<p>
+desktop : dossier contenant la vue "bureau" du plugin (en opposition avec la vue mobile)
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+js : dossier contenant tous les fichiers de type javascript
+</p>
+</li>
+<li>
+<p>
+php : dossier contenant tous les fichiers de type php qui font de l’affichage
+</p>
+</li>
+<li>
+<p>
+css : il n’y en pas ici mais si besoin tous les fichiers css du plugin vont dedans
+</p>
+</li>
+<li>
+<p>
+modal  : dossier contenant le code des modals du plugin
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+plugin_info : contient les fichiers permettant à Jeedom de qualifier le plugin, de faire son installation et sa configuration
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+info.xml : fichier contenant les informations de base du plugin (il est obligatoire sinon Jeedom ne verra pas le plugin), il contient entre autre l’identifiant du module, la description, les instructions d’installation&#8230;
+</p>
+</li>
+<li>
+<p>
+install.php : fichier contenant (si besoin) les méthodes d’installation et de désinstallation du plugin
+</p>
+</li>
+<li>
+<p>
+configuration.php : fichier contenant les paramètres à configurer du plugin indépendants des équipements de celui-ci (exemple pour le module Zwave l’ip du Raspberry Pi ayant la carte Razberry)
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+doc : doit contenir la doc du plugin au format asciidoc, la racine et le fichier index.asciidoc. Toutes les images sont dans doc/images. La doc elle meme est dans un dossier en fonction de la langue (ex en francais : doc/fr_FR)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Pour ce qui est de la convention de nommage des fichiers voici les impératifs :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+les fichiers de class php doivent obligatoirement se finir par ".class.php"
+</p>
+</li>
+<li>
+<p>
+si ce n’est pas géré par un fichier d’inclusion, le nom du fichier doit être "nom_class.class.php"
+</p>
+</li>
+<li>
+<p>
+les fichiers servant uniquement de point d’entrée pour inclure de multiples fichiers doivent se finir par ".inc.php"
+</p>
+</li>
+<li>
+<p>
+les fichiers de configuration doivent se finir par ".config.php"
+</p>
+</li>
+<li>
+<p>
+les fichiers d’aide à une page doivent être nommés de cette forme "help.nomdelapage.php". Le plus souvent un plugin n’ayant qu’une page de vue, le fichier d’aide aura donc le nom suivant "help.PLUGIN_ID.php" (le nom de la première page d’un plugin est forcément le même que l&#8217;ID de celui-ci, et donc que le nom du dossier contenant le plugin)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Voici les recommandations :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+les fichiers de type AJAX doivent se finir par ".ajax.php"
+</p>
+</li>
+<li>
+<p>
+le nom de la première page de vue d’un plugin doit être le même que l’ID du plugin
+</p>
+</li>
+<li>
+<p>
+le nom du fichier JS (s’il y en a un) de la première page de vue du plugin doit être l’ID du plugin
+</p>
+</li>
+</ul></div>
+<hr />
+</div>
+<div class="sect2">
+<h3 id="_création_plugin_partie_2_plugin_info">Création plugin partie 2 : plugin info</h3>
+<div class="sect4">
+<h5 id="_info_xml">info.xml</h5>
+<div class="paragraph"><p>Fichier de base du plugin, c&#8217;est dans celui-ci que Jeedom récupère toutes les informations relatives au plugin :</p></div>
+<div class="paragraph"><p>Il est composé des balises (une * indique que cette balise est obligatoire) :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+*id : identifiant unique du plugin (doit être le même que le nom du dossier contenant le plugin et que le type des équipements que crée le plugin)
+</p>
+</li>
+<li>
+<p>
+*name : nom du plugin (ça sera le nom affiché sur l&#8217;interface)
+</p>
+</li>
+<li>
+<p>
+icon : classe css utilisée dans la balise &lt;i&gt; pour afficher l&#8217;icône du plugin. Doit obligatoirement commencer par "fa" suivi de l&#8217;icône voulu, la liste est disponible <a href="http://fortawesome.github.io/Font-Awesome/">là</a> licence : Licence sous laquelle est publiée le plugin
+</p>
+</li>
+<li>
+<p>
+author : Auteur du plugin
+</p>
+</li>
+<li>
+<p>
+*require : version minimale de Jeedom requise pour installation du plugin
+</p>
+</li>
+<li>
+<p>
+*version : version du plugin
+</p>
+</li>
+<li>
+<p>
+category : sert à catégoriser les plugins pour trouver celui qu&#8217;on veut plus rapidement
+</p>
+</li>
+<li>
+<p>
+include : balise un peu particulière, permet de spécifier à Jeedom s&#8217;il faut utiliser un fichier d&#8217;inclusion particulier (pour rappel il doit se trouver dans PLUGIN_ID/core/php), ici par exemple j&#8217;indique qu&#8217;il faut utiliser le fichier : "sms/core/php/sms.inc.php". Si cette balise n&#8217;est pas là Jeedom inclura par défaut le fichier contenant la classe du plugin (ici ça aurait été /sms/core/class/sms.class.php. Pour rappel le fichier de classe du plugin est nommé en fonction de l&#8217;ID du plugin)
+</p>
+</li>
+<li>
+<p>
+display : permet de spécifier le nom du fichier php (qui doit se trouver dans le dossier desktop/php) devant c pour afficher le panel (lien dans le sous-menu accueil)
+</p>
+</li>
+<li>
+<p>
+mobile : permet de spécifier le nom du fichier html (qui doit se trouver dans le dossier mobile/html) devant devant être appelé pour afficher la version mobile du panel
+</p>
+</li>
+<li>
+<p>
+allowRemote : indique que le plugin est compatible avec un jeedom esclave
+</p>
+</li>
+<li>
+<p>
+hasDependency : indique que le plugin possede des dépendances
+</p>
+</li>
+<li>
+<p>
+hasOwnDeamon : indique que le plugin à un démon
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Exemple :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;info&gt;
+    &lt;id&gt;zwave&lt;/id&gt;
+    &lt;name&gt;Zwave&lt;/name&gt;
+    &lt;description&gt;Plugin pour envoyer des ordres Z-Wave&lt;/description&gt;
+    &lt;icon&gt;fa fa-rss&lt;/icon&gt;
+    &lt;licence&gt;AGPL&lt;/licence&gt;
+    &lt;author&gt;Loïc Gevrey&lt;/author&gt;
+    &lt;installation&gt;Si vous n'avez pas une box préinstallée et que vous n'avez pas installé l'application zway (http://razberry.z-wave.me/) faites :
+        - "wget -q -O - razberry.z-wave.me/install | sudo bash"
+    &lt;/installation&gt;
+    &lt;require&gt;1.10&lt;/require&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;category&gt;automation protocol&lt;/category&gt;
+    &lt;mobile&gt;zwave&lt;/mobile&gt;
+&lt;/info&gt;</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_installation_php">installation.php</h5>
+<div class="paragraph"><p>Fichier donnant les instructions d&#8217;installation d&#8217;un plugin :</p></div>
+<div class="paragraph"><p>Il est composé de la manière suivante :</p></div>
+<div class="paragraph"><p>La première partie commentée contient la licence (c&#8217;est mieux :) celle utilisée ici indique que le fichier appartient à Jeedom et qu&#8217;il est open source)
+Ensuite vient l&#8217;inclusion du core de Jeedom (ça permet d’accéder au fonction interne)
+Et après viennent les 2 fonctions  :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+install_pluginid() : méthode permettant d&#8217;installer le plugin.
+Ici l&#8217;installation ajoute une tâche cron à Jeedom
+</p>
+</li>
+<li>
+<p>
+update_pluginid() : méthode permettant d&#8217;installer le plugin.
+Utilisé ici pour redémarrer la tache cron
+</p>
+</li>
+<li>
+<p>
+remove_pluginid() : méthode permettant de supprimer le plugin.
+Ici la fonction supprime la tâche cron de Jeedom lors de la désinstallation
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Exemple :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php
+/* This file is part of Jeedom.
+ *
+ * Jeedom is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Jeedom is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Jeedom. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
+
+function zwave_install() {
+    $cron = cron::byClassAndFunction('zwave', 'pull');
+    if (!is_object($cron)) {
+        $cron = new cron();
+        $cron-&gt;setClass('zwave');
+        $cron-&gt;setFunction('pull');
+        $cron-&gt;setEnable(1);
+        $cron-&gt;setDeamon(1);
+        $cron-&gt;setSchedule('* * * * *');
+        $cron-&gt;save();
+    }
+}
+
+function zwave_update() {
+    $cron = cron::byClassAndFunction('zwave', 'pull');
+    if (!is_object($cron)) {
+        $cron = new cron();
+        $cron-&gt;setClass('zwave');
+        $cron-&gt;setFunction('pull');
+        $cron-&gt;setEnable(1);
+        $cron-&gt;setDeamon(1);
+        $cron-&gt;setSchedule('* * * * *');
+        $cron-&gt;save();
+    }
+    $cron-&gt;stop();
+}
+
+function zwave_remove() {
+    $cron = cron::byClassAndFunction('zwave', 'pull');
+    if (is_object($cron)) {
+        $cron-&gt;remove();
+    }
+}
+?&gt;</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_configuration_php">configuration.php</h5>
+<div class="paragraph"><p>Fichier permettant de demander des informations de configuration à l&#8217;utilisateur :</p></div>
+<div class="paragraph"><p>Le fichier est constitué de  :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+La licence comme tout à l&#8217;heure
+</p>
+</li>
+<li>
+<p>
+L&#8217;inclusion du core de Jeedom
+</p>
+</li>
+<li>
+<p>
+La vérification que l&#8217;utilisateur est bien connecté (j’inclue le fichier 404 car ce fichier est un fichier de type vue)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Ensuite vient le paramètre demandé (il peut en avoir plusieurs), c&#8217;est de la syntaxe standard Bootstrap pour les formulaires seule particularité à respecter c&#8217;est la classe ("configKey") à mettre sur l'élément de paramètre ainsi que le "data-l1key" qui indique le nom du paramètre. Pour récupérer la valeur de celui-ci ailleurs dans le plugin il suffit de faire  : "config::byKey(NOM_PARAMETRE, PLUGIN_ID)"
+Exemple :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php
+/* This file is part of Jeedom.
+ *
+  * Jeedom is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Jeedom is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+  * You should have received a copy of the GNU General Public License
+ * along with Jeedom. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+  */
+
+ require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
+include_file('core', 'authentification', 'php');
+if (!isConnect()) {
+    include_file('desktop', '404', 'php');
+    die();
+ }
+ ?&gt;
+ &lt;form class="form-horizontal"&gt;
+     &lt;fieldset&gt;
+         &lt;div class="form-group"&gt;
+             &lt;label class="col-lg-2 control-label"&gt;Zway IP&lt;/label&gt;
+             &lt;div class="col-lg-2"&gt;
+                 &lt;input class="configKey form-control" data-l1key="zwaveAddr" /&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+         &lt;div class="form-group"&gt;
+             &lt;label class="col-lg-4 control-label"&gt;Supprimer automatiquement les périphériques exclus&lt;/label&gt;
+             &lt;div class="col-lg-4"&gt;
+                 &lt;input type="checkbox" class="configKey" data-l1key="autoRemoveExcludeDevice" /&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+         &lt;div class="form-group"&gt;
+             &lt;label class="col-lg-4 control-label"&gt;J'utilise un serveur openzwave&lt;/label&gt;
+             &lt;div class="col-lg-4"&gt;
+                 &lt;input type="checkbox" class="configKey" data-l1key="isOpenZwave" /&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+     &lt;/fieldset&gt;
+ &lt;/form&gt;</code></pre>
+</div></div>
+<hr />
+</div>
+</div>
+<div class="sect2">
+<h3 id="_création_plugin_partie_3_dossier_desktop">Création plugin partie 3 : dossier desktop</h3>
+<div class="sect4">
+<h5 id="_php">PHP</h5>
+<div class="paragraph"><p>Ce dossier contient la vue à proprement parler, dedans on retrouve obligatoire la page de configuration du plugin (celle qui apparaîtra quand l&#8217;utilisateur fera plugin &#8658; catégorie &#8658; votre plugin), il est conseillé de nommer celle-ci avec l&#8217;id de votre plugin. Il peut aussi contenir le panel (page que l&#8217;utilisateur trouvera dans accueil &#8594; nom de votre plugin).</p></div>
+<div class="paragraph"><p>Tous les fichiers dans ce dossier doivent finir par .php et doit obligatoirement commencer par :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php
+if (!isConnect('admin')) {
+    throw new Exception('{{401 - Accès non autorisé}}');
+ }
+ sendVarToJS('eqType', 'mail');
+ ?&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Une fois sur cette page vous aurez accès en php à toutes les fonctions du core de jeedom (voir <a href="http://dev.jeedom.fr">http://dev.jeedom.fr</a>) ainsi qu'à celles de tous les modules installés donc le vôtre aussi.</p></div>
+<div class="paragraph"><p>Toutes ces pages étant des vues elles utilisent principalement la syntaxe HTML. Pour tout ce qui est présentation, Jeedom se base principalement sur  bootstrap donc toute la documentation est applicable (<a href="http://getbootstrap.com/">http://getbootstrap.com/</a>).</p></div>
+<div class="paragraph"><p>Pour simplifier la création de plugin vous pouvez inclure dans votre page le script javascript de template pour les plugins :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php include_file('core', 'plugin.template', 'js'); ?&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>A mettre tout en bas de votre page et utile uniquement sur la page de configuration de votre plugin. Ce script permet de réduire le javascript obligatoire à une seule fonction (voir partie sur les fichiers JS).</p></div>
+<div class="paragraph"><p>Dans votre page de configuration une syntaxe html a été mise en place pour vous simplifier la vie. Donc pour la plupart des plugins vous n&#8217;aurez  à faire que du html pour stocker vos informations en base de données et donc vous en resservir du coté de votre classe.</p></div>
+<div class="paragraph"><p>Pour la syntaxe c&#8217;est assez simple votre élément (input, select&#8230;) doit avoir la classe css eqLogicAttr (ou cmdAttr pour les commandes) et un attribut indiquant le nom de la propriété :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement mail}}"/&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Là par exemple lors du chargement des données jeedom mettra la valeur du nom de l'équipement dans l&#8217;input et lors de la sauvegarde récupérera celle-ci pour la remettre en BDD. Petite astuce certaines propriétés sont en fait des chaînes JSON en BDD (ça permet d&#8217;avoir vraiment pas mal de libertés pour le plugin), dans ce cas il suffit de faire :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;input class="eqLogicAttr form-control" data-l1key='configuration' data-l2key='fromName' /&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour la liste des propriétés des équipements c&#8217;est ici et des commandes c&#8217;est ici (pour voir les propriétés qui sont de JSON il suffit de regarder le getter ou le setter si celui-ci prend 2 paramètres alors c&#8217;est du JSON)</p></div>
+<div class="paragraph"><p>Dernier point important sur la page de configuration celle-ci peut contenir autant d'équipements et de commandes que nécessaire. Cependant il y a quelques règles à respecter :</p></div>
+<div class="paragraph"><p>Tous les éléments ayant la classe eqLogicAttr doivent être dans un élément ayant la classe css eqLogic
+Idem pour les éléments de classe css cmdAttr qui doivent être dans un élément de classe cmd.
+Toutes les commandes d&#8217;un équipement doivent se trouver dans l'élément ayant la classe eqLogic correspondant</p></div>
+</div>
+<div class="sect4">
+<h5 id="_js">JS</h5>
+<div class="paragraph"><p>Tous les fichiers JS doivent se trouver dans le dossier JS (facile !!!). Il est conseillé de le nommer du même ID que votre plugin (pour la partie configuration, pour le panel vous faîtes comme vous voulez). Ce fichier JS (celui de la configuration du plugin) doit au minimum contenir une méthode addCmdToTable qui prend en paramètre l&#8217;objet commande à ajouter. Voici un exemple simple :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>function addCmdToTable(_cmd) {
+    if (!isset(_cmd)) {
+        var _cmd = {configuration: {}};
+     }
+        var tr = '';     tr += '';
+     tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="id" style="display : none;"&gt;';
+        tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="name"&gt;';     tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="recipient"&gt;';     tr += '';
+     tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="type" value="action" style="display : none;"&gt;';
+     tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="subType" value="message" style="display : none;"&gt;';
+     if (is_numeric(_cmd.id)) {
+        tr += '&lt;a class="btn btn-default btn-xs cmdAction" data-action="test"&gt;&lt;i class="fa fa-rss"&gt;&lt;/i&gt; {{Tester}}&lt;/a&gt;';
+     }
+     tr += '&lt;i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"&gt;&lt;/i&gt;&lt;/td&gt;';
+        tr += '';
+     $('#table_cmd tbody').append(tr);
+    $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Vous remarquerez qu&#8217;il y a une ligne par commande et que celle-ci a bien la classe css cmd. Vous pouvez aussi voir les éléments qui ont la classe cmdAttr.</p></div>
+<div class="paragraph"><p>Plusieurs points importants :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+cette fonction peut être appelée avec un objet vide (d&#8217;où les 3 premières lignes) lors de l&#8217;ajout d&#8217;une nouvelle commande
+</p>
+</li>
+<li>
+<p>
+la dernière ligne permet d&#8217;initialiser tous les champs une fois la ligne insérée
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Dernier point un exemple plus complet avec type et sous-type de commande :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>function addCmdToTable(_cmd) {
+    if (!isset(_cmd)) {
+        var _cmd = {};
+    }
+     if (!isset(_cmd.configuration)) {
+        _cmd.configuration = {};
+    }
+     var selRequestType = '&lt;select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType"&gt;';
+     selRequestType += '&lt;option value="script"&gt;{{Script}}&lt;/option&gt;';
+     selRequestType += '&lt;option value="http"&gt;{{Http}}&lt;/option&gt;';
+     selRequestType += '&lt;/select&gt;';
+        var tr = '';     tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="name" style="width : 140px;"&gt;';
+        tr += '&lt;input class="cmdAttr form-control input-sm" data-l1key="id"  style="display : none;"&gt;';
+        tr += '' + selRequestType;
+    tr += '&lt;div class="requestTypeConfig" data-type="http"&gt;';
+     tr += '&lt;input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" /&gt;Ne pas vérifier SSL';
+    tr += '&lt;/div&gt;';
+        tr += '';     tr += '';
+     tr += '&lt;span class="type" type="' + init(_cmd.type) + '"&gt;' + jeedom.cmd.availableType() + '&lt;/span&gt;';
+     tr += '&lt;span class="subType" subType="' + init(_cmd.subType) + '"&gt;&lt;/span&gt;';
+        tr += '';     tr += '&lt;textarea style="height : 95px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"&gt;&lt;/textarea&gt;';
+     tr += '&lt;a class="btn btn-default browseScriptFile cursor input-sm" style="margin-top : 5px;"&gt;&lt;i class="fa fa-folder-open"&gt;&lt;/i&gt; {{Parcourir}}&lt;/a&gt; ';
+     tr += '&lt;a class="btn btn-default editScriptFile cursor input-sm" style="margin-top : 5px;"&gt;&lt;i class="fa fa-edit"&gt;&lt;/i&gt; {{Editer}}&lt;/a&gt; ';
+     tr += '&lt;a class="btn btn-success newScriptFile cursor input-sm" style="margin-top : 5px;"&gt;&lt;i class="fa fa-file-o"&gt;&lt;/i&gt; {{Nouveau}}&lt;/a&gt; ';
+     tr += '&lt;a class="btn btn-danger removeScriptFile cursor input-sm" style="margin-top : 5px;"&gt;&lt;i class="fa fa-trash-o"&gt;&lt;/i&gt; {{Supprimer}}&lt;/a&gt; ';
+     tr += '&lt;a class="btn btn-warning bt_shareOnMarket cursor input-sm" style="margin-top : 5px;"&gt;&lt;i class="fa fa-cloud-upload"&gt;&lt;/i&gt; {{Partager}}&lt;/a&gt; ';
+     tr += '&lt;/div&gt;';
+        tr += '';     tr += '';
+     tr += '&lt;input class="cmdAttr form-control tooltips input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}"&gt;';
+     tr += '&lt;input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}"&gt; ';
+     tr += '&lt;input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}"&gt;';
+        tr += '';     tr += '';
+     tr += '&lt;span&gt;&lt;input type="checkbox" class="cmdAttr" data-l1key="isHistorized" /&gt; {{Historiser}}&lt;br/&gt;&lt;/span&gt;';
+        tr += '';     tr += '';
+     if (is_numeric(_cmd.id)) {
+        tr += '&lt;a class="btn btn-default btn-xs cmdAction" data-action="test"&gt;&lt;i class="fa fa-rss"&gt;&lt;/i&gt; {{Tester}}&lt;/a&gt;';
+     }
+     tr += '&lt;i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"&gt;&lt;/i&gt;&lt;/td&gt;';
+        tr += '';
+     $('#table_cmd tbody').append(tr);
+    $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+
+    if (isset(_cmd.configuration.requestType)) {
+        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').value(init(_cmd.configuration.requestType));
+        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').trigger('change');
+    }
+
+     if (isset(_cmd.type)) {
+        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
+    }
+     jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
+    initTooltips();
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Ici on peut remarquer :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+jeedom.cmd.availableType() qui va insérer un select avec la liste des types connus (action et info pour le moment)
+</p>
+</li>
+<li>
+<p>
+&lt;span class="subType" subType="' + init(_cmd.subType) + '"&gt;&lt;/span&gt;: l&#8217;endroit où le select de sous type doit être posé
+</p>
+</li>
+<li>
+<p>
+jeedom.cmd.changeType($(<em>#table_cmd tbody tr:last</em>), init(_cmd.subType)) qui permet d&#8217;initialiser le sous type avec la bonne valeur
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>D&#8217;autres fonctions javascript peuvent être utilisées :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+printEqLogic qui prend en paramètre tout l&#8217;objet de l'équipement (utile en cas de traitement de données avant de les restituer). Elle est appelée lors de l&#8217;affichage des données de l'équipement
+</p>
+</li>
+<li>
+<p>
+saveEqLogic qui prend en paramètre l&#8217;objet équipement qui va être sauvegardé en base de données (utile si vous devez faire du traitement avant sauvegarde)
+Dernière chose, pour les fichiers JS, voici comment les inclure de manière propre sur votre page php :
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php include_file('desktop', 'weather', 'js', 'weather'); ?&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Le premier argument donne le dossier dans lequel le trouver (attention c&#8217;est le dossier père du dossier JS), le deuxième le nom de votre javascript, le troisième indique à Jeedom que c&#8217;est un fichier JS et le dernier dans quel plugin il se trouve.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_css">CSS</h5>
+<div class="paragraph"><p>Ce dossier contient vos fichiers CSS (il ne devrait pas être trop utilisé) , voici comment les inclure sur votre page :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php include_file('desktop', 'weather', 'css', 'weather'); ?&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Le premier argument donne le dossier dans lequel le trouver (attention c&#8217;est le dossier père du dossier CSS), le deuxième le nom de votre fichier css, le troisième indique à Jeedom que c&#8217;est un fichier CSS et le dernier dans quel plugin il se trouve.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_modal">MODAL</h5>
+<div class="paragraph"><p>Le dossier modal vous permet de stocker vos fichiers php destinés à afficher des modals. Voici comment les appeler à partir de votre page principale (ce code se met dans un fichier javascript) :</p></div>
+<div class="paragraph"><p>On peut voir :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$('#md_modal').dialog({title: "{{Classe du périphérique}}"});
+ $('#md_modal').load('index.php?v=d&amp;plugin=zwave&amp;modal=show.class&amp;id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');</code></pre>
+</div></div>
+<div class="paragraph"><p>La première permet de mettre un titre à votre modal</p></div>
+<div class="paragraph"><p>La deuxième ligne charge votre modal et l&#8217;affichage. Pour la syntaxe c&#8217;est assez simple : plugin l&#8217;id de votre plugin, modal le nom de votre modal sans le php et ensuite les paramètres que vous voulez lui passer</p></div>
+</div>
+<div class="sect4">
+<h5 id="_api_js">API JS</h5>
+<div class="paragraph"><p>Ce n&#8217;est pas un dossier mais dans les dernières versions de Jeedom celui-ci offre au développeur toute une api javascript (ça évite d'écrire des appels ajax dans tous les sens). J&#8217;essayerai de faire un article pour expliquer les différentes fonctionnalités mais vous pouvez déjà trouver le code ici.</p></div>
+<div class="paragraph"><p>Voilà pour les détails du dossier desktop. Je me doute que c&#8217;est pas des plus complets (j&#8217;essayerai de le compléter en fonction des différentes demandes que je reçois) mais j’espère que grâce à ça vous pourrez commencer à faire des plugins pour Jeedom.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_trucs_et_astuces">Trucs et astuces</h5>
+<div class="listingblock">
+<div class="title">Assitant cron</div>
+<div class="content">
+<pre><code>$('body').delegate('.helpSelectCron','click',function(){
+  var el = $(this).closest('.schedule').find('.scenarioAttr[data-l1key=schedule]');
+  jeedom.getCronSelectModal({},function (result) {
+    el.value(result.value);
+  });
+});</code></pre>
+</div></div>
+<div class="paragraph"><p>Quand on clique sur le bouton d&#8217;assistant, ça récupère l&#8217;input dans lequel écrire puis appelle l&#8217;assistant. Une fois la configuration finie dans l’assistant, le résultat est récuperé puis écrit dans l&#8217;input précédemment selectionné</p></div>
+<hr />
+</div>
+</div>
+<div class="sect2">
+<h3 id="_création_plugin_partie_4_dossier_core">Création plugin partie 4 : dossier core</h3>
+<div class="paragraph"><p>De loin un des dossiers le plus important de votre plugin, il peut comporter 4 sous dossiers.</p></div>
+<div class="paragraph"><p>Note : tous le long de cette partie l&#8217;id de votre plugin sera referencé par : plugin_id</p></div>
+<div class="sect4">
+<h5 id="_php_2">PHP</h5>
+<div class="paragraph"><p>Contient les fichiers PHP annexe, j&#8217;ai pris l&#8217;habitude de mettre par exemple un fichier d&#8217;inclusion si, bien sur, vous avez plusieurs fichiers de class ou des 3rparty à inclure</p></div>
+</div>
+<div class="sect4">
+<h5 id="_template_2">Template</h5>
+<div class="paragraph"><p>Qui peut contenir 2 sous-dossiers, dashboard et mobile, c&#8217;est un dossier que Jeedom scanne automatiquement à la recherche de widget, donc si vous utilisez des widgets specifiques c&#8217;est ici qu&#8217;il faut mettre leur fichier html</p></div>
+</div>
+<div class="sect4">
+<h5 id="_i18n">i18n</h5>
+<div class="paragraph"><p>C&#8217;est ici que votre traduction doit aller sous forme de fichier json (le mieux et de regarder par exemple le plugin <a href="https://github.com/jeedom/plugin-zwave">zwave</a> pour voir la forme du fichier)</p></div>
+</div>
+<div class="sect4">
+<h5 id="_ajax">ajax</h5>
+<div class="paragraph"><p>Ce dossier est pour tout vos fichier ajax, voici un squelette de fichier ajax :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php
+
+/* This file is part of Jeedom.
+ *
+ * Jeedom is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Jeedom is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Jeedom. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+
+try {
+    require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+    include_file('core', 'authentification', 'php');
+
+    if (!isConnect('admin')) {
+        throw new Exception(__('401 - Accès non autorisé', __FILE__));
+    }
+
+    if (init('action') == 'votre action') {
+
+        ajax::success($result);
+    }
+
+    throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
+    /*     * *********Catch exeption*************** */
+} catch (Exception $e) {
+    ajax::error(displayExeption($e), $e-&gt;getCode());
+}
+?&gt;</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_class">class</h4>
+<div class="paragraph"><p>Dossier très important c&#8217;est le moteur de votre plugin, c&#8217;est la que viennent les 2 classes obligatoires de votre plugin :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+plugin_id
+</p>
+</li>
+<li>
+<p>
+plugin_idCmd
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>La premiere devant hériter de la classe eqLogic et la deuxieme de cmd. Voici un template :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&lt;?php
+
+/* This file is part of Jeedom.
+ *
+ * Jeedom is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Jeedom is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Jeedom. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+
+/* * ***************************Includes********************************* */
+require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+
+class plugin_id extends eqLogic {
+
+    /*     * *************************Attributs****************************** */
+
+
+    /*     * ***********************Methode static*************************** */
+
+
+    /*     * *********************Methode d'instance************************* */
+
+
+    /*     * **********************Getteur Setteur*************************** */
+
+}
+
+class plugin_idCmd extends cmd {
+
+    /*     * *************************Attributs****************************** */
+
+
+    /*     * ***********************Methode static*************************** */
+
+
+    /*     * *********************Methode d'instance************************* */
+
+
+    /*     * **********************Getteur Setteur*************************** */
+
+}
+
+?&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour la definition des classes jeedom, je vous invite à consulter ce <a href="http://dev.jeedom.fr/">site</a></p></div>
+<div class="paragraph"><p>La seule methode obligatoire est la methode d&#8217;instance sur la classe cmd execute, voici un exemple avec le plugin S.A.R.A.H :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> public function execute($_options = array()) {
+        if (!isset($_options['title']) &amp;&amp; !isset($_options['message'])) {
+            throw new Exception(__("Le titre ou le message ne peuvent être tous les deux vide", __FILE__));
+        }
+        $eqLogic = $this-&gt;getEqLogic();
+        $message = '';
+        if (isset($_options['title'])) {
+            $message = $_options['title'] . '. ';
+        }
+        $message .= $_options['message'];
+        $http = new com_http($eqLogic-&gt;getConfiguration('addrSrvTts') . '/?tts=' . urlencode($message));
+        return $http-&gt;exec();
+    }</code></pre>
+</div></div>
+<div class="paragraph"><p>Exemple assez simple mais complet, le principe est le suivant, si la commande est une action ou une info (mais pas en evenement seulement et que son cache est dépassé) alors jeedom appelle cette méthode.</p></div>
+<div class="paragraph"><p>Dans notre exemple ici c&#8217;est une commande pour faire parler S.A.R.A.H, où le plugin recupère les paramètres dans $_options (attention c&#8217;est un tableau et ses attributs changent en fonction du sous-type de la commande : color pour un sous-type color, slider pour un sous-type slider, title et message pour un sous-type message et vide pour un sous-type other).</p></div>
+<div class="paragraph"><p>Voila pour la partie obligatoire, voila maintenant ce qui peut etre utilisé à coté (avec exemple) :</p></div>
+<div class="paragraph"><div class="title">toHtml($_version = <em>dashboard</em>)</div><p>Fonction utilisable dans la commande ou dans l'équipement, en fonction des besoins, voici un exemple pour l'équipement</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>   public function toHtml($_version = 'dashboard') {
+       if ($this-&gt;getIsEnable() != 1) {
+            return '';
+        }
+        if (!$this-&gt;hasRight('r')) {
+            return '';
+        }
+        $version = jeedom::versionAlias($_version);
+        if ($this-&gt;getDisplay('hideOn' . $version) == 1) {
+            return '';
+        }
+        $mc = cache::byKey('weatherWidget' . jeedom::versionAlias($_version) . $this-&gt;getId());
+        if ($mc-&gt;getValue() != '') {
+            return preg_replace("/" . preg_quote(self::UIDDELIMITER) . "(.*?)" . preg_quote(self::UIDDELIMITER) . "/", self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER, $mc-&gt;getValue());
+        }
+        $html_forecast = '';
+
+        if ($_version != 'mobile' || $this-&gt;getConfiguration('fullMobileDisplay', 0) == 1) {
+            $forcast_template = getTemplate('core', $_version, 'forecast', 'weather');
+            for ($i = 0; $i &lt; 5; $i++) {
+                $replace = array();
+                $replace['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
+
+                if ($i == 0) {
+                    $temperature_min = $this-&gt;getCmd(null, 'temperature_min');
+                } else {
+                    $temperature_min = $this-&gt;getCmd(null, 'temperature_' . $i . '_min');
+                }
+                $replace['#low_temperature#'] = is_object($temperature_min) ? $temperature_min-&gt;execCmd() : '';
+
+                if ($i == 0) {
+                    $temperature_max = $this-&gt;getCmd(null, 'temperature_max');
+                } else {
+                    $temperature_max = $this-&gt;getCmd(null, 'temperature_' . $i . '_max');
+                }
+                $replace['#hight_temperature#'] = is_object($temperature_max) ? $temperature_max-&gt;execCmd() : '';
+
+                if ($i == 0) {
+                    $condition = $this-&gt;getCmd(null, 'condition');
+                } else {
+                    $condition = $this-&gt;getCmd(null, 'condition_' . $i);
+                }
+                $replace['#icone#'] = is_object($condition) ? self::getIconFromCondition($condition-&gt;execCmd()) : '';
+
+                $html_forecast .= template_replace($replace, $forcast_template);
+            }
+        }
+        $replace = array(
+            '#id#' =&gt; $this-&gt;getId(),
+            '#city#' =&gt; $this-&gt;getConfiguration('city_name'),
+            '#collectDate#' =&gt; '',
+            '#background_color#' =&gt; $this-&gt;getBackgroundColor($_version),
+            '#eqLink#' =&gt; $this-&gt;getLinkToConfiguration(),
+            '#forecast#' =&gt; $html_forecast,
+        );
+        $temperature = $this-&gt;getCmd(null, 'temperature');
+        $replace['#temperature#'] = is_object($temperature) ? $temperature-&gt;execCmd() : '';
+
+        $humidity = $this-&gt;getCmd(null, 'humidity');
+        $replace['#humidity#'] = is_object($humidity) ? $humidity-&gt;execCmd() : '';
+
+        $pressure = $this-&gt;getCmd(null, 'pressure');
+        $replace['#pressure#'] = is_object($pressure) ? $pressure-&gt;execCmd() : '';
+
+        $wind_speed = $this-&gt;getCmd(null, 'wind_speed');
+        $replace['#windspeed#'] = is_object($wind_speed) ? $wind_speed-&gt;execCmd() : '';
+
+        $sunrise = $this-&gt;getCmd(null, 'sunrise');
+        $replace['#sunrise#'] = is_object($sunrise) ? $sunrise-&gt;execCmd() : '';
+        if (strlen($replace['#sunrise#']) == 3) {
+            $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 1) . ':' . substr($replace['#sunrise#'], 1, 2);
+        } else if (strlen($replace['#sunset#']) == 4) {
+            $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 2) . ':' . substr($replace['#sunrise#'], 2, 2);
+        }
+
+        $sunset = $this-&gt;getCmd(null, 'sunset');
+        $replace['#sunset#'] = is_object($sunset) ? $sunset-&gt;execCmd() : '';
+        if (strlen($replace['#sunset#']) == 3) {
+            $replace['#sunset#'] = substr($replace['#sunset#'], 0, 1) . ':' . substr($replace['#sunset#'], 1, 2);
+        } else if (strlen($replace['#sunset#']) == 4) {
+            $replace['#sunset#'] = substr($replace['#sunset#'], 0, 2) . ':' . substr($replace['#sunset#'], 2, 2);
+        }
+
+        $wind_direction = $this-&gt;getCmd(null, 'wind_direction');
+        $replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction-&gt;execCmd() : 0;
+
+        $condition = $this-&gt;getCmd(null, 'condition_now');
+        $sunset_time = is_object($sunset) ? $sunset-&gt;execCmd() : null;
+        $sunrise_time = is_object($sunrise) ? $sunrise-&gt;execCmd() : null;
+        if (is_object($condition)) {
+            $replace['#icone#'] = self::getIconFromCondition($condition-&gt;execCmd(), $sunrise_time, $sunset_time);
+            $replace['#condition#'] = $condition-&gt;execCmd();
+            $replace['#collectDate#'] = $condition-&gt;getCollectDate();
+        } else {
+            $replace['#icone#'] = '';
+            $replace['#condition#'] = '';
+            $replace['#collectDate#'] = '';
+        }
+
+        $parameters = $this-&gt;getDisplay('parameters');
+        if (is_array($parameters)) {
+            foreach ($parameters as $key =&gt; $value) {
+                $replace['#' . $key . '#'] = $value;
+            }
+        }
+
+        $html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
+        cache::set('weatherWidget' . $_version . $this-&gt;getId(), $html, 0);
+        return $html;
+    }</code></pre>
+</div></div>
+<div class="paragraph"><p>Plusieurs choses interessantes ici :</p></div>
+<div class="paragraph"><p>Pour convertir la version demandée en dashboard ou mobile (mview devient mobile par exemple, cela permet par exemple sur les vues de rajouter le nom des objets)</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$_version = jeedom::versionAlias($_version);</code></pre>
+</div></div>
+<div class="paragraph"><p>Ici recuperation du widget anciennement generé en cache (si celui-ci est non vide), ça permet de gagner du temps sur la generation, attention quand meme à bien vider le cache lors de la mise à jour des données</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>   $mc = cache::byKey('netatmoWeatherWidget' . jeedom::versionAlias($_version) . $this-&gt;getId());
+    if ($mc-&gt;getValue() != '') {
+        return preg_replace("/" . preg_quote(self::UIDDELIMITER) . "(.*?)" . preg_quote(self::UIDDELIMITER) . "/", self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER, $mc-&gt;getValue());
+    }</code></pre>
+</div></div>
+<div class="paragraph"><p>Recuperation d&#8217;un template de commande, ici le template de commande : plugins/weather/core/template/$_version/forecast.html ($_version valant mobile ou dashboard)</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$forcast_template = getTemplate('core', $_version, 'forecast', 'weather');</code></pre>
+</div></div>
+<div class="paragraph"><p>Ici remplacement des tag prealablement remplis dans $replace du html pour avoir les valeurs dessus</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$html_forecast .= template_replace($replace, $forcast_template);</code></pre>
+</div></div>
+<div class="paragraph"><p>Cela permet de recuperer la commande ayant le logical_id : temperature_min</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$this-&gt;getCmd(null, 'temperature_min');</code></pre>
+</div></div>
+<div class="paragraph"><p>La ça permet de mettre la valeur dans le tag, seulement si la commande a bien été récuperée</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$replace['#temperature#'] = is_object($temperature) ? $temperature-&gt;execCmd() : '';</code></pre>
+</div></div>
+<div class="paragraph"><p>Passage important, ça permet de recuperer les personalisations faites par l&#8217;utilisateur sur la page Générale &#8594; Affichage et de les reinjecter dans le template</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$parameters = $this-&gt;getDisplay('parameters');
+if (is_array($parameters)) {
+    foreach ($parameters as $key =&gt; $value) {
+        $replace['#' . $key . '#'] = $value;
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Sauvegarde du widget dans le cache, pour que lors de la prochaine demande on le fournisse plus rapidement, on peut remarquer le 0 ici qui indique une durée de vie infinie, sinon la durée est en secondes (on verra dans la partie suivante comment le plugin weather remet à jour son widget).</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>cache::set('weatherWidget' . $_version . $this-&gt;getId(), $html, 0);</code></pre>
+</div></div>
+<div class="paragraph"><p>Enfin envoi du html à Jeedom :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>return $html;</code></pre>
+</div></div>
+<div class="paragraph"><p>Il faut aussi dire à jeedom ce que votre widget autorise au niveau de la personalisation.Le truc est un peu complexe (et encore) mais normalement flexible et simple a mettre en place.</p></div>
+<div class="paragraph"><p>Il marche pareil sur votre équipement ou commande, c&#8217;est un attribut static de la class $_widgetPossibility qui doit être un tableau multidimensionnel, mais c&#8217;est la que ca se complique si une dimension du tableau est a true ou false alors il considère que tout les enfants possible sont à cette valeur (je vais donner un exemple).</p></div>
+<div class="paragraph"><p>Déja les cas ou vous devez vous en servir : si dans votre class heritant de eqLogic ou de cmd à une fonction toHtml sinon pas la peine de lire la suite.</p></div>
+<div class="paragraph"><p>Vue que le mieux c&#8217;est un exemple (dans la class heritant de eqLogic) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public static $_widgetPossibility = array('custom' =&gt; array(
+      'visibility' =&gt; true,
+      'displayName' =&gt; array('dashboard' =&gt; true, 'view' =&gt; true),
+      'optionalParameters' =&gt; true,
+));</code></pre>
+</div></div>
+<div class="paragraph"><p>En gros la ca dit que l&#8217;on peut changer la visibilité du widget, masquer ou non le nom de celui-ci et mettre des paramètres optionnels.</p></div>
+<div class="paragraph"><p>Mais j&#8217;aurais aussi bien pu faire :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>public static $_widgetPossibility = array('custom' =&gt; array(
+      'visibility' =&gt; true,
+      'displayName' =&gt; true,
+      'optionalParameters' =&gt; true,
+));</code></pre>
+</div></div>
+<div class="paragraph"><p>La différence est au niveau du displayName, la si jeedom demande si on peut masquer le nom de l'équipement en mode vue (ca donne custom::displayName::view) on lui dira oui car custom::displayName est vrai donc tous les enfants de ca sont vrai</p></div>
+<div class="paragraph"><p>Voila pour l&#8217;explication, en ce qui concerne les possibilités les voila pour un équipement :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>array('custom' =&gt;
+   array(
+      'visibility' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'displayName' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'displayObjectName' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'optionalParameters' =&gt; true/false,
+      'background-color' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'text-color' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'border-radius' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'border' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+   ),
+)</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour une commande :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>array('custom' =&gt;
+   array(
+      'widget' =&gt; array('dashboard' =&gt; true/false,'mobile' =&gt; true/false),
+      'displayName' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'displayObjectName' =&gt; array('dashboard' =&gt; true/false,'plan' =&gt; true/false,'view' =&gt; true/false,'mobile' =&gt; true/false),
+      'optionalParameters' =&gt; true/false,
+   ),
+)</code></pre>
+</div></div>
+<div class="paragraph"><div class="title">methode pre et post</div><p>Lors de la creation ou la supression de vos objet (equipement, commande ou autre) dans Jeedom, celui-ci peut appeler plusieurs méthodes avant/après l&#8217;action :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+preInsert &#8658; Méthode appellée avant la création de votre objet
+</p>
+</li>
+<li>
+<p>
+postInsert &#8658;  Méthode appellée après la création de votre objet
+</p>
+</li>
+<li>
+<p>
+preUpdate &#8658;  Méthode appellée avant la mise à jour de votre objet
+</p>
+</li>
+<li>
+<p>
+postUpdate &#8658;  Méthode appellée après la mise à jour de votre objet
+</p>
+</li>
+<li>
+<p>
+preSave &#8658;  Méthode appellée avant la sauvegarde (creation et mise à jour donc) de votre objet
+</p>
+</li>
+<li>
+<p>
+postSave &#8658;  Méthode appellée après la sauvegarde de votre objet
+</p>
+</li>
+<li>
+<p>
+preRemove &#8658;  Méthode appellée avant la supression de votre objet
+</p>
+</li>
+<li>
+<p>
+postRemove &#8658;  Méthode appellée après la supression de votre objet
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Exemple, toujours avec le plugin weather de la creation des commandes ou mise à jour de celle-ci après la sauvegarde (l&#8217;exemple est simplifié) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> public function postUpdate() {
+        $weatherCmd = $this-&gt;getCmd(null, 'temperature');
+        if (!is_object($weatherCmd)) {
+            $weatherCmd = new weatherCmd();
+        }
+        $weatherCmd-&gt;setName(__('Température', __FILE__));
+        $weatherCmd-&gt;setLogicalId('temperature');
+        $weatherCmd-&gt;setEqLogic_id($this-&gt;getId());
+        $weatherCmd-&gt;setConfiguration('day', '-1');
+        $weatherCmd-&gt;setConfiguration('data', 'temp');
+        $weatherCmd-&gt;setUnite('°C');
+        $weatherCmd-&gt;setType('info');
+        $weatherCmd-&gt;setSubType('numeric');
+        $weatherCmd-&gt;save();
+
+        $cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' =&gt; intval($this-&gt;getId())));
+        if (!is_object($cron)) {
+            $cron = new cron();
+            $cron-&gt;setClass('weather');
+            $cron-&gt;setFunction('updateWeatherData');
+            $cron-&gt;setOption(array('weather_id' =&gt; intval($this-&gt;getId())));
+        }
+        $cron-&gt;setSchedule($this-&gt;getConfiguration('refreshCron', '*/30 * * * *'));
+        $cron-&gt;save();
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Le début est assez standard avec la création d&#8217;une commande, la fin est plus interessante avec la mise en place d&#8217;un cron qui va appeler la methode weather::updateWeatherData en passant l&#8217;id de l'équipement à mettre à jour toute les 30min par défaut.</p></div>
+<div class="paragraph"><p>Ici la methode updateWeatherData (simplifiée aussi) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> public static function updateWeatherData($_options) {
+    $weather = weather::byId($_options['weather_id']);
+    if (is_object($weather)) {
+        foreach ($weather-&gt;getCmd('info') as $cmd) {
+            $value = $cmd-&gt;execute();
+            if ($value != $cmd-&gt;execCmd()) {
+                $cmd-&gt;setCollectDate('');
+                $cmd-&gt;event($value);
+            }
+        }
+        $mc = cache::byKey('weatherWidgetmobile' . $weather-&gt;getId());
+        $mc-&gt;remove();
+        $mc = cache::byKey('weatherWidgetdashboard' . $weather-&gt;getId());
+        $mc-&gt;remove();
+        $weather-&gt;toHtml('mobile');
+        $weather-&gt;toHtml('dashboard');
+        $weather-&gt;refreshWidget();
+    }
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>On voit ici que lors de l&#8217;appel on recupère l'équipement concerné puis que l&#8217;on execute les commandes pour recuperer les valeurs et mettre à jour celle-ci si necessaire.</p></div>
+<div class="paragraph"><p>Partie très importante :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$cmd-&gt;setCollectDate('');
+$cmd-&gt;event($value);</code></pre>
+</div></div>
+<div class="paragraph"><p>La première ligne est très importante car juste avant on à fait un execCmd qui va remplir le champs _collectDate (le _ devant le nom de l&#8217;attribut indique à Jeedom que l&#8217;attribut ne doit pas être sauvegardé en base, donc si vous en ajoutez pour votre class pensez bien à le preceder d&#8217;un _) or au moment de la fonction event (qui permet de signaler à Jeedom une nouvelle mise à jour de la valeur, avec declenchement de toute les actions qui doivent etre faites : mise à jour du dashboard, verification des scenario&#8230;), Jeedom regarde si la date de collecte est ancienne et si c&#8217;est le cas va refuser la nouvelle valeur. D&#8217;ou la remise à 0.</p></div>
+<div class="paragraph"><p>Ensuite on vide le cache (ici pas besoin de verifier s&#8217;il existe, l&#8217;objet est vide si le cache n&#8217;existe pas donc aucun risque pour la suppression) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$mc = cache::byKey('weatherWidgetmobile' . $weather-&gt;getId());
+$mc-&gt;remove();</code></pre>
+</div></div>
+<div class="paragraph"><p>Vu que le cache est vide on force la generation des widget mobile et dashboard :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$weather-&gt;toHtml('mobile');
+$weather-&gt;toHtml('dashboard');</code></pre>
+</div></div>
+<div class="paragraph"><p>Enfin on previent jeedom que le widget est à rafraichir sur l&#8217;interface de l&#8217;utilisateur :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$weather-&gt;refreshWidget();</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour la classe commande, un petit truc à savoir si vous utilisez le template js de base. Lors de l&#8217;envoi de l'équipment Jeedom fait du differentiel sur les commandes et va supprimer celles qui sont en base mais pas dans la nouvelle definition de l'équipement. Voila comment l'éviter :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> public function dontRemoveCmd() {
+    return true;
+}</code></pre>
+</div></div>
+<div class="paragraph"><p>Pour finir voici quelques trucs et astuces :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+evitez (à moins de savoir ce que vous faites) d'écraser une methode de la classe heritée (ça peut causer pas mal de problèmes)
+</p>
+</li>
+<li>
+<p>
+Pour remonter la batterie (en %) d&#8217;un équipement, faite sur celui-ci (jeedom se chargera du reste et de prevenir l&#8217;utilisateur si nécessaire) :
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$eqLogic-&gt;batteryStatus(56);</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Sur les commandes au moment de l&#8217;ajout d&#8217;une valeur jeedom applique la methode d&#8217;instance formatValue($_value) qui en fonction du sous-type peut la remettre en forme (en particulier pour les valeurs binaires)
+</p>
+</li>
+<li>
+<p>
+ne faite JAMAIS une methode dans la class heritant de cmd s&#8217;appellant : execCmd ou event
+</p>
+</li>
+<li>
+<p>
+si dans la configuration de votre commande vous avez renseigné returnStateTime (en minute) et returnStateValue, jeedom changera automatique la valeur de votre commande par returnStateValue au bout de X minute(s)
+</p>
+</li>
+<li>
+<p>
+toujours sur la commande vous pouvez utiliser addHistoryValue pour forcer la mise en historique (attention votre commande doit etre historisée)
+</p>
+</li>
+</ul></div>
+<hr />
+</div>
+</div>
+<div class="sect2">
+<h3 id="_faq">FAQ</h3>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-01-13 11:27:04 CET
+</div>
+</div>
+</body>
+</html>

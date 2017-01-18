@@ -74,23 +74,13 @@ if (isset($argv)) {
 		/*             * ***********************Knocklet********************************* */
 		if ($jsonrpc->getMethod() == 'knock') {
 			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
-			//TODO enlever ces logs
-				$now = date("Y-m-d H:i:s");
-				$text = $now."\n"."[braceletId]= ".$params['braceletId']."\n[moduleId]= ".$params['moduleId']."\n[knocks]= ".$params['knocks']."\n\n";
-				file_put_contents("/tmp/knockletAPI", $text, FILE_APPEND);
-
 				if ($params["knocks"]=="ff"){
-			//TODO enlever ça aussi
-					/*$bracelet = json_encode(array("type"=>"bracelet","id"=>$params["braceletId"]));
-					$module = json_encode(array("type"=>"module","id"=>$params["moduleId"]));
-					file_put_contents("/tmp/syncTest",$bracelet."\n".$module."\n",FILE_APPEND);*/
 					knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
 					knocklet::createModule("Nouveau module",$params['moduleId']);
 					$jsonrpc->makeSuccess("Demande d'initialisation ...");
 
 				}
 				else{
-			//TODO corriger ici
 					$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
 					//TODO faire pareil pour les scenario
 					if(count($cids) == 0) // TODO || count($scenarios)

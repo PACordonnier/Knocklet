@@ -51,13 +51,31 @@ class knocklet extends eqLogic {
 		foreach(config::searchKey("cmd","knocklet") as $tab){
 			$key = $tab["key"];
 			$cmd = $tab["value"];
-			if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks) $cmds[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
+			if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks) 
+				$cmds[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
 		}
 		return $cmds;
 	}
 
-	public static function getScenarioIdFromTriplet($bid,$mid,$knocks){
-                //TODO getScnerarioIdFromTriplet
+	public static function saveScioConfig($cid,$bid,$mid,$knocks){
+                config::save("scio::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
+        }
+
+        public static function getTripletFromScioId($id){
+                return config::byKey("scio::".$id,"knocklet");
+        }
+
+
+	public static function getScioIdFromTriplet($bid,$mid,$knocks){
+		$scios = array();
+                foreach(config::searchKey("scio","knocklet") as $tab){
+                        $key = $tab["key"];
+                        $scio = $tab["value"];
+                        if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks)
+				$scios[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
+                }
+                return $scios;
+
         }
 
 

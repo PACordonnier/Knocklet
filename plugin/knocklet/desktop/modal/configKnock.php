@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
-include_once "../../core/class/knocklet.class.php";
 
 if (!isConnect('admin')) {
 	throw new Exception('401 Unauthorized');
 }
+
 ?>
 <script type="text/javascript" src="plugins/openzwave/3rdparty/vivagraph/vivagraph.min.js"></script>
 <style media="screen" type="text/css">
@@ -111,7 +111,7 @@ if (!isConnect('admin')) {
 
     .knockConf_table th
     {
-	width: 10%;	
+	width: 10%;
     }
 
 </style>
@@ -133,16 +133,12 @@ if (!isConnect('admin')) {
 
 
                 <?php
-
-			$temp = new knocklet();
-			echo $temp->getTripletFromId("12");
-
                         foreach(cmd::all() as $cmd)
                         {
                                echo  '<tr ID="'.$cmd->getId().'"><td>'.$cmd->getId()."   ".$cmd->getName().'</td>';
-                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["braceletId"].'" /></td>';
-                               echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["moduleId"].'" /></td>';
-			       echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["knocks"].'" /></td>';
+                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["braceletId"].'" /></td>';
+                               echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["moduleId"].'" /></td>';
+			       echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["knocks"].'" /></td>';
                                echo  '</tr>';
                         }
                 ?>

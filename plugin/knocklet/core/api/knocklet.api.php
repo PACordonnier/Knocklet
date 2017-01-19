@@ -74,7 +74,7 @@ try {
 		//Lorsque la méthode init est demandée, on ajoute les equipements détéctés dans la base de donnée (sauf si ils y sont déjà)
 		if((isset($params['braceletId'])) && (isset($params['moduleId']))){
 			knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
-                        knocklet::createModule("Nouveau module",$params['moduleId']);
+                        knocklet::createModule("Nouveau Module",$params['moduleId']);
                         $jsonrpc->makeSuccess("Demande d'initialisation ...");
 		}
 		else  throw new Exception('Missings method parameter(s) (braceletId, moduleId)', -32602);

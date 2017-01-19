@@ -39,14 +39,17 @@ class knocklet extends eqLogic {
 
 
 	public static function saveCmdConfig($cid,$bid,$mid,$knocks){
+		//Sauvegarde la configuration cmdId=>Triplet dans la BDD
 		config::save("cmd::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
 	}
 
 	public static function getTripletFromCmdId($id){
+		//Retourne le triplet correspondant à l'ID demandé
 		return config::byKey("cmd::".$id,"knocklet");
 	}
 
 	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
+		//Retoune le ou les ID de commandes possédant le triplet envoyé
 		$cmds = array();
 		foreach(config::searchKey("cmd","knocklet") as $tab){
 			$key = $tab["key"];
@@ -58,15 +61,18 @@ class knocklet extends eqLogic {
 	}
 
 	public static function saveScioConfig($cid,$bid,$mid,$knocks){
-                config::save("scio::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
+                //Sauvegarde la configuration scioId => Triplet dans la BDD
+		config::save("scio::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
         }
 
         public static function getTripletFromScioId($id){
+		//Retoune le triplet correspondant à l'ID de scenario
                 return config::byKey("scio::".$id,"knocklet");
         }
 
 
 	public static function getScioIdFromTriplet($bid,$mid,$knocks){
+		//Retourne le ou les scenarios déclenchés par le triplet envoyé
 		$scios = array();
                 foreach(config::searchKey("scio","knocklet") as $tab){
                         $key = $tab["key"];
@@ -80,6 +86,7 @@ class knocklet extends eqLogic {
 
 
 	public static function macExists($mac){
+		//Vérifie si l'adresse MAC existe déjà dans la BDD (dans ce cas, on n'enregistre pas dans la BDD)
 		$bool =false;
 		foreach (eqLogic::byType("knocklet") as $eqLogic) {
 			if($eqLogic->getConfiguration("MAC") == $mac)
@@ -89,6 +96,7 @@ class knocklet extends eqLogic {
 	}
 
 	public static function createBracelet($name,$mac){
+		//Enregistre un nouveau bracelet lorsque celui ci est détecté
 		if(!self::macExists($mac)){
 			$eqLogic = new eqLogic();
 			$eqLogic->setEqType_name('knocklet');
@@ -100,6 +108,7 @@ class knocklet extends eqLogic {
 	}
 
 	public static function createModule($name,$mac){
+		//Crée un nouveau module
 		if(!self::macExists($mac)){
 			$eqLogic = new eqLogic();
 			$eqLogic->setEqType_name('knocklet');

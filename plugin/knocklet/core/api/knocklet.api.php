@@ -72,26 +72,28 @@ if (isset($argv)) {
 
 
 		/*             * ***********************Knocklet********************************* */
+		if ($jsonrpc->getMethod() == 'init') {
+			//Lorsque la méthode init est demandée, on ajoute les equipements détéctés dans la base de donnée (sauf si ils y sont déjà)
+			if((isset($params['braceletId'])) && (isset($params['moduleId']))){
+				knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
+                                knocklet::createModule("Nouveau module",$params['moduleId']);
+                                $jsonrpc->makeSuccess("Demande d'initialisation ...");
+			}
+			else  throw new Exception('Missings method parameter(s) (braceletId, moduleId)', -32602);
+
+		}
 		if ($jsonrpc->getMethod() == 'knock') {
 			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
-				if ($params["knocks"]=="ff"){
-					knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
-					knocklet::createModule("Nouveau module",$params['moduleId']);
-					$jsonrpc->makeSuccess("Demande d'initialisation ...");
-
-				}
+				$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+				//TODO faire pareil pour les scenario
+				if(count($cids) == 0) // TODO || count($scenarios)
+					throw new Exception('La combinaison ne correspond à aucune commande', -32602);
 				else{
-					$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
-					//TODO faire pareil pour les scenario
-					if(count($cids) == 0) // TODO || count($scenarios)
-						throw new Exception('La combinaison ne correspond à aucune commande', -32602);
-					else{
-						foreach($cids as $cid){
-							$cmd = cmd::byId($cid);
-							$cmd->execCmd($_REQUEST);
-						}
-						$jsonrpc->makeSuccess("OK !");
+					foreach($cids as $cid){
+						$cmd = cmd::byId($cid);
+						$cmd->execCmd($_REQUEST);
 					}
+					$jsonrpc->makeSuccess("OK !");
 				}
 
 			}else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);

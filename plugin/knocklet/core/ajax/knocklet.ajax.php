@@ -41,7 +41,7 @@ if (isser($_POST['saveScio'])) {
 }
 
 /*
-//Inutile désormais, les modules s'ajoute tout seul au menu dès qu'ils sont détéctés
+//Inutile désormais, les modules s'ajoutent touts seuls au menu dès qu'ils sont détéctés
 
 $syncFile = "/tmp/syncFile";
 if (isset($_POST['startScan'])) {

@@ -22,7 +22,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
 
-//         * ***********************Methode static*************************** 
+   /*      * ***********************Methode static*************************** */
 
 	public static function saveCmdConfigFromJson($js) {
 		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
@@ -77,7 +77,7 @@ class knocklet extends eqLogic {
                 foreach(config::searchKey("scio","knocklet") as $tab){
                         $key = $tab["key"];
                         $scio = $tab["value"];
-                        if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks)
+                        if($scio["braceletId"] == $bid && $scio["moduleId"] == $mid && $scio["knocks"] == $knocks)
 				$scios[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
                 }
                 return $scios;

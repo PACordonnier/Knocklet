@@ -26,9 +26,6 @@ try {
 
     ajax::init();
 
-//	include_once("../class/knocklet.class.php");
-
-$syncFile = "/tmp/syncTest";
 
 if (isset($_POST['saveCmd'])) {
         $js = $_POST['saveCmd'];
@@ -37,15 +34,16 @@ if (isset($_POST['saveCmd'])) {
 //TODO AJOUTER CA PARTOUT ET FAIRE QUE CA MARCHE	ajax::succes();
 }
 
-
-if (isset($_POST['startScan2'])) {
-
-        if (file_exists($syncFile) && (time() - filemtime($syncFile)) > 1000) unlink($syncFile);
-
-        echo shell_exec('cat  /tmp/syncTest');
+if (isser($_POST['saveScio'])) {
+	$js = $_POST['saveSCio'];
+        chdir("../class/");
+        knocklet::saveScioConfigFromJson($js);
 }
 
-//echo shell_exec('exec tail -n50  /tmp/syncTest');
+/*
+//Inutile désormais, les modules s'ajoute tout seul au menu dès qu'ils sont détéctés
+
+$syncFile = "/tmp/syncFile";
 if (isset($_POST['startScan'])) {
 
         if (file_exists($syncFile) && (time() - filemtime($syncFile)) > 1000) unlink($syncFile);
@@ -67,7 +65,7 @@ if (isset($_POST['startScan'])) {
         }
 
 }
-
+*/
     throw new Exception('Aucune methode correspondante');
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {

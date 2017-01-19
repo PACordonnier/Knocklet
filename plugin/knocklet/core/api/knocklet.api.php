@@ -92,10 +92,12 @@ try {
 				throw new Exception('La combinaison ne correspond à aucune commande', -32602);
 			else{
 				foreach($cids as $cid){
+					//Execute chaque commandes demandées
 					$cmd = cmd::byId($cid);
 					$cmd->execCmd($_REQUEST);
 				}
 				foreach($scios as $scio){
+					//Execute chaque scenarios demandés
 					$scio = scenario::byId($scio);
 					$scio->execute();
 				}

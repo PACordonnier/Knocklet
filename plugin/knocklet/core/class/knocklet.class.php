@@ -24,19 +24,21 @@ class knocklet extends eqLogic {
 
    /*      * ***********************Methode static*************************** */
 
+
+	private static function createTriplet($bId,$mId,$knocks) {
+        //retourne un tableau contenant les informations pour chaque "key"
+        return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
+	}
+
+
+	/* Méthodes liées à la gestion des commandes */
+
 	public static function saveCmdConfigFromJson($js) {
 		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
 		$array=json_decode($js);
 		foreach($array as $key => $value)
 			self::saveCmdConfig($key,$value[0],$value[1],$value[2]);
 	}
-
-	private static function createTriplet($bId,$mId,$knocks) {
-        //retourne un tableau contenant les informations pour chaque "key"
-        return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
-
-    }
-
 
 	public static function saveCmdConfig($cid,$bid,$mid,$knocks){
 		//Sauvegarde la configuration cmdId=>Triplet dans la BDD
@@ -47,6 +49,8 @@ class knocklet extends eqLogic {
 		//Retourne le triplet correspondant à l'ID demandé
 		return config::byKey("cmd::".$id,"knocklet");
 	}
+
+	/* Méthodes de gestion les scénarios */  
 
 	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
 		//Retoune le ou les ID de commandes possédant le triplet envoyé
@@ -81,11 +85,11 @@ class knocklet extends eqLogic {
 				$scios[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
                 }
                 return $scios;
-
         }
 
+	/* Méthodes liées aux equipements (bracelet / modules) */
 
-	public static function macExists($mac){
+	private static function macExists($mac){
 		//Vérifie si l'adresse MAC existe déjà dans la BDD (dans ce cas, on n'enregistre pas dans la BDD)
 		$bool =false;
 		foreach (eqLogic::byType("knocklet") as $eqLogic) {

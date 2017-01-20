@@ -1,0 +1,3 @@
+sudo apt-get update
+sudo apt-get python-pip libglib2.0-dev	
+sudo pip install bluepy

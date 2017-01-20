@@ -3,7 +3,7 @@ from uuid import getnode as get_mac
 import json
 import requests
 
-url = "http://192.168.0.10/plugins/knocklet/core/api/knocklet.api.php"
+url = "http://jeedom.local/plugins/knocklet/core/api/knocklet.api.php"
 headers = {'content-type': 'application/json'}
 
 payload = {

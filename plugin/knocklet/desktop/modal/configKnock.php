@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
-include_once "../../core/class/knocklet.class.php";
 
 if (!isConnect('admin')) {
 	throw new Exception('401 Unauthorized');
 }
+
 ?>
 <script type="text/javascript" src="plugins/openzwave/3rdparty/vivagraph/vivagraph.min.js"></script>
 <style media="screen" type="text/css">
@@ -111,7 +111,7 @@ if (!isConnect('admin')) {
 
     .knockConf_table th
     {
-	width: 10%;	
+	width: 10%;
     }
 
 </style>
@@ -124,8 +124,8 @@ if (!isConnect('admin')) {
                         <thead>
                         <tr class="knockConf_table_titles">
                             <th colspan="1">{{Knock}}</th>
-                            <th colspan="1">{{ID du bracelet}}</th>
-                            <th colspan="1">{{ID du module}}</th>
+                            <th colspan="1">{{Nom du bracelet}}</th>
+                            <th colspan="1">{{Nom du module}}</th>
                             <th colspan="1">{{Nombre de knock}}</th>
                         </tr>
                         </thead>
@@ -133,16 +133,49 @@ if (!isConnect('admin')) {
 
 
                 <?php
-
-			$temp = new knocklet();
-			echo $temp->getTripletFromId("12");
-
+			$bracelets = knocklet::getBraceletList();
+			$modules =knocklet::getModuleList();
                         foreach(cmd::all() as $cmd)
                         {
                                echo  '<tr ID="'.$cmd->getId().'"><td>'.$cmd->getId()."   ".$cmd->getName().'</td>';
-                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["braceletId"].'" /></td>';
-                               echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["moduleId"].'" /></td>';
-			       echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.$temp->getTripletFromId($cmd->getId())["knocks"].'" /></td>';
+ 			       echo '<td><select class="sel_bracelet eqLogicAttr form-control" data-l1key="object_id"><option value="">{{Aucun}}</option>';
+
+                               foreach ($bracelets as $object)
+                               {
+                                        if(knocklet::getTripletFromCmdId($cmd->getId())["braceletId"]==$object["id"])
+                                        {
+                                                echo '<option value="' . $object["id"] . '" selected>' . $object["name"] . '</option>';
+                                        }
+                                        else echo '<option value="' . $object["id"] . '">' . $object["name"] . '</option>';
+
+                               }
+                  	       echo '</select></td>';
+
+ 			       echo '<td><select class="sel_module eqLogicAttr form-control" data-l1key="object_id"><option value="">{{Aucun}}</option>';
+
+			       foreach ($modules as $object)
+				{
+					if(knocklet::getTripletFromCmdId($cmd->getId())["moduleId"]==$object["id"])
+					{
+						echo '<option value="' . $object["id"] . '" selected>' . $object["name"] . '</option>';	
+					}
+					else echo '<option value="' . $object["id"] . '">' . $object["name"] . '</option>';
+
+				}
+                  	       echo '</select></td>';
+			       
+
+			       echo '<td><select class="sel_knock eqLogicAttr form-control"><option value="">{{Aucun}}</option>';
+
+                               for ($x=2;$x<9;$x++)
+                                {
+					if(knocklet::getTripletFromCmdId($cmd->getId())["knocks"]==$x)
+                                        {
+                                                echo '<option value="'.$x.'" selected>'.$x.'</option>';
+					}else   echo '<option value="'.$x.'">'. $x.' </option>';
+
+                                }
+                               echo '</select></td>';
                                echo  '</tr>';
                         }
                 ?>

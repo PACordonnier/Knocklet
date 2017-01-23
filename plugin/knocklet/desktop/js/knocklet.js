@@ -56,34 +56,114 @@ function addCmdToTable(_cmd) {
 $('#bt_recupCmd').on('click', function () {
 	 $('#md_modal').dialog({title: "{{Configuration des knocks}}"});
     $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configKnock').dialog('open');
+
+
 });
+
+
+$('#bt_ajout_bracelet').on('click', function () {
+        
+	$('#md_modal').dialog({title: "{{Ajouter un bracelet}}"});
+    	$('#md_modal').load('index.php?v=d&plugin=knocklet&modal=scanBracelet').dialog('open');
+	
+
+	
+	$.ajax({
+     		url: 'plugins/knocklet/core/ajax/knocklet.ajax.php',
+     		type: 'POST',
+     		data: "startScan",
+     		success: function (data) {
+			
+			var data_table=[];
+			var data_split=data.split("\n")
+			var row;
+                        var cell, btn;
+
+			console.log(data);
+			console.log(data_split);
+
+                        var table_brac= document.getElementById("tbody_scanBracelet");
+                        var table_mod= document.getElementById("tbody_scanModule");
+
+			
+			for (var i = 0; i< data_split.length; i++) {
+ 				if(data_split[i]!==""){
+					if(json_decode(data_split[i])["type"]=="bracelet"){
+
+						row = table_brac.insertRow(0);
+						cell  = row.insertCell(0);
+						cell.innerHTML = json_decode(data_split[i])["id"];		
+
+					}
+					else if(json_decode(data_split[i])["type"]=="module"){
+
+						row = table_mod.insertRow(0);
+                                                
+						cell = row.insertCell(0);
+						btn = row.insertCell(1);
+							
+						cell.innerHTML = json_decode(data_split[i])["id"];
+
+					}
+					else console.log("type non reconnu");
+
+
+					data_table.push(json_decode(data_split[i]));
+					
+					console.log(json_decode(data_split[i]));
+				}
+			}
+			console.log(data_table);
+
+
+
+
+
+
+
+			//cell1.innerHTML = data;
+   	 		//cell2.innerHTML = data;
+
+			//var row2 = table_mod.insertRow(0);
+                        //cell = row.insertCell(0);
+                        //cell = row.insertCell(1);
+
+                        //cell1.innerHTML = data;
+                        //cell2.innerHTML = data;
+
+            	},
+     		error: function(){alert("Erreur dans la demande de scan");}
+	});
+
+});
+
+
+
 
 $('#saveCmds').on('click',function (){
 
 var returnTable= [];
 var container = document.getElementById('config_knock');
-var datas = container.getElementsByTagName('input');
-var cmds = container.getElementsByTagName('tr');
-var i = 0;
+var bracelets = document.getElementsByClassName('sel_bracelet');
+var modules = document.getElementsByClassName('sel_module');
+var knocks = document.getElementsByClassName('sel_knock');
+var cmds = document.getElementsByTagName('tr');
 
 
-var nbcmd=0;
-for (var j = 0; j < cmds.length; j++) {
-
-    	
-	if(datas[i].value!==""&&datas[i+1].value!==""&&datas[i+2].value!==""){
-		returnTable[cmds[j].id]=[datas[i].value, datas[i+1].value, datas[i+2].value];
-		nbcmd++;		  
+for (var j = 0; j < cmds.length-1; j++) {
+	console.log(j);
+    	console.log(bracelets[j]);
+    	console.log(container);
+	if(bracelets[j].options[bracelets[j].selectedIndex].value!==""&&modules[j].options[modules[j].selectedIndex].value!==""&&knocks[j].options[knocks[j].selectedIndex].text!=="Aucun"){
+		returnTable[cmds[j].id]=[bracelets[j].options[bracelets[j].selectedIndex].value, modules[j].options[modules[j].selectedIndex].value, knocks[j].options[knocks[j].selectedIndex].text];
 	}
-	i+=3;        
 	
     }
 
 
 console.log(returnTable);
 console.log(JSON.stringify(returnTable));
-console.log(nbcmd);
 
-$.post('plugins/knocklet/core/api/save.api.php', {save: JSON.stringify(returnTable)});
+$.post('plugins/knocklet/core/ajax/knocklet.ajax.php', {saveCmd: JSON.stringify(returnTable)});
 
 });

@@ -2,8 +2,8 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-sendVarToJS('eqType', 'template');
-$eqLogics = eqLogic::byType('template');
+sendVarToJS('eqType', 'knocklet');
+$eqLogics = eqLogic::byType('knocklet');
 ?>
 
 <div class="row row-overflow">
@@ -20,6 +20,7 @@ foreach ($eqLogics as $eqLogic) {
            </ul>
       </div>
    </div>
+<?php /*
 
    <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
     <legend>{{Mes templates assez stylés}}
@@ -34,7 +35,7 @@ foreach ($eqLogics as $eqLogic) {
     </div>
     <?php
 foreach ($eqLogics as $eqLogic) {
-	echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
+	echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId().'"style="background-color:#ffffff;height:200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
 	echo "<center>";
 	echo '<img src="plugins/template/doc/images/template_icon.png" height="105" width="95" />';
 	echo "</center>";
@@ -43,32 +44,44 @@ foreach ($eqLogics as $eqLogic) {
 }
 ?>
 </div>
-  
+*/?>
 
-    <div class="cursor expertModeVisible" id="bt_recupCmd" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
-        <center style="width: 15%;">
-            <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
+
+   <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
+
+<legend><i class="fa fa-table"></i> {{Mes équipements}}</legend>
+
+    <div class="eqLogicThumbnailContainer">
+    <?php
+foreach ($eqLogics as $eqLogic) {
+        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId().'"style="background-color:#ffffff;height:200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
+
+        echo "<center>";
+	echo '<img src="' . $eqLogic->getImgFilePath() . '" height="105" width="95" />';
+        echo "</center>";
+
+        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+        echo '</div>';
+}
+?>
+
+
+</div>
+
+    <legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
+    <div class="cursor expertModeVisible" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
+	<center style="width:10%;">
+            <i class="fa fa-sitemap" id="bt_recupCmd" style="font-size : 6em;color:#767676;"></i>
         </center>
         <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
-		<center style="width: 15%;">{{Configuration}}</center>
-		<p style="margin:0; padding:0;">
-			<center   style="width: 15%; margin-bottom: 5%;">{{des knocks}}</center>
-		</p>
-	</span>
-	
-	<center style="width: 15%;">
-            <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
-        </center style="width: 15%;">
-        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
-                <center style="width: 15%;">{{Configuration}}</center>
+                <center style="width: 10%;">{{Configuration}}</center>
+
                 <p style="margin:0; padding:0;">
-                        <center style="width: 15%;">{{des knocks V2}}</center>
+                        <center style="width: 10%;">{{des knocks V2}}</center>
                 </p>
         </span>
-
-
+    
     </div>
-   
 
 </div>
 
@@ -104,14 +117,14 @@ foreach (object::all() as $object) {
            </div>
        </div>
        <div class="form-group">
-        <label class="col-sm-3 control-label">{{Adresse du bracelet:}}</label>
+        <label class="col-sm-3 control-label">{{Adresse:}}</label>
         <div class="col-sm-3">
-            <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" placeholder="param1"/>
+            <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" placeholder="Adresse"/>
         </div>
     </div>
 </fieldset>
 </form>
-<?php /*
+<?php /* >
 <legend>{{Template}}</legend>
 <a class="btn btn-success btn-sm cmdAction" data-action="add"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
 <table id="table_cmd" class="table table-bordered table-condensed">
@@ -123,16 +136,15 @@ foreach (object::all() as $object) {
     <tbody>
     </tbody>
 </table>
-
+*/ ?>
 <form class="form-horizontal">
     <fieldset>
-        <div class="form-actions">
-            <a class="btn btn-danger eqLogicAction" data-action="remove"><i class="fa fa-minus-circle"></i> {{Supprimer}}</a>
-            <a class="btn btn-success eqLogicAction" data-action="save"><i class="fa fa-check-circle"></i> {{Sauvegarder}}</a>
+        <div class="form-actions" style="margin-left: 25%;"> 
+            <a class="btn btn-success eqLogicAction" data-action="save">{{Sauvegarder}}</a>
+            <a class="btn btn-success eqLogicAction" data-action="remove"> {{Supprimer}}</a>
         </div>
     </fieldset>
 </form>
-*/ ?>
 </div>
 
 </div>

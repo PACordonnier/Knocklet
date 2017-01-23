@@ -71,7 +71,7 @@ try {
 
 		/*             * ***********************Knocklet********************************* */
 	//Logs
-	if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi']))){
+	if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi'])))
 	file_put_contents("/tmp/postLog","timestamp => " .microtime(true)." bId => ".$params['braceletId']." mId => ".$params['moduleId']." knocks => ".$params['knocks']." rssi => ".$params['rssi']."\n", FILE_APPEND);
 
 

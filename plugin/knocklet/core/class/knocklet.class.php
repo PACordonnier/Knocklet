@@ -50,7 +50,8 @@ class knocklet extends eqLogic {
 		return config::byKey("cmd::".$id,"knocklet");
 	}
 
-	/* Méthodes de gestion les scénarios */  
+
+	/* Méthodes de gestion les scénarios */
 
 	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
 		//Retoune le ou les ID de commandes possédant le triplet envoyé
@@ -88,6 +89,44 @@ class knocklet extends eqLogic {
         }
 
 	/* Méthodes liées aux equipements (bracelet / modules) */
+	public static function getPositionFromID($id){
+		foreach (eqLogic::byType("knocklet") as $eqLogic) {
+                        if($eqLogic->getConfiguration("MAC") == $id)
+                                return $eqLogic->getObject_id();
+                }
+                return false;
+
+	}
+
+	public static function getModuleList(){
+	//Retourne un tableau contenants les informations des modules
+		$array = array();
+	                foreach (eqLogic::byType("knocklet") as $eqLogic) {
+	                        if($eqLogic->getConfiguration("type") == "module")
+					$array[]=array("name" => $eqLogic->getName(),"id" => $eqLogic->getConfiguration("MAC"));
+			}
+		return $array;
+	}
+
+	public static function getBraceletList(){
+	//Retourne un tableau contenants les informations des bracelets
+                $array = array();
+                        foreach (eqLogic::byType("knocklet") as $eqLogic) {
+                                if($eqLogic->getConfiguration("type") == "bracelet")
+                                        $array[]=array("name" => $eqLogic->getName(),"id" => $eqLogic->getConfiguration("MAC"));
+                        }
+                return $array;
+
+	}
+
+	public static function getNameFromId($id) {
+	//Retourne le nom correspondant à l'adresse MAC envoyée, retourne faux si l'équipement n'existe pas 
+                foreach (eqLogic::byType("knocklet") as $eqLogic) {
+			if($eqLogic->getConfiguration("MAC") == $id)
+				return $eqLogic->getName();
+		}
+		return false;
+	}
 
 	private static function macExists($mac){
 		//Vérifie si l'adresse MAC existe déjà dans la BDD (dans ce cas, on n'enregistre pas dans la BDD)

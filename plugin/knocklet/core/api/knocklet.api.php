@@ -70,6 +70,11 @@ try {
 
 
 		/*             * ***********************Knocklet********************************* */
+	//Logs
+	if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi']))){
+	file_put_contents("/tmp/postLog","timestamp => " .microtime(true)." bId => ".$params['braceletId']." mId => ".$params['moduleId']." knocks => ".$params['knocks']." rssi => ".$params['rssi']."\n", FILE_APPEND);
+
+
 	if ($jsonrpc->getMethod() == 'init') {
 		//Lorsque la méthode init est demandée, on ajoute les equipements détéctés dans la base de donnée (sauf si ils y sont déjà)
 		if((isset($params['braceletId'])) && (isset($params['moduleId']))){
@@ -83,7 +88,7 @@ try {
 
 	//Gestions des Knocks (conversion du triplet recu en une liste de commandes/scenarios à lancer)
 	if ($jsonrpc->getMethod() == 'knock') {
-		if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
+		if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi']))){
 			//Récupération des ID de commandes et de scénarios
 			$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
 			$sids = knocklet::getScioIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
@@ -104,7 +109,7 @@ try {
 				$jsonrpc->makeSuccess("OK ! " . count($cids) . " commande(s) et  " . count($sids) . " scenario(s) executes");
 			}
 
-		}else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
+		}else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks, rssi)', -32602);
 	}
 
 

@@ -147,7 +147,6 @@ class knocklet extends eqLogic {
     /*     * *********************Méthodes d'instance************************* */
 
  public function getImgFilePath(){
-	//TODO changer pour les vraies images
 	if ($this->getConfiguration("type") == "module")
 		return "plugins/knocklet/doc/images/module_icon.png";
 	else return "plugins/knocklet/doc/images/bracelet_icon.png";

@@ -19,46 +19,148 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
-/*
-class knockConvert {
-       //  * *************************Attributs****************************** 
-        private $braceletId;
-        private $moduleId;
-        private $knocks;
-        private $cmdId;
-
-        function __construct($braceletId,$moduleId,$knocks,$cmdId){
-                $this->braceletId=$braceletId;
-                $this->moduleId=$moduleId;
-                $this->knocks=$knocks;
-                $this->cmdId=cmdId;
-        }
-
-	function save($file){
-		file_put_contents($file, $braceletId . " ". $moduleId . " " . $knocks . " " . cmdId, FILE_APPEND);
-	}
-
-}
-*/
-
 class knocklet extends eqLogic {
     /*     * *************************Attributs****************************** */
-	private $knockArray=array();
-	private $configFile="/usr/share/nginx/www/jeedom/plugins/knocklet/data/config";
 
-    /*     * ***********************Methode static*************************** */
+   /*      * ***********************Methode static*************************** */
 
-	public static function saveConfigFromJson($js) {
-		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
-		$array=json_decode($js);
-		$knock = new knocklet(1);
-		foreach($array as $key => $value){
-			$knock->add($key,$value[0],$value[1],$value[2]);
-		}
-		$knock->saveAll();
+
+	private static function createTriplet($bId,$mId,$knocks) {
+        //retourne un tableau contenant les informations pour chaque "key"
+        return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
 	}
 
 
+	/* Méthodes liées à la gestion des commandes */
+
+	public static function saveCmdConfigFromJson($js) {
+		//Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
+		$array=json_decode($js);
+		foreach($array as $key => $value)
+			self::saveCmdConfig($key,$value[0],$value[1],$value[2]);
+	}
+
+	public static function saveCmdConfig($cid,$bid,$mid,$knocks){
+		//Sauvegarde la configuration cmdId=>Triplet dans la BDD
+		config::save("cmd::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
+	}
+
+	public static function getTripletFromCmdId($id){
+		//Retourne le triplet correspondant à l'ID demandé
+		return config::byKey("cmd::".$id,"knocklet");
+	}
+
+
+	/* Méthodes de gestion les scénarios */
+
+	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
+		//Retoune le ou les ID de commandes possédant le triplet envoyé
+		$cmds = array();
+		foreach(config::searchKey("cmd","knocklet") as $tab){
+			$key = $tab["key"];
+			$cmd = $tab["value"];
+			if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks) 
+				$cmds[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
+		}
+		return $cmds;
+	}
+
+	public static function saveScioConfig($cid,$bid,$mid,$knocks){
+                //Sauvegarde la configuration scioId => Triplet dans la BDD
+		config::save("scio::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
+        }
+
+        public static function getTripletFromScioId($id){
+		//Retoune le triplet correspondant à l'ID de scenario
+                return config::byKey("scio::".$id,"knocklet");
+        }
+
+
+	public static function getScioIdFromTriplet($bid,$mid,$knocks){
+		//Retourne le ou les scenarios déclenchés par le triplet envoyé
+		$scios = array();
+                foreach(config::searchKey("scio","knocklet") as $tab){
+                        $key = $tab["key"];
+                        $scio = $tab["value"];
+                        if($scio["braceletId"] == $bid && $scio["moduleId"] == $mid && $scio["knocks"] == $knocks)
+				$scios[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
+                }
+                return $scios;
+        }
+
+	/* Méthodes liées aux equipements (bracelet / modules) */
+	public static function getPositionFromID($id){
+		foreach (eqLogic::byType("knocklet") as $eqLogic) {
+                        if($eqLogic->getConfiguration("MAC") == $id)
+                                return $eqLogic->getObject_id();
+                }
+                return false;
+
+	}
+
+	public static function getModuleList(){
+	//Retourne un tableau contenants les informations des modules
+		$array = array();
+	                foreach (eqLogic::byType("knocklet") as $eqLogic) {
+	                        if($eqLogic->getConfiguration("type") == "module")
+					$array[]=array("name" => $eqLogic->getName(),"id" => $eqLogic->getConfiguration("MAC"));
+			}
+		return $array;
+	}
+
+	public static function getBraceletList(){
+	//Retourne un tableau contenants les informations des bracelets
+                $array = array();
+                        foreach (eqLogic::byType("knocklet") as $eqLogic) {
+                                if($eqLogic->getConfiguration("type") == "bracelet")
+                                        $array[]=array("name" => $eqLogic->getName(),"id" => $eqLogic->getConfiguration("MAC"));
+                        }
+                return $array;
+
+	}
+
+	public static function getNameFromId($id) {
+	//Retourne le nom correspondant à l'adresse MAC envoyée, retourne faux si l'équipement n'existe pas 
+                foreach (eqLogic::byType("knocklet") as $eqLogic) {
+			if($eqLogic->getConfiguration("MAC") == $id)
+				return $eqLogic->getName();
+		}
+		return false;
+	}
+
+	private static function macExists($mac){
+		//Vérifie si l'adresse MAC existe déjà dans la BDD (dans ce cas, on n'enregistre pas dans la BDD)
+		$bool =false;
+		foreach (eqLogic::byType("knocklet") as $eqLogic) {
+			if($eqLogic->getConfiguration("MAC") == $mac)
+				$bool = true ;
+		}
+		return $bool;
+	}
+
+	public static function createBracelet($name,$mac){
+		//Enregistre un nouveau bracelet lorsque celui ci est détecté
+		if(!self::macExists($mac)){
+			$eqLogic = new eqLogic();
+			$eqLogic->setEqType_name('knocklet');
+			$eqLogic->setName($name);
+			$eqLogic->setConfiguration("type","bracelet");
+			$eqLogic->setConfiguration("MAC",$mac);
+			$eqLogic->save();
+		}
+	}
+
+	public static function createModule($name,$mac){
+		//Crée un nouveau module
+		if(!self::macExists($mac)){
+			$eqLogic = new eqLogic();
+			$eqLogic->setEqType_name('knocklet');
+			$eqLogic->setName($name);
+			$eqLogic->setConfiguration("type","module");
+			$eqLogic->setConfiguration("MAC",$mac);
+			$eqLogic->save();
+		}
+	}
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
       public static function cron() {
@@ -83,78 +185,11 @@ class knocklet extends eqLogic {
 
     /*     * *********************Méthodes d'instance************************* */
 
-    function __construct($a){
-	//Constructeur de la classe
-	//Si appelée sans paramètre, les configurations sont chargées depuis le fichier
-	if($a!=1) self::load();
-    }
-
-
-    private function createTriplet($bId,$mId,$knocks) {
-	//retourne un tableau contenant les informations pour chaque "key"
-	return array("braceletId"=>$bId,"moduleId"=>$mId,"knocks"=>$knocks);
-
-    }
-
-
-    public function add($cid,$bid,$mid,$knocks) {
-	//Ajouter un élément au tableau
-	$this->knockArray[$cid]=self::createTriplet($bid,$mid,$knocks);
-
-    }
-
-    public function load() {
-	//Charge les informations depuis le fichier de configuration
-	$handle = fopen($this->configFile, "r");
-	if ($handle) {
-    		while (($line = fgets($handle)) !== false) {
-			$line = str_replace("\n","",$line);
-			$data = explode(" ",$line);
-			if($data[3]!=0)
-				$this->knockArray[$data[0]]=self::createTriplet($data[1],$data[2],$data[3]);
-		}
-
-	    	fclose($handle);
-	} else {
-	    // error opening the file.
-	}
-    }
-
-
-    public function getTripletFromId($cid) {
-	//Retourne le triplet correspondant à l'ID envoyé
-	//Retourne false si ce triplet n'existe pas
-        if(array_key_exists($cid,$this->knockArray))
-                return $this->knockArray[$cid];
-        else return false;
-    }
-
-    public function getIdFromTriplet($bid,$mid,$knocks) {
-	//retourne l'ID correspondant au triplet envoyé
-	//retourne faux si la commande recherchée n'exsite pas 
-        foreach ($this->knockArray as $key => $value){
-			if(self::createTriplet($bid,$mid,$knocks) == $this->knockArray[$key])
-				return $key;
-		}
-	return false;
-    }
-
-    public function printAll() {
-	//affiche toutes les configurations chargées en mémoire
-	print_r($this->knockArray);
-    }
-
-    private function saveKnock($cid,$knock){
-	//Ecrit la configuration d'une commande dans le tableau
-	file_put_contents($this->configFile,$cid . " " . $knock["braceletId"] . " " . $knock["moduleId"] . " " . $knock["knocks"] . "\n", FILE_APPEND | LOCK_EX);
-
-    }
-    public function saveAll() {
-	//Ecrit toutes les confirurations dans le fichier de config
-	unlink($this->configFile);
-	foreach ($this->knockArray as $key => $value)
-		self::saveKnock($key,$value);
-    }
+ public function getImgFilePath(){
+	if ($this->getConfiguration("type") == "module")
+		return "plugins/knocklet/doc/images/module_icon.png";
+	else return "plugins/knocklet/doc/images/bracelet_icon.png";
+}
 
     public function preInsert() {
         

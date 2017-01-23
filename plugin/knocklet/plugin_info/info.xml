@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <info>
     <id>knocklet</id>
-    <name>knocklet</name>
+    <name>Knocklet</name>
     <description>Plugin pour l'utilisation du bracelet Knocklet</description>
     <icon>fa fa-keyboard-o</icon>
     <licence>AGPL</licence>
     <author>Félicien Catherin - Pierre-Yves Napoly</author>
     <installation>Aucune</installation>
     <require>1.136</require>
-    <category>TRUCSTROPSTYLESDEOUF</category>
+    <category>automation protocol</category>
 </info>
 

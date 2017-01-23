@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -26,82 +25,101 @@ if (isset($argv)) {
 		}
 	}
 }
-{
-	try {
-		$IP = getClientIp();
-		$request = init('request');
-		if ($request == '') {
-			$request = file_get_contents("php://input");
-		}
-		log::add('api', 'info', $request . ' - IP :' . $IP);
 
-		$jsonrpc = new jsonrpc($request);
+try {
+	$IP = getClientIp();
+	$request = init('request');
+	if ($request == '') {
+		$request = file_get_contents("php://input");
+	}
+	log::add('apiKnocklet', 'info', $request . ' - IP :' . $IP);
+	$jsonrpc = new jsonrpc($request);
 
-		if ($jsonrpc->getJsonrpc() != '2.0') {
-			throw new Exception('Requête invalide. Version Jsonrpc invalide : ' . $jsonrpc->getJsonrpc(), -32001);
-		}
+	if ($jsonrpc->getJsonrpc() != '2.0') {
+		throw new Exception('Requête invalide. Version Jsonrpc invalide : ' . $jsonrpc->getJsonrpc(), -32001);
+	}
+	$params = $jsonrpc->getParams();
 
-		$params = $jsonrpc->getParams();
+	if ($jsonrpc->getMethod() == 'ping') {
+		$jsonrpc->makeSuccess('pong');
+	}
 
-		if ($jsonrpc->getMethod() == 'ping') {
-			$jsonrpc->makeSuccess('pong');
-		}
+	if (!isset($params['apikey']) && !isset($params['api'])) {
+		throw new Exception(__('Aucune clef API', __FILE__), -32001);
+	}
 
-		if (!isset($params['apikey']) && !isset($params['api'])) {
-			throw new Exception(__('Aucune clef API', __FILE__), -32001);
-		}
+	if ((isset($params['apikey']) && !jeedom::apiAccess($params['apikey'])) || (isset($params['api']) && !jeedom::apiAccess($params['api']))) {
+		throw new Exception(__('Clé API invalide', __FILE__), -32001);
+	}
 
-		if ((isset($params['apikey']) && !jeedom::apiAccess($params['apikey'])) || (isset($params['api']) && !jeedom::apiAccess($params['api']))) {
-			throw new Exception(__('Clé API invalide', __FILE__), -32001);
-		}
+	/*             * ***********************Version********************************* */
+	if ($jsonrpc->getMethod() == 'version') {
+		$jsonrpc->makeSuccess(jeedom::version());
+	}
 
-
-		/*             * ***********************Version********************************* */
-		if ($jsonrpc->getMethod() == 'version') {
-			$jsonrpc->makeSuccess(jeedom::version());
-		}
 		/*             * ***********************isOk********************************* */
-		if ($jsonrpc->getMethod() == 'jeedom::isOk') {
-			$jsonrpc->makeSuccess(jeedom::isOK());
-		}
+	if ($jsonrpc->getMethod() == 'jeedom::isOk') {
+		$jsonrpc->makeSuccess(jeedom::isOK());
+	}
 
-		/*             * ***********************Datetime********************************* */
-		if ($jsonrpc->getMethod() == 'datetime') {
-			$jsonrpc->makeSuccess(getmicrotime());
-		}
+	/*             * ***********************Datetime********************************* */
+	if ($jsonrpc->getMethod() == 'datetime') {
+		$jsonrpc->makeSuccess(getmicrotime());
+	}
 
 
 
 		/*             * ***********************Knocklet********************************* */
-		if ($jsonrpc->getMethod() == 'knock') {
-			if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks']))){
-				$now = date("Y-m-d H:i:s");
-				$text = $now."\n"."[braceletId]= ".$params['braceletId']."\n[moduleId]= ".$params['moduleId']."\n[knocks]= ".$params['knocks']."\n\n";
-				file_put_contents("/tmp/knockletAPI", $text, FILE_APPEND);
-				
-			//TODO enlever le new, passer les fonctions en static
-				$knocklet= new knocklet();
-				$cid = $knocklet->getIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
-				if($cid == false)
-					throw new Exception('Combinaison non liée à une commande', -32602);
-				else{
+	//Logs
+	if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi'])))
+	file_put_contents("/tmp/postLog","timestamp => " .microtime(true)." bId => ".$params['braceletId']." mId => ".$params['moduleId']." knocks => ".$params['knocks']." rssi => ".$params['rssi']."\n", FILE_APPEND);
+
+
+	if ($jsonrpc->getMethod() == 'init') {
+		//Lorsque la méthode init est demandée, on ajoute les equipements détéctés dans la base de donnée (sauf si ils y sont déjà)
+		if((isset($params['braceletId'])) && (isset($params['moduleId']))){
+			knocklet::createBracelet("Nouveau Bracelet",$params['braceletId']);
+                        knocklet::createModule("Nouveau Module",$params['moduleId']);
+                        $jsonrpc->makeSuccess("Demande d'initialisation ...");
+		}
+		else  throw new Exception('Missings method parameter(s) (braceletId, moduleId)', -32602);
+
+	}
+
+	//Gestions des Knocks (conversion du triplet recu en une liste de commandes/scenarios à lancer)
+	if ($jsonrpc->getMethod() == 'knock') {
+		if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi']))){
+			//Récupération des ID de commandes et de scénarios
+			$cids = knocklet::getCmdIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+			$sids = knocklet::getScioIdFromTriplet($params['braceletId'],$params['moduleId'],$params['knocks']);
+
+			if(count($cids) == 0 && count($sids) == 0)
+				throw new Exception('La combinaison ne correspond à aucune commande', -32602);
+			else{
+				foreach($cids as $cid){
+					//Execute chaque commandes demandées
 					$cmd = cmd::byId($cid);
 					$cmd->execCmd($_REQUEST);
-					$jsonrpc->makeSuccess("OK !");
 				}
+				foreach($scios as $scio){
+					//Execute chaque scenarios demandés
+					$scio = scenario::byId($scio);
+					$scio->execute();
+				}
+				$jsonrpc->makeSuccess("OK ! " . count($cids) . " commande(s) et  " . count($sids) . " scenario(s) executes");
 			}
 
-			else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks)', -32602);
+		}else  throw new Exception('Missings method parameter(s) (braceletId, moduleId, knocks, rssi)', -32602);
+	}
 
-		}
 
 	throw new Exception('Aucune méthode correspondante : ' . secureXSS($jsonrpc->getMethod()), -32500);
 /*         * *********Catch exeption*************** */
-	} catch (Exception $e) {
+} catch (Exception $e) {
 	$message = $e->getMessage();
 	$jsonrpc = new jsonrpc(init('request'));
 	$errorCode = (is_numeric($e->getCode())) ? -32000 - $e->getCode() : -32599;
 	$jsonrpc->makeError($errorCode, $message);
-	}
 }
+
 ?>

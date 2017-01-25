@@ -17,59 +17,36 @@
  */
 
 try {
-    require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-    include_file('core', 'authentification', 'php');
+	require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+	include_file('core', 'authentification', 'php');
 
-    if (!isConnect('admin')) {
-        throw new Exception('401 Unauthorized');
-    }
+	if (!isConnect('admin')) {
+        	throw new Exception('401 Unauthorized');
+	}
 
-    ajax::init();
+	ajax::init();
+
+	if (init('action') == 'saveCmd') {
+		include_once("../class/knocklet.class.php");
+		$js = init('json');
+        	knocklet::saveCmdConfigFromJson($js);
+	        ajax::success();
+	}
 
 
-if (isset($_POST['saveCmd'])) {
-        $js = $_POST['saveCmd'];
-        chdir("../class/");
-        knocklet::saveCmdConfigFromJson($js);
-//TODO AJOUTER CA PARTOUT ET FAIRE QUE CA MARCHE	ajax::succes();
-}
+	if (init('action') == 'saveScio') {
+		include_once("../class/knocklet.class.php");
+		$js = init('json');
+        	knocklet::saveScioConfigFromJson($js);
+	        ajax::success();
+	}
 
-if (isser($_POST['saveScio'])) {
-	$js = $_POST['saveSCio'];
-        chdir("../class/");
-        knocklet::saveScioConfigFromJson($js);
-}
+	throw new Exception('Aucune methode correspondante');
 
-/*
-//Inutile désormais, les modules s'ajoutent touts seuls au menu dès qu'ils sont détéctés
-
-$syncFile = "/tmp/syncFile";
-if (isset($_POST['startScan'])) {
-
-        if (file_exists($syncFile) && (time() - filemtime($syncFile)) > 1000) unlink($syncFile);
-        $handle = fopen($syncFile, "r");
-        if ($handle) {
-                $tab = array();
-                while (($line = fgets($handle)) !== false) {
-                        $line = str_replace("\n","",$line);
-                        $found = false;
-                        foreach($array as $value)
-                                if($value == $line) $found = true;
-                        if(!$found) $array[]=$line;
-                }
-                foreach($array as $value) echo $value."\n";
-
-                fclose($handle);
-        } else {
-            // error opening the file.
-        }
-
-}
-*/
-    throw new Exception('Aucune methode correspondante');
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-    ajax::error(displayExeption($e), $e->getCode());
+
+ajax::error(displayExeption($e), $e->getCode());
 }
 ?>
 

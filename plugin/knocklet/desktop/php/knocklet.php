@@ -69,9 +69,9 @@ foreach ($eqLogics as $eqLogic) {
 </div>
 
     <legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
-    <div class="cursor expertModeVisible" id="bt_recupCmd" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
+    <div class="cursor expertModeVisible" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
 	<center style="width:10%;">
-            <i class="fa fa-sitemap" style="font-size : 6em;color:#767676;"></i>
+            <i class="fa fa-sitemap" id="bt_recupCmd" style="font-size : 6em;color:#767676;"></i>
         </center>
         <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
                 <center style="width: 10%;">{{Configuration}}</center>

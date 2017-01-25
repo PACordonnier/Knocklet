@@ -56,6 +56,8 @@ function addCmdToTable(_cmd) {
 $('#bt_recupCmd').on('click', function () {
 	 $('#md_modal').dialog({title: "{{Configuration des knocks}}"});
     $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configKnock').dialog('open');
+
+
 });
 
 
@@ -142,27 +144,25 @@ $('#saveCmds').on('click',function (){
 
 var returnTable= [];
 var container = document.getElementById('config_knock');
-var datas = container.getElementsByTagName('input');
-var cmds = container.getElementsByTagName('tr');
-var i = 0;
+var bracelets = document.getElementsByClassName('sel_bracelet');
+var modules = document.getElementsByClassName('sel_module');
+var knocks = document.getElementsByClassName('sel_knock');
+var cmds = document.getElementsByTagName('tr');
 
 
-var nbcmd=0;
-for (var j = 0; j < cmds.length; j++) {
-
-    	
-	if(datas[i].value!==""&&datas[i+1].value!==""&&datas[i+2].value!==""){
-		returnTable[cmds[j].id]=[datas[i].value, datas[i+1].value, datas[i+2].value];
-		nbcmd++;		  
+for (var j = 0; j < cmds.length-1; j++) {
+	console.log(j);
+    	console.log(bracelets[j]);
+    	console.log(container);
+	if(bracelets[j].options[bracelets[j].selectedIndex].value!==""&&modules[j].options[modules[j].selectedIndex].value!==""&&knocks[j].options[knocks[j].selectedIndex].text!=="Aucun"){
+		returnTable[cmds[j].id]=[bracelets[j].options[bracelets[j].selectedIndex].value, modules[j].options[modules[j].selectedIndex].value, knocks[j].options[knocks[j].selectedIndex].text];
 	}
-	i+=3;        
 	
     }
 
 
 console.log(returnTable);
 console.log(JSON.stringify(returnTable));
-console.log(nbcmd);
 
 $.post('plugins/knocklet/core/ajax/knocklet.ajax.php', {saveCmd: JSON.stringify(returnTable)});
 

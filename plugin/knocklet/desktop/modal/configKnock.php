@@ -124,8 +124,8 @@ if (!isConnect('admin')) {
                         <thead>
                         <tr class="knockConf_table_titles">
                             <th colspan="1">{{Knock}}</th>
-                            <th colspan="1">{{ID du bracelet}}</th>
-                            <th colspan="1">{{ID du module}}</th>
+                            <th colspan="1">{{Nom du bracelet}}</th>
+                            <th colspan="1">{{Nom du module}}</th>
                             <th colspan="1">{{Nombre de knock}}</th>
                         </tr>
                         </thead>
@@ -133,12 +133,49 @@ if (!isConnect('admin')) {
 
 
                 <?php
+			$bracelets = knocklet::getBraceletList();
+			$modules =knocklet::getModuleList();
                         foreach(cmd::all() as $cmd)
                         {
                                echo  '<tr ID="'.$cmd->getId().'"><td>'.$cmd->getId()."   ".$cmd->getName().'</td>';
-                               echo  '</td> <td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["braceletId"].'" /></td>';
-                               echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["moduleId"].'" /></td>';
-			       echo  '<td><input type="text" class="eqLogicAttr form-control"  value="'.knocklet::getTripletFromCmdId($cmd->getId())["knocks"].'" /></td>';
+ 			       echo '<td><select class="sel_bracelet eqLogicAttr form-control" data-l1key="object_id"><option value="">{{Aucun}}</option>';
+
+                               foreach ($bracelets as $object)
+                               {
+                                        if(knocklet::getTripletFromCmdId($cmd->getId())["braceletId"]==$object["id"])
+                                        {
+                                                echo '<option value="' . $object["id"] . '" selected>' . $object["name"] . '</option>';
+                                        }
+                                        else echo '<option value="' . $object["id"] . '">' . $object["name"] . '</option>';
+
+                               }
+                  	       echo '</select></td>';
+
+ 			       echo '<td><select class="sel_module eqLogicAttr form-control" data-l1key="object_id"><option value="">{{Aucun}}</option>';
+
+			       foreach ($modules as $object)
+				{
+					if(knocklet::getTripletFromCmdId($cmd->getId())["moduleId"]==$object["id"])
+					{
+						echo '<option value="' . $object["id"] . '" selected>' . $object["name"] . '</option>';	
+					}
+					else echo '<option value="' . $object["id"] . '">' . $object["name"] . '</option>';
+
+				}
+                  	       echo '</select></td>';
+			       
+
+			       echo '<td><select class="sel_knock eqLogicAttr form-control"><option value="">{{Aucun}}</option>';
+
+                               for ($x=2;$x<9;$x++)
+                                {
+					if(knocklet::getTripletFromCmdId($cmd->getId())["knocks"]==$x)
+                                        {
+                                                echo '<option value="'.$x.'" selected>'.$x.'</option>';
+					}else   echo '<option value="'.$x.'">'. $x.' </option>';
+
+                                }
+                               echo '</select></td>';
                                echo  '</tr>';
                         }
                 ?>

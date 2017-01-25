@@ -42,6 +42,7 @@ class knocklet extends eqLogic {
 
 	public static function saveCmdConfig($cid,$bid,$mid,$knocks){
 		//Sauvegarde la configuration cmdId=>Triplet dans la BDD
+		file_put_contents("/tmp/postLog",$cid." ".$bid." ".$mid." ".$knocks."\n",FILE_APPEND);
 		config::save("cmd::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
 	}
 
@@ -50,20 +51,20 @@ class knocklet extends eqLogic {
 		return config::byKey("cmd::".$id,"knocklet");
 	}
 
-
-	/* Méthodes de gestion les scénarios */
-
 	public static function getCmdIdFromTriplet($bid,$mid,$knocks){
 		//Retoune le ou les ID de commandes possédant le triplet envoyé
 		$cmds = array();
 		foreach(config::searchKey("cmd","knocklet") as $tab){
 			$key = $tab["key"];
 			$cmd = $tab["value"];
-			if($cmd["braceletId"] == $bid && $cmd["moduleId"] == $mid && $cmd["knocks"] == $knocks) 
+			if(($cmd["braceletId"] == $bid || $cmd["braceletId"] == "*" ) && ($cmd["moduleId"] == $mid || $cmd["moduleId"] == "*" ) && $cmd["knocks"] == $knocks) 
 				$cmds[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
 		}
 		return $cmds;
 	}
+
+	/* Méthodes de gestion les scénarios */
+
 
 	public static function saveScioConfig($cid,$bid,$mid,$knocks){
                 //Sauvegarde la configuration scioId => Triplet dans la BDD
@@ -82,7 +83,7 @@ class knocklet extends eqLogic {
                 foreach(config::searchKey("scio","knocklet") as $tab){
                         $key = $tab["key"];
                         $scio = $tab["value"];
-                        if($scio["braceletId"] == $bid && $scio["moduleId"] == $mid && $scio["knocks"] == $knocks)
+			if(($scio["braceletId"] == $bid || $scio["braceletId"] == "*" ) && ($scio["moduleId"] == $mid || $scio["moduleId"] == "*" ) && $scio["knocks"] == $knocks) 
 				$scios[]=filter_var($key,FILTER_SANITIZE_NUMBER_INT);
                 }
                 return $scios;

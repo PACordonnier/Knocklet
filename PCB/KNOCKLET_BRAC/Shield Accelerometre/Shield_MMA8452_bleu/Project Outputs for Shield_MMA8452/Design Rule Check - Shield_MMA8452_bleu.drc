@@ -1,0 +1,57 @@
+Protel Design System Design Rule Check
+PCB File : D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc
+Date     : 13/01/2017
+Time     : 16:14:22
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.3mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.3mm) (Max=0.9mm) (Preferred=0.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Rule
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "P6" (53.391mm,74.041mm)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "P7" (115.112mm,74.904mm)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "P3" (108.712mm,75.184mm)  Top Overlay
+Rule Violations :3
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+   Violation between Text "2" (56.082mm,127.152mm)  Top Overlay and 
+                     Track (52.78mm,125.882mm)(57.86mm,125.882mm)  Top Overlay
+   Violation between Text "2" (117.042mm,127.152mm)  Top Overlay and 
+                     Track (113.74mm,125.882mm)(118.82mm,125.882mm)  Top Overlay
+Rule Violations :2
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 5
+Time Elapsed        : 00:00:01

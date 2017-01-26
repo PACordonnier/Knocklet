@@ -1,0 +1,13 @@
+Added Component: Designator=U*(MMA8452QT)
+Added Pin To Net: NetName=VDDIO Pin=U*-1
+Added Pin To Net: NetName=BYP Pin=U*-2
+Added Pin To Net: NetName=SCL Pin=U*-4
+Added Pin To Net: NetName=GND Pin=U*-5
+Added Pin To Net: NetName=SDA Pin=U*-6
+Added Pin To Net: NetName=SAO Pin=U*-7
+Added Pin To Net: NetName=INT2 Pin=U*-9
+Added Pin To Net: NetName=GND Pin=U*-10
+Added Pin To Net: NetName=INT1 Pin=U*-11
+Added Pin To Net: NetName=GND Pin=U*-12
+Added Pin To Net: NetName=VCC Pin=U*-14
+Added Member To Class: ClassName=MMA8452QT Member=Component U* MMA8452QT

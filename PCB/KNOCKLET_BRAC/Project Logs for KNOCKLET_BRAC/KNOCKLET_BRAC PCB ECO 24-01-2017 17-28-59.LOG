@@ -1,0 +1,16 @@
+Add component (AddParameter): Name = "NAME"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PROD_ID"; Value = "BATT-10373"; VariantName = "[No Variations]"
+Added Component: Designator=BAT1(BATT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "NAME"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PROD_ID"; Value = "BATT-10373"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component BAT1 20mm coincell

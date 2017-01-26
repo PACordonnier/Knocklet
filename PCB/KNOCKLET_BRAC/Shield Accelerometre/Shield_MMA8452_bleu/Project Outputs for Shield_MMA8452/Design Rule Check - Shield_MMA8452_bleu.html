@@ -1,0 +1,365 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD14\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">13/01/2017</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">16:14:22</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc" class="file"><acronym title="D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc">D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">5</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDI2E3EHQ3V0WGJRNT0SBZ3FUQWK2TLSHIWBEN3OI154NQT3LZPS2M"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDONKCXDDKGIRSMSC504KOBKG2LEASIVJWZKGWRBJQI3O321ODNWRL">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZKOHEUF0UJ0SHSIQNHLILO4PII20XIZD3OF23PFIT5PMKINSNOBO">Clearance Constraint (Gap=0.3mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMC5XGAJHOQHO4WKRWLMPKTUPIP5P2MGSDIABWGRO2L3VNIVTZAG">Width Constraint (Min=0.3mm) (Max=0.9mm) (Preferred=0.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXHJFD5QKFQUCILXGAFD3UZVBWGKM2LDMD4WBX3EFU0AL5GWR45CI">Rule</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBZOZ5GNWCHNGJ1F10250PDYG0K33T544NZAA2KGFFC3WHFXFAB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2AR1AOD30CLKBR43NIUERCOERF244BPLUP52RBCRGHKLS53A2HXC">Silk primitive without silk layer</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQNVIZSHDAL5GPPF5IUVXWKSXQPUPUIBQUEDWW2KAC3SY2PSGEYBE">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU0BS4Q50S2MYOIQPWIL01YNLQLG5C2QIWIDXZCCKVTT3X2J5AQEB">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRLDJ4UW124UYOSIPM23N3W1M1BD0GLBF1QTVNYCWN5K2CKNDXFOF">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0PL2P0ZMPD53CWHQDRRXMSIAJHHRMA0XMAZUJSOJ2VSPKFZYOJLL">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5KAHS1KUJYTIN2YKVNONFZF2FJZZXDO4IBXIWFAQVALOYNABGAK">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLIQFZSR3XGCANHNU1KJ3ZYJVZKH4M21AGKSMMQCU5XHXCZO33S4D">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFDL55IVYPTUZEVN5AX2SEVMBW4WLCDFGHCQQJPT1D3PE1QHQX4K">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLVASDVERL0NKJG54DDGWPQSAJJRNKBA1KJGO04JU0IXW4ZFR3EBM">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">5</td>
+</tr>
+</table><br><hr><a name="ID2AR1AOD30CLKBR43NIUERCOERF244BPLUP52RBCRGHKLS53A2HXC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk primitive without silk layer</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.411mil|Location2.X=2220.886mil|Location1.Y=2904.418mil|Location2.Y=2985.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2111.411mil|Location2.X=2220.886mil|Location1.Y=2904.418mil|Location2.Y=2985.563mil|Absolute=True">Silk To Board Region Clearance (Out of silkscreen region) : Text "P6" (53.391mm,74.041mm)  Top Overlay</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4541.364mil|Location2.X=4650.839mil|Location1.Y=2938.402mil|Location2.Y=3019.547mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4541.364mil|Location2.X=4650.839mil|Location1.Y=2938.402mil|Location2.Y=3019.547mil|Absolute=True">Silk To Board Region Clearance (Out of silkscreen region) : Text "P7" (115.112mm,74.904mm)  Top Overlay</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4289.411mil|Location2.X=4398.886mil|Location1.Y=2949.418mil|Location2.Y=3030.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4289.411mil|Location2.X=4398.886mil|Location1.Y=2949.418mil|Location2.Y=3030.563mil|Absolute=True">Silk To Board Region Clearance (Out of silkscreen region) : Text "P3" (108.712mm,75.184mm)  Top Overlay</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDQNVIZSHDAL5GPPF5IUVXWKSXQPUPUIBQUEDWW2KAC3SY2PSGEYBE"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.953mil|Location2.X=2265.936mil|Location1.Y=4964.662mil|Location2.Y=5013.984mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.953mil|Location2.X=2265.936mil|Location1.Y=4964.662mil|Location2.Y=5013.984mil|Absolute=True">Text "2" (56.082mm,127.152mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2074.016mil|Location2.X=2281.89mil|Location1.Y=4952.047mil|Location2.Y=4959.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2074.016mil|Location2.X=2281.89mil|Location1.Y=4952.047mil|Location2.Y=4959.921mil|Absolute=True">Track (52.78mm,125.882mm)(57.86mm,125.882mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4599.953mil|Location2.X=4665.936mil|Location1.Y=4964.662mil|Location2.Y=5013.984mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4599.953mil|Location2.X=4665.936mil|Location1.Y=4964.662mil|Location2.Y=5013.984mil|Absolute=True">Text "2" (117.042mm,127.152mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.016mil|Location2.X=4681.89mil|Location1.Y=4952.047mil|Location2.Y=4959.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Shield Accelerometre\Shield_MMA8452_bleu.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.016mil|Location2.X=4681.89mil|Location1.Y=4952.047mil|Location2.Y=4959.921mil|Absolute=True">Track (113.74mm,125.882mm)(118.82mm,125.882mm)  Top Overlay</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

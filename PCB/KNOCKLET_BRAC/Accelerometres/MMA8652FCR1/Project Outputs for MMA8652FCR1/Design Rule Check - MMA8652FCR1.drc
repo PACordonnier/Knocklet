@@ -1,0 +1,86 @@
+Protel Design System Design Rule Check
+PCB File : D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\MMA8652FCR1\MMA8652FCR1.PcbDoc
+Date     : 08/12/2016
+Time     : 18:27:55
+
+Processing Rule : Clearance Constraint (Gap=7.874mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7.874mil) (InPolygon),(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=7.874mil) (Max=196.85mil) (Preferred=11.811mil) (All)
+Rule Violations :0
+
+Processing Rule : Rule
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (4150mil,5260mil)(4150mil,6105mil)  Top Overlay
+Rule Violations :1
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Track (3430.236mil,5837.81mil)(3445.984mil,5837.81mil)  Top Overlay
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Track (3430.236mil,5810.251mil)(3445.984mil,5810.251mil)  Top Overlay
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Track (3668.11mil,5559.03mil)(3668.11mil,5859.03mil)  Top Overlay
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Track (3768.11mil,5559.03mil)(3768.11mil,5859.03mil)  Top Overlay
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Track (3668.11mil,5859.03mil)(3768.11mil,5859.03mil)  Top Overlay
+Rule Violations :5
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+   Violation between Track (3430.236mil,5810.251mil)(3445.984mil,5810.251mil)  Top Overlay and 
+                     Pad R2-1(3408.583mil,5824.03mil)  Top Layer
+   Violation between Track (3430.236mil,5837.81mil)(3445.984mil,5837.81mil)  Top Overlay and 
+                     Pad R2-1(3408.583mil,5824.03mil)  Top Layer
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Pad R2-1(3408.583mil,5824.03mil)  Top Layer
+   Violation between Track (3430.236mil,5810.251mil)(3445.984mil,5810.251mil)  Top Overlay and 
+                     Pad R2-2(3467.638mil,5824.03mil)  Top Layer
+   Violation between Track (3430.236mil,5837.81mil)(3445.984mil,5837.81mil)  Top Overlay and 
+                     Pad R2-2(3467.638mil,5824.03mil)  Top Layer
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Pad R2-2(3467.638mil,5824.03mil)  Top Layer
+   Violation between Track (2929.331mil,5851.156mil)(2929.331mil,5866.904mil)  Top Overlay and 
+                     Pad R1-1(2943.11mil,5829.503mil)  Top Layer
+   Violation between Track (2956.89mil,5851.156mil)(2956.89mil,5866.904mil)  Top Overlay and 
+                     Pad R1-1(2943.11mil,5829.503mil)  Top Layer
+   Violation between Track (2929.331mil,5851.156mil)(2929.331mil,5866.904mil)  Top Overlay and 
+                     Pad R1-2(2943.11mil,5888.558mil)  Top Layer
+   Violation between Track (2956.89mil,5851.156mil)(2956.89mil,5866.904mil)  Top Overlay and 
+                     Pad R1-2(2943.11mil,5888.558mil)  Top Layer
+   Violation between Text "MMA8652FCR1" (3272mil,5788mil)  Top Overlay and 
+                     Pad P2-1(3718.11mil,5809.03mil)  Multi-Layer
+Rule Violations :11
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 17
+Time Elapsed        : 00:00:01

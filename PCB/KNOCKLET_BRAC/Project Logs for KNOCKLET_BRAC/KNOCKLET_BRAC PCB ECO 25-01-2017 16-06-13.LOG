@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=SPI_IRQ Pin=U1-14
+Added Pin To Net: NetName=SPI_IRQ Pin=U1-26

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SWDIO Pin=P2-1
+Removed Pin From Net: NetName=BOOT0 Pin=P2-3
+Added Pin To Net: NetName=BOOT0 Pin=P2-1
+Added Pin To Net: NetName=SWDIO Pin=P2-3

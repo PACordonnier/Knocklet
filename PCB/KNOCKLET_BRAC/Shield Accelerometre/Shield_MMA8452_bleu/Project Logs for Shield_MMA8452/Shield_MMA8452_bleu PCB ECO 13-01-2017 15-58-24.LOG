@@ -1,0 +1,6 @@
+Added Component: Designator=P6(HDR2X19)
+Added Component: Designator=P7(HDR2X19)
+Added Pin To Net: NetName=INT1 Pin=P7-22
+Added Member To Class: ClassName=Shield_MMA8452_bleu Member=Component P6 CN7
+Added Member To Class: ClassName=Shield_MMA8452_bleu Member=Component P7 CN10
+Added Room: Name=Shield_MMA8452_bleu

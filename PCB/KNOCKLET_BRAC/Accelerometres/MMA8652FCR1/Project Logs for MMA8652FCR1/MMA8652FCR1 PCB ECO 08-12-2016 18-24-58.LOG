@@ -1,0 +1,12 @@
+Added Component: Designator=MMA8652FCR1(MMA8652FCR1)
+Added Pin To Net: NetName=VCC Pin=MMA8652FCR1-1
+Added Pin To Net: NetName=SCL Pin=MMA8652FCR1-2
+Added Pin To Net: NetName=INT1 Pin=MMA8652FCR1-3
+Added Pin To Net: NetName=BYP Pin=MMA8652FCR1-4
+Added Pin To Net: NetName=INT2 Pin=MMA8652FCR1-5
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-6
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-7
+Added Pin To Net: NetName=VDDIO Pin=MMA8652FCR1-8
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-9
+Added Pin To Net: NetName=SDA Pin=MMA8652FCR1-10
+Added Member To Class: ClassName=MMA8652FCR1 Member=Component MMA8652FCR1

@@ -1,0 +1,7 @@
+Added Component: Designator=U3(SOT223_N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=U3-1
+Added Pin To Net: NetName=NetC7_1 Pin=U3-2
+Added Pin To Net: NetName=NetC6_1 Pin=U3-3
+Added Pin To Net: NetName=NetC7_1 Pin=U3-4
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component U3 LD1117S50TR

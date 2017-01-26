@@ -1,0 +1,16 @@
+syntax: glob
+*.opensdf
+*.old
+*.old01
+*.old02
+*.old03
+*.old04
+*.TMP
+*.o
+*.orig
+History\*
+VisualGDBCache\*
+*.h.bak
+*.cpp.bak
+*.h.orig
+*.cpp.orig

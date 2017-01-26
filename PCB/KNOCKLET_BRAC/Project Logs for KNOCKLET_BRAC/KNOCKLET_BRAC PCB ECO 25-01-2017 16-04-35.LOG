@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=CSN Pin=U1-15
+Added Pin To Net: NetName=CSN Pin=U1-25
+Added Room: Name=Copy of MCU_64

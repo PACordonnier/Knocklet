@@ -1,0 +1,27 @@
+Add component (AddParameter): Name = "NAME"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PROD_ID"; Value = "BATT-10373"; VariantName = "[No Variations]"
+Added Component: Designator=BAT1(BATT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "NAME"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PROD_ID"; Value = "BATT-10373"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PROD_ID"; Value = "SWCH-08179"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SF_ID"; Value = "COM-00597"; VariantName = "[No Variations]"
+Added Component: Designator=S1(AYZ0202)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "PROD_ID"; Value = "SWCH-08179"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SF_ID"; Value = "COM-00597"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=GND Pin=BAT1-1
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=BAT1-2
+Added Pin To Net: NetName=VIN Pin=S1-1
+Added Pin To Net: NetName=VIN Pin=S1-2
+Added Pin To Net: NetName=GND Pin=S1-3
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component BAT1 20mm coincell
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component S1 SWITCH-SPDTSMD
+Added Room: Name=Copy of MCU_64

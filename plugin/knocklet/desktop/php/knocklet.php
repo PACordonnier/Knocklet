@@ -43,19 +43,34 @@ foreach ($eqLogics as $eqLogic) {
 </div>
 
     <legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
-    <div class="cursor expertModeVisible" style="background-color : #ffffff; height : 140px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 100%;margin-left : 10px;">
-	<center style="width:10%;">
+    <div style="text-align: center;width: 10%;float: left;">
+	<div>
             <i class="fa fa-sitemap" id="bt_recupCmd" style="font-size : 6em;color:#767676;"></i>
-        </center>
+        </div>
         <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
-                <center style="width: 10%;">{{Configuration}}</center>
+                <div>{{Configuration}}</div>
 
                 <p style="margin:0; padding:0;">
-                        <center style="width: 10%;">{{des knocks V2}}</center>
+                        <div>{{des commandes}}</div>
                 </p>
         </span>
     
     </div>
+
+    <div style="text-align: center;width: 10%;float: left;">
+        <div>
+            <i class="fa fa-sitemap" id="bt_recupScio" style="font-size : 6em;color:#767676;"></i>
+        </div>
+        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;word-wrap: break-word;color:#767676">
+                <div>{{Configuration}}</div>
+
+                <p style="margin:0; padding:0;">
+                        <div>{{des scénarios}}</div>
+                </p>
+        </span>
+
+    </div>
+
 
 </div>
 
@@ -64,10 +79,10 @@ foreach ($eqLogics as $eqLogic) {
         <fieldset>
             <legend><i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> {{Général}}  <i class='fa fa-cogs eqLogicAction pull-right cursor expertModeVisible' data-action='configure'></i></legend>
             <div class="form-group">
-                <label class="col-sm-3 control-label">{{Nom de l'équipement template}}</label>
+                <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
                 <div class="col-sm-3">
                     <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-                    <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement template}}"/>
+                    <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement}}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -90,8 +105,17 @@ foreach (object::all() as $object) {
                <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
            </div>
        </div>
+	<?php   echo '<div class"form-group">';
+		echo '<label class="col-sm-3 control-label">{{Adresse}}</label>';
+                echo '<div class="col-sm-3">';
+		echo '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="MAC" placeholder="Adresse" readonly/>';
+		echo '</div>'; 
+		echo '</div>';
+ ?>
+
 </fieldset>
 </form>
+
 
 <form class="form-horizontal">
     <fieldset>

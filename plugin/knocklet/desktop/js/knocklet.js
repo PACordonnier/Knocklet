@@ -61,6 +61,16 @@ $('#bt_recupCmd').on('click', function () {
 });
 
 
+
+$('#bt_recupScio').on('click', function () {
+         $('#md_modal').dialog({title: "{{Configuration des scénarios}}"});
+    $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configScenarios').dialog('open');
+
+});
+
+
+
+
 $('#bt_ajout_bracelet').on('click', function () {
         
 	$('#md_modal').dialog({title: "{{Ajouter un bracelet}}"});
@@ -181,6 +191,58 @@ $.ajax({
 		$('#jqueryLoadingDiv').remove();
 		
 	}
+});
+
+});
+
+
+
+
+$('#saveScios').on('click',function (){
+
+$('body').append('<div id="jqueryLoadingDiv"><div class="overlay"></div><i class="fa fa-cog fa-spin loadingImg"></i></div>');
+
+var returnTable= [];
+var container = document.getElementById('config_scenarios');
+var bracelets = document.getElementsByClassName('sel_bracelet');
+var modules = document.getElementsByClassName('sel_module');
+var knocks = document.getElementsByClassName('sel_knock');
+var cmds = container.getElementsByTagName('tr');
+var j=0;
+var table_cmds = [];
+console.log(cmds);
+
+for (j = 0; j < cmds.length-1; j++) {
+	
+
+
+	console.log(cmds[j]);
+        if(bracelets[j].options[bracelets[j].selectedIndex].value!=="" && modules[j].options[modules[j].selectedIndex].value !== "" && knocks[j].options[knocks[j].selectedIndex].text !== "Aucun"){
+                returnTable[cmds[j+1].id] = [bracelets[j].options[bracelets[j].selectedIndex].value, modules[j].options[modules[j].selectedIndex].value, knocks[j].options[knocks[j].selectedIndex].text];
+        }
+        else returnTable[cmds[j+1].id] = null;
+
+    }
+console.log(returnTable);
+
+$.ajax({
+        type: "POST",
+        url: "plugins/knocklet/core/ajax/knocklet.ajax.php",
+        data: {
+                action: "saveScio",
+                json: JSON.stringify(returnTable),
+        },
+        dataType: 'json',
+        global: false,
+        error: function (request, status, error) {
+            handleAjaxError(request, status, error);
+        },
+        success: function (data) {
+                //DONOTTOUCH, si on appelle la fonction que une seule fois, ça marche pas
+                $('#jqueryLoadingDiv').remove();
+                $('#jqueryLoadingDiv').remove();
+
+        }
 });
 
 });

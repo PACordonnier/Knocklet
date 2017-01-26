@@ -123,7 +123,7 @@ if (!isConnect('admin')) {
                     <table  class="table table-bordered table-condensed" style="width: 100%;position:relative;margin-top : 25px;">
                         <thead>
                         <tr class="knockConf_table_titles" style="background-color: #94ca02;">
-                            <th colspan="1">{{Knock}}</th>
+                            <th colspan="1">{{Commmandes}}</th>
                             <th colspan="1">{{Nom du bracelet}}</th>
                             <th colspan="1">{{Nom du module}}</th>
                             <th colspan="1">{{Nombre de knock}}</th>

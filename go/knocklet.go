@@ -22,6 +22,9 @@ import (
 var done = make(chan struct{})
 var lastTime time.Time = time.Now()
 var ownBDAddress string
+const rssiMax = 110
+const rssiMin = 40
+const durationMax = 200
 
 type Params struct {
 	Apikey string `json:"apikey"`
@@ -92,6 +95,10 @@ func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 	b,_ := json.Marshal(payload)
 	url := "http://jeedom.local/plugins/knocklet/core/api/knocklet.api.php"
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(b))
+	if err != nil {
+		fmt.Println("error !")
+		panic(err)
+	}
 	req.Header.Set("Content-Type",  "application/json")
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -99,9 +106,6 @@ func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 	_ = json.NewDecoder(resp.Body).Decode(&response)
 	fmt.Println(string(b))
 	fmt.Println(response)
-	if err != nil {
-		panic(err)
-	}
 	defer resp.Body.Close()
 }
 
@@ -122,7 +126,9 @@ func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 		lastTime = time.Now()
 		h := []byte{0}
 		val := append(h, a.ServiceData[0].Data[0])
-		time.Sleep(time.Duration(-rssi) * time.Millisecond)
+		duration := ((-rssi - rssiMin) * durationMax) / (rssiMax - rssiMin)
+		fmt.Println(duration)
+		time.Sleep(time.Duration(duration) * time.Millisecond)
 		sendToJeedom(p.ID(), ownBDAddress, int(binary.BigEndian.Uint16(val)), rssi)
 		fmt.Println("end")
 	}

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
- 
+
 
 $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 /*
@@ -142,28 +142,45 @@ $('#bt_ajout_bracelet').on('click', function () {
 
 $('#saveCmds').on('click',function (){
 
+$('body').append('<div id="jqueryLoadingDiv"><div class="overlay"></div><i class="fa fa-cog fa-spin loadingImg"></i></div>');
+
 var returnTable= [];
 var container = document.getElementById('config_knock');
 var bracelets = document.getElementsByClassName('sel_bracelet');
 var modules = document.getElementsByClassName('sel_module');
 var knocks = document.getElementsByClassName('sel_knock');
-var cmds = document.getElementsByTagName('tr');
+var cmds = container.getElementsByTagName('tr');
+var j=0;
+var table_cmds = [];
 
 
-for (var j = 0; j < cmds.length-1; j++) {
-	console.log(j);
-    	console.log(bracelets[j]);
-    	console.log(container);
-	if(bracelets[j].options[bracelets[j].selectedIndex].value!==""&&modules[j].options[modules[j].selectedIndex].value!==""&&knocks[j].options[knocks[j].selectedIndex].text!=="Aucun"){
-		returnTable[cmds[j].id]=[bracelets[j].options[bracelets[j].selectedIndex].value, modules[j].options[modules[j].selectedIndex].value, knocks[j].options[knocks[j].selectedIndex].text];
-	}
+for (j = 0; j < cmds.length; j++) {
+
+        if(bracelets[j].options[bracelets[j].selectedIndex].value!=="" && modules[j].options[modules[j].selectedIndex].value !== "" && knocks[j].options[knocks[j].selectedIndex].text !== "Aucun"){
+                returnTable[cmds[j].id] = [bracelets[j].options[bracelets[j].selectedIndex].value, modules[j].options[modules[j].selectedIndex].value, knocks[j].options[knocks[j].selectedIndex].text];
+        }
+	else returnTable[cmds[j].id] = null;	
 	
     }
 
-
-console.log(returnTable);
-console.log(JSON.stringify(returnTable));
-
-$.post('plugins/knocklet/core/ajax/knocklet.ajax.php', {saveCmd: JSON.stringify(returnTable)});
+$.ajax({
+	type: "POST",
+	url: "plugins/knocklet/core/ajax/knocklet.ajax.php",
+	data: {
+		action: "saveCmd",
+		json: JSON.stringify(returnTable),
+	},
+	dataType: 'json',
+        global: false,
+        error: function (request, status, error) {
+            handleAjaxError(request, status, error);
+        },
+        success: function (data) {
+		//DONOTTOUCH, si on appelle la fonction que une seule fois, ça marche pas 
+		$('#jqueryLoadingDiv').remove();
+		$('#jqueryLoadingDiv').remove();
+		
+	}
+});
 
 });

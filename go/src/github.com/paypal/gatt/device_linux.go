@@ -49,7 +49,7 @@ func NewDevice(opts ...Option) (Device, error) {
 			LEScanInterval:       0x0010, // [0x10]: 0.625ms * 16
 			LEScanWindow:         0x0010, // [0x10]: 0.625ms * 16
 			OwnAddressType:       0x00,   // [0x00]: public, 0x01: random
-			ScanningFilterPolicy: 0x00,   // [0x00]: accept all, 0x01: ignore non-white-listed.
+			ScanningFilterPolicy: 0x01,   // [0x00]: accept all, 0x01: ignore non-white-listed.
 		},
 	}
 

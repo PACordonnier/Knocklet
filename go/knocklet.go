@@ -20,7 +20,6 @@ import (
 )
 
 var done = make(chan struct{})
-var lastTime time.Time = time.Now()
 var ownBDAddress string
 const rssiMax = 110
 const rssiMin = 40
@@ -52,13 +51,14 @@ type Response struct {
 	Error Error `json:"error"`
 }
 
+var addressMap map[string]time.Time
 
 func onStateChanged(d gatt.Device, s gatt.State) {
 	fmt.Println("State:", s)
 	switch s {
 	case gatt.StatePoweredOn:
 		fmt.Println("Scanning...")
-		//hex, err := hex.DecodeString("4B4E4F000002")
+		//hex, err := hex.DecodeString("2B4E4F000002")
 		//if (err != nil){
 		//	log.Printf("error")
 		//	return
@@ -111,11 +111,12 @@ func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 
 func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 	id := strings.ToUpper(flag.Args()[0])
-	if strings.ToUpper(p.ID()) != id {
+	if !strings.HasPrefix(strings.ToUpper(p.ID()), id) {
 		return
 	}
 	fmt.Println(rssi)
-	if (time.Since(lastTime).Seconds() > 2.55555) {
+	lastTime, presence := addressMap[p.ID()]
+	if (!presence || time.Since(lastTime).Seconds() > 1.6) {
 		fmt.Printf("\nPeripheral ID:%s, NAME:(%s)\n", p.ID(), p.Name())
 		fmt.Println("  Local Name        =", a.LocalName)
 		fmt.Println("  TX Power Level    =", a.TxPowerLevel)
@@ -123,7 +124,7 @@ func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 		fmt.Println("  Service Data      =", a.ServiceData)
 		fmt.Println("  RSSI		 =", rssi)
 		fmt.Println("")
-		lastTime = time.Now()
+		addressMap[p.ID()] = time.Now()
 		h := []byte{0}
 		val := append(h, a.ServiceData[0].Data[0])
 		duration := ((-rssi - rssiMin) * durationMax) / (rssiMax - rssiMin)
@@ -168,14 +169,17 @@ func main() {
 		log.Fatalf("Failed to open device, err: %s\n", err)
 		return
 	}
+	//Get bluetooth address
 	ownBDAddress = bdaddr(d)
 	fmt.Println(ownBDAddress)
+
+	//Initialize maps
+	addressMap = make(map[string]time.Time)
 	// Register handlers.
 	d.Handle(
 		gatt.PeripheralDiscovered(onPeriphDiscovered),
 	)
 
-	lastTime = time.Now()
 	d.Init(onStateChanged)
 	<-done
 	fmt.Println("Done")

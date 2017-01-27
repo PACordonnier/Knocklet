@@ -1,4 +1,0 @@
-Debug/equeue_posix.o: \
- C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/events/equeue/equeue_posix.c \
- C:\Users\Nicolas\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/events/equeue/equeue_platform.h \
- c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include\stdbool.h

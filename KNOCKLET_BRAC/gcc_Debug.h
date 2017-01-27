@@ -1270,7 +1270,11 @@
 #endif
 
 // --- Include directories begin --- //
+//Accelerometer
+//BlueNRG/BSP
+//BlueNRG/Middlewares
 //.
+//Knocklet
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/targets
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/cmsis
 //$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed/cmsis/TOOLCHAIN_GCC
@@ -1297,10 +1301,6 @@
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/include-fixed
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/sys-include
 //c:\sysgcc\arm-eabi\bin\../lib/gcc/arm-eabi/6.2.0/../../../../arm-eabi/include
-//Accelerometer
-//BlueNRG/BSP
-//BlueNRG/Middlewares
-//Knocklet
 // --- Include directories end --- //
 
 

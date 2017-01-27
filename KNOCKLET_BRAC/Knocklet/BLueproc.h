@@ -54,7 +54,7 @@ extern bool			BLP_broa;					// Demande de procedure broadcast mode
 	
 #define BLP_TYPE_NAME 0x0A				// Size du type AD_TYPE_COMPLETE_LOCAL_NAME
 #define	BLP_TYPE_DATA 0x12				// Size du type AD_TYPE_SERVICE_DATA_128_BIT_UUID
-#define BLP_BROA_TIME 2000				// Temps d'activation du broadcast mode
+#define BLP_BROA_TIME 1500				// Temps d'activation du broadcast mode
 
 /*----------------------------------------------------------------------------
 * BLX : Traitements généraux

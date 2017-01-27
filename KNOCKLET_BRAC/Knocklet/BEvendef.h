@@ -38,10 +38,10 @@ typedef struct	   // Définition d'un client
 * CONSTANTES
 *---------------------------------------------------------------------------*/
 #define BEX_MAXI_CLIE 2         // Nombre maximum de client
-#define BEX_DECO_CLIE 0					// il n'y a pas de client connecté sur le BLE
+#define BEX_DECO_CLIE 0			// il n'y a pas de client connecté sur le BLE
 #define BEX_MASK_EVEN 0xFF00    // Mask pour connaître le type d'evenement vendor
 #define BEX_EVEN__GAP 0x0400    // Evenement pour le GATT serveur
-#define BEX_EVEN_GATT 0x0C00		// Evenement pour le GAP serveur
+#define BEX_EVEN_GATT 0x0C00	// Evenement pour le GAP serveur
 
 /*----------------------------------------------------------------------------
 * VARIABLES EXTERNALISEES

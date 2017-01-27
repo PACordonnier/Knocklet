@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=USART_TX Pin=P2-5
+Removed Pin From Net: NetName=USART_RX Pin=P2-6
+Added Pin To Net: NetName=USART_RX Pin=P2-5
+Added Pin To Net: NetName=USART_RX Pin=P2-5
+Added Pin To Net: NetName=USART_RX Pin=P2-5
+Added Pin To Net: NetName=USART_TX Pin=P2-6
+Added Pin To Net: NetName=USART_TX Pin=P2-6
+Added Pin To Net: NetName=USART_TX Pin=P2-6
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component R9 Res1
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component U2 SPBTLE-RF

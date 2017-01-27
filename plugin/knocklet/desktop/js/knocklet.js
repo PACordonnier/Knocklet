@@ -55,7 +55,7 @@ function addCmdToTable(_cmd) {
 
 $('#bt_recupCmd').on('click', function () {
 	 $('#md_modal').dialog({title: "{{Configuration des knocks}}"});
-    $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configKnock').dialog('open');
+    $('#md_modal').load('index.php?v=d&plugin=knocklet&modal=configCommandes').dialog('open');
 
 
 });

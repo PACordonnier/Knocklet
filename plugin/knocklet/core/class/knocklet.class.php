@@ -66,14 +66,12 @@ class knocklet extends eqLogic {
 	public static function saveScioConfigFromJson($js) {
                 //Fonction appelée par l'API pour enregistrer les configurations depuis le plugin
                 $array=json_decode($js);
-		file_put_contents("/tmp/postLog",$js."\n",FILE_APPEND);
                 foreach($array as $key => $value)
                         self::saveScioConfig($key,$value[0],$value[1],$value[2]);
         }
 
 	public static function saveScioConfig($cid,$bid,$mid,$knocks){
                 //Sauvegarde la configuration scioId => Triplet dans la BDD
-		file_put_contents("/tmp/postLog",$cid." ".$bid." ".$mid." ".$knocks."\n",FILE_APPEND);
 		config::save("scio::".$cid,json_encode(self::createTriplet($bid,$mid,$knocks)),"knocklet");
         }
 

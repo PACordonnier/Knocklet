@@ -100,8 +100,8 @@ try {
 	//Gestions des Knocks (conversion du triplet recu en une liste de commandes/scenarios à lancer)
 	if ($jsonrpc->getMethod() == 'knock') {
 		if((isset($params['braceletId'])) && (isset($params['moduleId'])) && (isset($params['knocks'])) && (isset($params['rssi']))){
-			//Si l'api a reçu une commande du même bracelet moins de x secondes avant, la commande est ignorée 
-			if((microtime(true) - getLastKnock($params['braceletId'])) < 2)
+			//Si l'api a reçu une commande du même bracelet moins de x secondes avant, la commande est ignorée
+			if((microtime(true) - getLastKnock($params['braceletId'])) < 1.5)
 				throw new Exception("Demande ignoree, derniere commande pour ce bracelet recue il y a " . (microtime(true) - getLastKnock($params['braceletId'])) . " seconde", -32604);
 			//Enregistrement du timestamp du knock
 			setLastKnock($params['braceletId']);

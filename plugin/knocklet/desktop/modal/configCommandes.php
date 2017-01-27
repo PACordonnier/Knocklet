@@ -124,9 +124,9 @@ if (!isConnect('admin')) {
                         <thead>
                         <tr class="knockConf_table_titles" style="background-color: #94ca02;">
                             <th colspan="1">{{Commmandes}}</th>
-                            <th colspan="1">{{Nom du bracelet}}</th>
-                            <th colspan="1">{{Nom du module}}</th>
-                            <th colspan="1">{{Nombre de knock}}</th>
+                            <th colspan="1">{{Choix du bracelet}}</th>
+                            <th colspan="1">{{Choix du module}}</th>
+                            <th colspan="1">{{Nombre de knocks}}</th>
                         </tr>
                         </thead>
                         <tbody id="config_knock">
@@ -137,7 +137,7 @@ if (!isConnect('admin')) {
 			$modules =knocklet::getModuleList();
                         foreach(cmd::all() as $cmd)
                         {
-                               echo  '<tr ID="'.$cmd->getId().'"><td><b>Equipement:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>'.eqLogic::byId($cmd->getEqLogic_Id())->getName()." <br><br><b>Commande:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>".$cmd->getName().'</td>';
+                               echo  '<tr ID="'.$cmd->getId().'"><td><b>Equipement :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>'.eqLogic::byId($cmd->getEqLogic_Id())->getName()." <br><br><b>Commande :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>".$cmd->getName().'</td>';
  			       echo '<td><select class="sel_bracelet form-control" data-l1key="object_id"><option value="">{{Aucun}}</option>';
                                foreach ($bracelets as $object)
                                {
@@ -177,7 +177,7 @@ if (!isConnect('admin')) {
 
 			       echo '<td><select class="sel_knock form-control"><option value="">{{Aucun}}</option>';
 
-                               for ($x=2;$x<9;$x++)
+                               for ($x=2;$x<=6;$x++)
                                 {
 					if(knocklet::getTripletFromCmdId($cmd->getId())["knocks"]==$x)
                                         {

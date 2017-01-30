@@ -164,11 +164,15 @@ func main() {
 		log.Fatalf("usage: %s [options] peripheral-id\n", os.Args[0])
 	}
 
+	fmt.Println(time.Now())
 	d, err := gatt.NewDevice(option.DefaultClientOptions...)
-	if err != nil {
-		log.Fatalf("Failed to open device, err: %s\n", err)
-		return
+	for err != nil {
+		log.Println("Failed to open device, err: %s\n", err)
+		err = nil
+		d, err = gatt.NewDevice(option.DefaultClientOptions...)
+		time.Sleep(10 * time.Millisecond)
 	}
+	fmt.Println(time.Now())
 	//Get bluetooth address
 	ownBDAddress = bdaddr(d)
 	fmt.Println(ownBDAddress)

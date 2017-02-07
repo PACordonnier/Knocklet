@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7BEDCA17-B051-4E99-9C18-ED01AA47B346}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeIncludeSearchPath>Accelerometer;BlueNRG/BSP;BlueNRG/Middlewares;.;Knocklet;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\TOOLCHAIN_GCC;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\docs;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\DeviceDefinitions;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\arm-eabi\thumb\cortex_m0plus;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\backward;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include-fixed;c:\sysgcc\arm-eabi\arm-eabi\sys-include;c:\sysgcc\arm-eabi\arm-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)KNOCKLET_BRAC-Debug.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>Accelerometer;BlueNRG/BSP;BlueNRG/Middlewares;.;Knocklet;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\TOOLCHAIN_GCC;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\docs;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\DeviceDefinitions;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\arm-eabi\thumb\cortex_m0plus;c:\sysgcc\arm-eabi\arm-eabi\include\c++\6.2.0\backward;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include;c:\sysgcc\arm-eabi\lib\gcc\arm-eabi\6.2.0\include-fixed;c:\sysgcc\arm-eabi\arm-eabi\sys-include;c:\sysgcc\arm-eabi\arm-eabi\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)KNOCKLET_BRAC-Release.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_mbed.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_posix.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_gpio.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_lp_ticker_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_pinmap_common.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_ticker_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_us_ticker_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_alloc_wrappers.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_board.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_critical.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_rtc_time.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_semihost_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_no_rtos.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_rtos.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\retarget.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\stubs.cpp" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\stm_spi_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogin_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogout_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_irq_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\i2c_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\lp_ticker.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\mbed_overrides.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pinmap.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\port_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pwmout_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\serial_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\sleep.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\spi_api.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralPins.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\us_ticker.c" />
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\trng_api.c" />
+    <ClCompile Include="Accelerometer\MMA8452.cpp" />
+    <ClCompile Include="BlueNRG\BSP\stm32l0xx_nucleo.c" />
+    <ClCompile Include="BlueNRG\BSP\stm32_bluenrg_ble.c" />
+    <ClCompile Include="BlueNRG\Middlewares\ble_list.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_gap_aci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_gatt_aci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_hal_aci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_IFR.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_interface.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_updater_aci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_utils.c" />
+    <ClCompile Include="BlueNRG\Middlewares\clock.c" />
+    <ClCompile Include="BlueNRG\Middlewares\cube_hal_l0.c" />
+    <ClCompile Include="BlueNRG\Middlewares\gp_timer.c" />
+    <ClCompile Include="BlueNRG\Middlewares\hci.c" />
+    <ClCompile Include="BlueNRG\Middlewares\osal.c" />
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_gpio.c" />
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c" />
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c" />
+    <ClCompile Include="BlueNRG\Middlewares\stm32xx_it.c" />
+    <ClCompile Include="Knocklet\ACcelero.cpp" />
+    <ClCompile Include="Knocklet\BEvendef.cpp" />
+    <ClCompile Include="Knocklet\BInitdef.cpp" />
+    <ClCompile Include="Knocklet\BLueproc.cpp" />
+    <ClCompile Include="Knocklet\BParadef.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM\startup_stm32l073xx.S" />
+    <None Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed" />
+    <None Include="debug.mak" />
+    <None Include="KNOCKLET_BRAC-Debug.vgdbsettings" />
+    <None Include="KNOCKLET_BRAC-Release.vgdbsettings" />
+    <None Include="Makefile" />
+    <None Include="mbed.mak" />
+    <None Include="release.mak" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_common_tables.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_const_structs.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_math.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca9.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caFunc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caInstr.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca_mmu.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0plus.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm3.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4_simd.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm7.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmFunc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmInstr.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSecureAccess.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSimd.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc000.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc300.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalIn.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalInOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DirHandle.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileHandle.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTicker.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimeout.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimer.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortIn.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortInOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PwmOut.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_platform.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\Event.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\mbed_events.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogin_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogout_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\buffer.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_helper.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\dma_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ethernet_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_irq_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal\emac_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\i2c_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\lp_ticker_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pinmap.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\port_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pwmout_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\rtc_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\serial_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\sleep_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\spi_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Common.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Storage.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ticker_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\trng_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\us_ticker_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\mbed.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Callback.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CircularBuffer.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\critical.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CThunk.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\FunctionPointer.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_debug.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_stats.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\platform.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\PlatformMutex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\rtc_time.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\semihost_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\SingletonPtr.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\toolchain.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Transaction.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\wait_api.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\mbed_rtx.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\common_objects.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_def.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart_ex.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32_hal_legacy.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_object.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\PeripheralPins.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api_hal.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l073xx.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx_hal_conf.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\objects.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralNames.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PinNames.h" />
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PortNames.h" />
+    <ClInclude Include="Accelerometer\MMA8452.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo_bluenrg.h" />
+    <ClInclude Include="BlueNRG\BSP\stm32_bluenrg_ble.h" />
+    <ClInclude Include="BlueNRG\Middlewares\ble_clock.h" />
+    <ClInclude Include="BlueNRG\Middlewares\ble_list.h" />
+    <ClInclude Include="BlueNRG\Middlewares\ble_status.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_aci_const.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gap.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gap_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_server.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_hal_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_interface.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_updater_aci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_utils.h" />
+    <ClInclude Include="BlueNRG\Middlewares\compiler.h" />
+    <ClInclude Include="BlueNRG\Middlewares\cube_hal.h" />
+    <ClInclude Include="BlueNRG\Middlewares\debug.h" />
+    <ClInclude Include="BlueNRG\Middlewares\gp_timer.h" />
+    <ClInclude Include="BlueNRG\Middlewares\hal.h" />
+    <ClInclude Include="BlueNRG\Middlewares\hal_types.h" />
+    <ClInclude Include="BlueNRG\Middlewares\hci.h" />
+    <ClInclude Include="BlueNRG\Middlewares\hci_const.h" />
+    <ClInclude Include="BlueNRG\Middlewares\link_layer.h" />
+    <ClInclude Include="BlueNRG\Middlewares\osal.h" />
+    <ClInclude Include="BlueNRG\Middlewares\sm.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_dma.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_exti.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_gpio.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_spi.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h" />
+    <ClInclude Include="BlueNRG\Middlewares\stm32xx_it.h" />
+    <ClInclude Include="Knocklet\ACcelero.h" />
+    <ClInclude Include="Knocklet\BEvendef.h" />
+    <ClInclude Include="Knocklet\BInitdef.h" />
+    <ClInclude Include="Knocklet\BLueproc.h" />
+    <ClInclude Include="Knocklet\BParadef.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="mbed.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

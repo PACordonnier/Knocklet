@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=USART_TX Pin=P2-4
+Removed Pin From Net: NetName=USART_RX Pin=P2-5
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X5 New Footprint=HDR1X6
+Change Component Comment : Designator=P2 Old Comment=Header 5 New Comment=Header 6
+Added Pin To Net: NetName=USART_TX Pin=P2-5
+Added Pin To Net: NetName=USART_TX Pin=P2-5
+Added Pin To Net: NetName=USART_TX Pin=P2-5
+Added Pin To Net: NetName=USART_RX Pin=P2-6
+Added Pin To Net: NetName=USART_RX Pin=P2-6
+Added Pin To Net: NetName=USART_RX Pin=P2-6
+Added Pin To Net: NetName=NRST Pin=P2-4
+Added Pin To Net: NetName=NRST Pin=P2-4
+Added Pin To Net: NetName=NRST Pin=P2-4
+Added Pin To Net: NetName=NRST Pin=U1-7
+Added Net: Name=NRST

@@ -1,0 +1,540 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD14\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">13/12/2016</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">14:53:17</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc" class="file"><acronym title="D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc">D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">47</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDMZ1MOPHIOCUOFCYHPIFZA4GWGI51AI3R0BOU4VJWCUVSP11MPHCN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDG55M4ZVDNABSJREIUPUIN2ELFPX3RZMHFGRRSDO5WOHPPBRK5VKP">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1R1FIUQT5VYCOA51VLJDDAJI4KM1TIN54B3PKPK5X3JWDZDTSWRD">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMQ3YJ1KHH5EMNDOATMN0T1O1XN5BV30YTLNV14FFTUBFNN5YM3DK">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRMQDAHQVZT2HJ0QDZL5UK3GP5IGKDPG1HGWOG5F403PCZZHUYQZM">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEY001SLVD2CMLPOLV5LOPDVT4NFFBLFIFFVFBKEUUZUMHIWWOAI">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIB4PBZIEAASVEU11RBLCYEWBIIU243AKIKNQSZKYCDB5FUJBNVCN">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBRB4WDG5PMRLMB11XXWJZUD52GISTIRPAVOKRFKATWPY3G0VXQNG">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLWOYPNPMD0QSNWU0IRKQL4BNBBFMVP0HOUQL1CQOE4LGPCCB4CL">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTBRHSKPMHDNWKSRC3TOWV2SIBK3NGWBJ0KYBLVGAT14O3WSUDMMG">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVF2PB4KTOMOHMUWM1FODLCP3TDKWU0IETBZCEKIGAM5201303EUH">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDF5O22R2MOKVXDK0AQZSHFLZPDBF3V2HPRJBO1YMGR1YJDJ0U4EEK">Rule</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBG3ZHYBSZJQRHURHTKX4TUOMSC0FKFEK5EIJAXMEANO0BBTJKJ4C">Width Constraint (Min=0.2mm) (Max=2.54mm) (Preferred=0.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFGT0EIDYMJGQCELONEBWBZJTIJLVI5LBMYAIPXFY00KV33FAPB1B">Clearance Constraint (Gap=0.25mm) (InPolygon),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOXZ1JKLFQEIYI1HYXXCED151TCMB2XQMR0QAFYHL3G4VR4XI5TRG">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDII5HFNHM5SRMFARPVAYIHBDIJEXCCTK3IFIYYJIBXNX3XAQVD35P">Clearance Constraint (Gap=0.25mm) (All),(All)</a></td>
+<td class="column2">32</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">47</td>
+</tr>
+</table><br><hr><a name="IDIB4PBZIEAASVEU11RBLCYEWBIIU243AKIKNQSZKYCDB5FUJBNVCN"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-3(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-4(120.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-3(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-5(121.289mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-7(122.289mm,131.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-6(121.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-5(121.289mm,131.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-6(121.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-8(122.289mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-6(121.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-8(122.289mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-7(122.289mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-2(120.789mm,130.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-3(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-9(122.289mm,130.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-8(122.289mm,131.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-12(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-2(120.789mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-1(120.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-2(120.789mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-10(122.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-9(122.289mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-11(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-9(122.289mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-12(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-1(120.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-11(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-12(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-10(122.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-11(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDII5HFNHM5SRMFARPVAYIHBDIJEXCCTK3IFIYYJIBXNX3XAQVD35P"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=0.25mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True">Track (120.764mm,131.416mm)(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-4(120.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.567mil|Location2.X=4800.748mil|Location1.Y=5188.622mil|Location2.Y=5200.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.567mil|Location2.X=4800.748mil|Location1.Y=5188.622mil|Location2.Y=5200.433mil|Absolute=True">Track (121.297mm,131.941mm)(121.789mm,131.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-4(120.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True">Track (120.777mm,131.953mm)(120.777mm,132.461mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5185.606mil|Location2.Y=5203.449mil|Absolute=True">Pad U1-5(121.289mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True">Track (120.777mm,131.953mm)(120.777mm,132.461mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5165.921mil|Location2.Y=5183.764mil|Absolute=True">Pad U1-3(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True">Track (120.764mm,131.416mm)(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-2(120.789mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True">Track (117.631mm,131.416mm)(120.764mm,131.416mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-2(120.789mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True">Track (122.301mm,130.429mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-9(122.289mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4808.622mil|Location2.X=4820.433mil|Location1.Y=5168.937mil|Location2.Y=5200.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4808.622mil|Location2.X=4820.433mil|Location1.Y=5168.937mil|Location2.Y=5200.433mil|Absolute=True">Track (122.289mm,131.441mm)(122.289mm,131.941mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5146.236mil|Location2.Y=5164.079mil|Absolute=True">Pad U1-9(122.289mm,130.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True">Track (121.285mm,130.437mm)(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-1(120.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780mil|Location1.Y=5085mil|Location2.Y=5140.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780mil|Location1.Y=5085mil|Location2.Y=5140.315mil|Absolute=True">Track (121.285mm,129.286mm)(121.285mm,130.437mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-1(120.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4746.551mil|Location2.X=4764.394mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-1(120.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4766.236mil|Location2.X=4784.079mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-12(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True">Track (121.285mm,130.437mm)(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-11(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True">Track (122.301mm,130.429mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.921mil|Location2.X=4803.764mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-11(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True">Track (122.301mm,130.937mm)(123.317mm,130.937mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-10(122.289mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.606mil|Location2.X=4823.449mil|Location1.Y=5126.551mil|Location2.Y=5144.394mil|Absolute=True">Pad U1-10(122.289mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True">Track (120.777mm,131.953mm)(120.777mm,132.461mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.567mil|Location2.X=4800.748mil|Location1.Y=5188.622mil|Location2.Y=5200.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4769.567mil|Location2.X=4800.748mil|Location1.Y=5188.622mil|Location2.Y=5200.433mil|Absolute=True">Track (121.297mm,131.941mm)(121.789mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True">Track (122.301mm,130.937mm)(123.317mm,130.937mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4808.622mil|Location2.X=4820.433mil|Location1.Y=5168.937mil|Location2.Y=5200.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4808.622mil|Location2.X=4820.433mil|Location1.Y=5168.937mil|Location2.Y=5200.433mil|Absolute=True">Track (122.289mm,131.441mm)(122.289mm,131.941mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True">Track (122.301mm,130.429mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4810mil|Location2.X=4860mil|Location1.Y=5150mil|Location2.Y=5160mil|Absolute=True">Track (122.301mm,130.937mm)(123.317mm,130.937mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.095mil|Location2.X=4821.693mil|Location1.Y=5128.307mil|Location2.Y=5140.905mil|Absolute=True">Track (122.301mm,130.429mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.882mil|Location2.X=4821.693mil|Location1.Y=4993.307mil|Location2.Y=5140.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.882mil|Location2.X=4821.693mil|Location1.Y=4993.307mil|Location2.Y=5140.118mil|Absolute=True">Track (122.321mm,126.98mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4651.577mil|Location2.X=4800.748mil|Location1.Y=4929.095mil|Location2.Y=5078.265mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4651.577mil|Location2.X=4800.748mil|Location1.Y=4929.095mil|Location2.Y=5078.265mil|Absolute=True">Track (118.3mm,125.349mm)(121.789mm,128.838mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.882mil|Location2.X=4821.693mil|Location1.Y=4993.307mil|Location2.Y=5140.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4809.882mil|Location2.X=4821.693mil|Location1.Y=4993.307mil|Location2.Y=5140.118mil|Absolute=True">Track (122.321mm,126.98mm)(122.321mm,130.409mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780.158mil|Location1.Y=5130.315mil|Location2.Y=5140.472mil|Absolute=True">Track (121.285mm,130.437mm)(121.289mm,130.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780mil|Location1.Y=5085mil|Location2.Y=5140.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4770mil|Location2.X=4780mil|Location1.Y=5085mil|Location2.Y=5140.315mil|Absolute=True">Track (121.285mm,129.286mm)(121.285mm,130.437mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4715mil|Location2.X=4780mil|Location1.Y=5030mil|Location2.Y=5095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4715mil|Location2.X=4780mil|Location1.Y=5030mil|Location2.Y=5095mil|Absolute=True">Track (119.888mm,127.889mm)(121.285mm,129.286mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4788.937mil|Location2.X=4800.748mil|Location1.Y=5066.454mil|Location2.Y=5141.378mil|Absolute=True">Track (121.789mm,128.838mm)(121.789mm,130.441mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4660.654mil|Location2.X=4675mil|Location1.Y=5125.654mil|Location2.Y=5140mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4660.654mil|Location2.X=4675mil|Location1.Y=5125.654mil|Location2.Y=5140mil|Absolute=True">Track (118.508mm,130.319mm)(118.618mm,130.429mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665mil|Location2.X=4760mil|Location1.Y=5130mil|Location2.Y=5140mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665mil|Location2.X=4760mil|Location1.Y=5130mil|Location2.Y=5140mil|Absolute=True">Track (118.618mm,130.429mm)(120.777mm,130.429mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True">Track (120.764mm,131.416mm)(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True">Track (117.631mm,131.416mm)(120.764mm,131.416mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4464.093mil|Location2.X=4637.045mil|Location1.Y=5167.953mil|Location2.Y=5340.904mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4464.093mil|Location2.X=4637.045mil|Location1.Y=5167.953mil|Location2.Y=5340.904mil|Absolute=True">Track (113.538mm,135.509mm)(117.631mm,131.416mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.73mil|Location2.X=4761.378mil|Location1.Y=5148.268mil|Location2.Y=5160.079mil|Absolute=True">Track (115.637mm,130.916mm)(120.789mm,130.916mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True">Track (120.777mm,131.953mm)(120.777mm,132.461mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4625.234mil|Location2.X=4760.394mil|Location1.Y=5167.953mil|Location2.Y=5179.764mil|Absolute=True">Track (117.631mm,131.416mm)(120.764mm,131.416mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4749.095mil|Location2.X=4760.905mil|Location1.Y=5189.095mil|Location2.Y=5220.905mil|Absolute=True">Track (120.777mm,131.953mm)(120.777mm,132.461mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\LIS2DE12TR\LIS2DE12TR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4748.583mil|Location2.X=4761.378mil|Location1.Y=5167.953mil|Location2.Y=5180.748mil|Absolute=True">Track (120.764mm,131.416mm)(120.789mm,131.441mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

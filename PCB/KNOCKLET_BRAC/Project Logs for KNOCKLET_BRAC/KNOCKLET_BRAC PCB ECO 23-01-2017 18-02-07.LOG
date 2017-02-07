@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=USART_RX Pin=P1-1
+Removed Pin From Net: NetName=USART_TX Pin=P1-2
+Removed Member From Class: ClassName=Copy of MCU_64 Member=P1
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X3 New Footprint=HDR1X5
+Change Component Comment : Designator=P2 Old Comment=Header 3 New Comment=Header 5
+Added Pin To Net: NetName=USART_TX Pin=P2-4
+Added Pin To Net: NetName=USART_RX Pin=P2-5

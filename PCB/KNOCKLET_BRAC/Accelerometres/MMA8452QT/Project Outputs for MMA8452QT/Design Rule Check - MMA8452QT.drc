@@ -1,0 +1,97 @@
+Protel Design System Design Rule Check
+PCB File : D:\Desktop\Nicolas\ECE\ING 5\Projet de Fin d`Etudes\PCB\Accelerometres\MMA8452QT\MMA8452QT.PcbDoc
+Date     : 09/12/2016
+Time     : 13:43:16
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+   Violation between Pad U*-2(120.493mm,140.022mm)  Top Layer and 
+                     Pad U*-1(120.493mm,140.522mm)  Top Layer
+   Violation between Pad U*-3(120.493mm,139.522mm)  Top Layer and 
+                     Pad U*-2(120.493mm,140.022mm)  Top Layer
+   Violation between Pad U*-4(120.493mm,139.022mm)  Top Layer and 
+                     Pad U*-3(120.493mm,139.522mm)  Top Layer
+   Violation between Pad U*-5(120.493mm,138.522mm)  Top Layer and 
+                     Pad U*-4(120.493mm,139.022mm)  Top Layer
+   Violation between Pad U*-7(121.793mm,138.222mm)  Top Layer and 
+                     Pad U*-6(121.293mm,138.222mm)  Top Layer
+   Violation between Pad U*-8(122.293mm,138.222mm)  Top Layer and 
+                     Pad U*-7(121.793mm,138.222mm)  Top Layer
+   Violation between Pad U*-10(123.093mm,139.022mm)  Top Layer and 
+                     Pad U*-9(123.093mm,138.522mm)  Top Layer
+   Violation between Pad U*-11(123.093mm,139.522mm)  Top Layer and 
+                     Pad U*-10(123.093mm,139.022mm)  Top Layer
+   Violation between Pad U*-12(123.093mm,140.022mm)  Top Layer and 
+                     Pad U*-11(123.093mm,139.522mm)  Top Layer
+   Violation between Pad U*-13(123.093mm,140.522mm)  Top Layer and 
+                     Pad U*-12(123.093mm,140.022mm)  Top Layer
+   Violation between Pad U*-15(121.793mm,140.822mm)  Top Layer and 
+                     Pad U*-14(122.293mm,140.822mm)  Top Layer
+   Violation between Pad U*-16(121.293mm,140.822mm)  Top Layer and 
+                     Pad U*-15(121.793mm,140.822mm)  Top Layer
+Rule Violations :12
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+   Violation between Track (112.8mm,137.041mm)(112.8mm,137.27mm)  Top Overlay and 
+                     Pad R2-1(112.8mm,136mm)  Multi-Layer
+   Violation between Track (112.8mm,142.35mm)(112.8mm,142.579mm)  Top Overlay and 
+                     Pad R2-2(112.8mm,143.62mm)  Multi-Layer
+   Violation between Track (116.6mm,137.041mm)(116.6mm,137.27mm)  Top Overlay and 
+                     Pad R1-1(116.6mm,136mm)  Multi-Layer
+   Violation between Track (116.6mm,142.35mm)(116.6mm,142.579mm)  Top Overlay and 
+                     Pad R1-2(116.6mm,143.62mm)  Multi-Layer
+Rule Violations :4
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Rule
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=2.54mm) (Preferred=0.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+   Violation between Pad U*-16(121.293mm,140.822mm)  Top Layer and 
+                     Pad U*-1(120.493mm,140.522mm)  Top Layer
+   Violation between Pad U*-6(121.293mm,138.222mm)  Top Layer and 
+                     Pad U*-5(120.493mm,138.522mm)  Top Layer
+   Violation between Track (121.293mm,136.193mm)(121.293mm,138.222mm)  Top Layer and 
+                     Pad U*-5(120.493mm,138.522mm)  Top Layer
+   Violation between Pad U*-9(123.093mm,138.522mm)  Top Layer and 
+                     Pad U*-8(122.293mm,138.222mm)  Top Layer
+   Violation between Pad U*-14(122.293mm,140.822mm)  Top Layer and 
+                     Pad U*-13(123.093mm,140.522mm)  Top Layer
+   Violation between Track (122.3mm,140.822mm)(122.3mm,142.5mm)  Top Layer and 
+                     Pad U*-13(123.093mm,140.522mm)  Top Layer
+Rule Violations :6
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (InPolygon),(All)
+Rule Violations :0
+
+
+Violations Detected : 22
+Time Elapsed        : 00:00:01

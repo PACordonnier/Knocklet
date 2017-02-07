@@ -1,0 +1,127 @@
+Added Component: Designator=C11(0603)
+Added Component: Designator=C12(RAD-0.3)
+Added Component: Designator=C13(RAD-0.3)
+Added Component: Designator=C14(RAD-0.3)
+Added Component: Designator=R10(AXIAL-0.3)
+Added Component: Designator=R11(AXIAL-0.3)
+Added Component: Designator=U4(SPBTLE-RF)
+Added Component: Designator=U5(MMA8452QT)
+Added Net: Name=AGND
+Added Net: Name=AVDD
+Added Pin To Net: NetName=BYP Pin=C14-2
+Added Pin To Net: NetName=BYP Pin=U5-2
+Added Net: Name=BYP
+Added Pin To Net: NetName=CLK Pin=U4-7
+Added Net: Name=CLK
+Added Net: Name=CSN
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=GND Pin=U4-6
+Added Pin To Net: NetName=GND Pin=U5-5
+Added Pin To Net: NetName=GND Pin=U5-10
+Added Pin To Net: NetName=GND Pin=U5-12
+Added Net: Name=GND
+Added Pin To Net: NetName=INT1 Pin=U5-11
+Added Net: Name=INT1
+Added Pin To Net: NetName=INT2 Pin=U5-9
+Added Net: Name=INT2
+Added Pin To Net: NetName=MISO Pin=U4-8
+Added Net: Name=MISO
+Added Pin To Net: NetName=MOSI Pin=U4-9
+Added Net: Name=MOSI
+Added Net: Name=NetB1_2
+Added Net: Name=NetC8_1
+Added Net: Name=NetC9_1
+Added Net: Name=NetC10_1
+Added Net: Name=NetC16_1
+Added Net: Name=NetC18_1
+Added Net: Name=NetL1_2
+Added Pin To Net: NetName=NetR4_2 Pin=U4-11
+Added Net: Name=NetR4_2
+Added Pin To Net: NetName=NetR5_2 Pin=U4-10
+Added Net: Name=NetR5_2
+Added Pin To Net: NetName=NetR9_1 Pin=U4-4
+Added Net: Name=NetR9_1
+Added Net: Name=NetR12_1
+Added Net: Name=NetSB3_1
+Added Net: Name=NetSB8_1
+Added Net: Name=NetSB10_1
+Added Net: Name=NetSB12_1
+Added Net: Name=NetSB14_1
+Added Net: Name=NetSB20_2
+Added Net: Name=NetSB21_2
+Added Net: Name=NetSB26_1
+Added Net: Name=NRST
+Added Net: Name=PA2
+Added Net: Name=PA3
+Added Net: Name=PA4
+Added Net: Name=PA5
+Added Net: Name=PA9
+Added Net: Name=PA10
+Added Net: Name=PA11
+Added Net: Name=PA12
+Added Net: Name=PA13
+Added Net: Name=PA14
+Added Net: Name=PA15
+Added Net: Name=PB0
+Added Net: Name=PB1
+Added Net: Name=PB2
+Added Net: Name=PB4
+Added Net: Name=PB5
+Added Net: Name=PB6
+Added Net: Name=PB7
+Added Net: Name=PB10
+Added Net: Name=PB11
+Added Net: Name=PB12
+Added Net: Name=PB13
+Added Net: Name=PB14
+Added Net: Name=PB15
+Added Net: Name=PC0
+Added Net: Name=PC1
+Added Net: Name=PC3
+Added Net: Name=PC4
+Added Net: Name=PC5
+Added Net: Name=PC6
+Added Net: Name=PC7
+Added Net: Name=PC8
+Added Net: Name=PC9
+Added Net: Name=PC10
+Added Net: Name=PC11
+Added Net: Name=PC12
+Added Net: Name=PC13
+Added Net: Name=PC14
+Added Net: Name=PC15
+Added Net: Name=PD2
+Added Net: Name=PD8
+Added Net: Name=PF4
+Added Net: Name=PF5
+Added Net: Name=PF6
+Added Net: Name=PF7
+Added Net: Name=RESETN
+Added Pin To Net: NetName=SCL Pin=R11-1
+Added Pin To Net: NetName=SCL Pin=U5-4
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=R10-1
+Added Pin To Net: NetName=SDA Pin=U5-6
+Added Net: Name=SDA
+Added Net: Name=SPI_IRQ
+Added Net: Name=USART_RX
+Added Net: Name=USART_TX
+Added Net: Name=VBAT/VLCD
+Added Pin To Net: NetName=VDDIO Pin=C11-2
+Added Pin To Net: NetName=VDDIO Pin=C12-2
+Added Pin To Net: NetName=VDDIO Pin=C13-2
+Added Pin To Net: NetName=VDDIO Pin=R10-2
+Added Pin To Net: NetName=VDDIO Pin=R11-2
+Added Pin To Net: NetName=VDDIO Pin=U4-5
+Added Pin To Net: NetName=VDDIO Pin=U5-1
+Added Pin To Net: NetName=VDDIO Pin=U5-7
+Added Pin To Net: NetName=VDDIO Pin=U5-14
+Added Net: Name=VDDIO
+Added Class: Name=Copy of MCU_64
+Added Class: Name=PA[0..15]
+Added Class: Name=PB[0..15]
+Added Class: Name=PC[0..15]
+Added Class: Name=PF[0..7]

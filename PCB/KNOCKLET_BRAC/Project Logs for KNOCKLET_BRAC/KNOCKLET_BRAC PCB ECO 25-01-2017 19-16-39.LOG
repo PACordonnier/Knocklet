@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=NetC6_1 Pin=BAT1-2
+Added Pin To Net: NetName=NetC6_1 Pin=BAT1-2
+Added Pin To Net: NetName=NetC6_1 Pin=S1-2
+Change Net Name : Old Net Name=NetC6_1 New Net Name=VIN

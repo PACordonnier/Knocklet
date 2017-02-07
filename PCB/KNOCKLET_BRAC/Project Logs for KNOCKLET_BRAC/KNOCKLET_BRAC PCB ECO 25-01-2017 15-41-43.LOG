@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VIN Pin=P3-1
+Removed Pin From Net: NetName=GND Pin=P3-2
+Removed Member From Class: ClassName=Copy of MCU_64 Member=P3
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component C6 10uF(25V)
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component C16 Cap
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component D1 
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component LD1 Green
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component R8 1K
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component U3 LD1117S50TR

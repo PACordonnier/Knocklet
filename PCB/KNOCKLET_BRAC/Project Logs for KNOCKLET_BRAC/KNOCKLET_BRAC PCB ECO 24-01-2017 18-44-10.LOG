@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VOUT Pin=D1-2
+Removed Pin From Net: NetName=VOUT Pin=JP1-1
+Removed Pin From Net: NetName=VOUT Pin=R8-2
+Added Pin To Net: NetName=+3V3 Pin=D1-2
+Added Pin To Net: NetName=+3V3 Pin=JP1-1
+Added Pin To Net: NetName=+3V3 Pin=R8-2
+Added Net: Name=+3V3

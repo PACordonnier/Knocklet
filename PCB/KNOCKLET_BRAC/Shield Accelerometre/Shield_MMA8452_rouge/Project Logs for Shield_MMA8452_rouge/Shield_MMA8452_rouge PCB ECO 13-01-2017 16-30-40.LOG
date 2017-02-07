@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=3.3V Pin=P5-2
+Removed Pin From Net: NetName=GND Pin=P5-3
+Removed Pin From Net: NetName=SCL Pin=P5-4
+Removed Pin From Net: NetName=SDA Pin=P5-5
+Removed Pin From Net: NetName=3.3V Pin=P5-6
+Removed Pin From Net: NetName=INT2 Pin=P5-7
+Removed Pin From Net: NetName=INT1 Pin=P5-8
+Change Component DesignItemId : Designator=P5 Old DesignItemId=Header 8 New DesignItemId=Header 6
+Change Component Footprint: Designator=P5 Old Footprint=HDR1X8 New Footprint=HDR1X6
+Added Pin To Net: NetName=3.3V Pin=P5-1
+Added Pin To Net: NetName=SDA Pin=P5-2
+Added Pin To Net: NetName=SCL Pin=P5-3
+Added Pin To Net: NetName=INT2 Pin=P5-4
+Added Pin To Net: NetName=INT1 Pin=P5-5
+Added Pin To Net: NetName=GND Pin=P5-6
+Change Class Name : Old Net Name=Shield_MMA8452_bleu New Net Name=Shield_MMA8452_rouge
+Added Room: Name=Shield_MMA8452_rouge

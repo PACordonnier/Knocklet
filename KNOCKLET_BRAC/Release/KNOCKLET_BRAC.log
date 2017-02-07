@@ -1,0 +1,14 @@
+﻿La génération a démarré 27/01/2017 14:17:47.
+     1>Projet "C:\Knocklet\KNOCKLET_BRAC\KNOCKLET_BRAC.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>Build:
+         "C:\Program Files (x86)\Sysprogs\VisualGDB\VisualGDB.exe" /build "C:\Knocklet\KNOCKLET_BRAC\KNOCKLET_BRAC.vcxproj" "/solution:C:\Knocklet\KNOCKLET_BRAC\KNOCKLET_BRAC.sln" "/config:Release" "/platform:Win32"
+         VisualGDB: Run "cmd.exe /c "C:\SysGCC\arm-eabi\bin\make.exe" CONFIG=Release" in directory "C:\Knocklet\KNOCKLET_BRAC" on local computer
+         make: Nothing to be done for `all'.
+         ------------------- Memory utilization report -------------------
+         Used FLASH: 51KB out of 192KB (27%)
+         Used RAM: 4624 bytes out of 19KB (22%)
+     1>Génération du projet "C:\Knocklet\KNOCKLET_BRAC\KNOCKLET_BRAC.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:03.08

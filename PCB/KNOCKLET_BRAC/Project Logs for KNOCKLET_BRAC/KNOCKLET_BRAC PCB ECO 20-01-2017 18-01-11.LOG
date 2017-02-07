@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SPI_IRQ Pin=R7-1
+Added Pin To Net: NetName=SPI_IRQ Pin=R7-2
+Added Pin To Net: NetName=SPI_IRQ Pin=U2-4
+Added Room: Name=Copy of MCU_64

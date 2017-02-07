@@ -1,0 +1,28 @@
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C10(0603[IMP]-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Added Component: Designator=LD1(LED-0)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Added Component: Designator=U4(LD39050PU33R)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=AGND Pin=C10-1
+Added Pin To Net: NetName=E5V Pin=C10-2
+Added Pin To Net: NetName=NetLD1_1 Pin=LD1-1
+Added Pin To Net: NetName=AGND Pin=LD1-2
+Added Pin To Net: NetName=AGND Pin=U4-0
+Added Pin To Net: NetName=E5V Pin=U4-1
+Added Pin To Net: NetName=AGND Pin=U4-2
+Added Pin To Net: NetName=+3V3 Pin=U4-4
+Added Pin To Net: NetName=E5V Pin=U4-6
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component C10 100nF
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component LD1 Green
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component U4 LD39050PU33R

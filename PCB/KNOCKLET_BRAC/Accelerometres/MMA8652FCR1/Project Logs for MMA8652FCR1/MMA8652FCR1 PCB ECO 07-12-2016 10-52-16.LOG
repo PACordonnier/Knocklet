@@ -1,0 +1,48 @@
+Added Component: Designator=C4(capacitor_10uf)
+Added Component: Designator=C5(capacitor_10uf)
+Added Component: Designator=C6(Capacitor_100nf)
+Added Component: Designator=C7(capacitor_10uf)
+Added Component: Designator=MMA8652FCR1(MMA8652FCR1)
+Added Component: Designator=P1(HDR1X4)
+Added Component: Designator=P2(HDR1X3)
+Added Component: Designator=R1(J1-0603)
+Added Component: Designator=R2(J1-0603)
+Added Pin To Net: NetName=BYP Pin=C7-2
+Added Pin To Net: NetName=BYP Pin=MMA8652FCR1-4
+Added Net: Name=BYP
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-6
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-7
+Added Pin To Net: NetName=GND Pin=MMA8652FCR1-9
+Added Pin To Net: NetName=GND Pin=P2-1
+Added Net: Name=GND
+Added Pin To Net: NetName=INT1 Pin=MMA8652FCR1-3
+Added Pin To Net: NetName=INT1 Pin=P1-3
+Added Net: Name=INT1
+Added Pin To Net: NetName=INT2 Pin=MMA8652FCR1-5
+Added Pin To Net: NetName=INT2 Pin=P1-4
+Added Net: Name=INT2
+Added Pin To Net: NetName=SCL Pin=MMA8652FCR1-2
+Added Pin To Net: NetName=SCL Pin=P1-2
+Added Pin To Net: NetName=SCL Pin=R1-1
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=MMA8652FCR1-10
+Added Pin To Net: NetName=SDA Pin=P1-1
+Added Pin To Net: NetName=SDA Pin=R2-1
+Added Net: Name=SDA
+Added Pin To Net: NetName=VCC Pin=C4-2
+Added Pin To Net: NetName=VCC Pin=C5-2
+Added Pin To Net: NetName=VCC Pin=MMA8652FCR1-1
+Added Pin To Net: NetName=VCC Pin=P2-2
+Added Net: Name=VCC
+Added Pin To Net: NetName=VDDIO Pin=C6-2
+Added Pin To Net: NetName=VDDIO Pin=MMA8652FCR1-8
+Added Pin To Net: NetName=VDDIO Pin=P2-3
+Added Pin To Net: NetName=VDDIO Pin=R1-2
+Added Pin To Net: NetName=VDDIO Pin=R2-2
+Added Net: Name=VDDIO
+Added Class: Name=MMA8652FCR1
+Added Room: Name=MMA8652FCR1

@@ -1,0 +1,1168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{55d7048d-e795-457f-8a1f-214ac7c16b15}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{2c88085b-5db8-40dd-87d6-32518e702179}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{c527a696-2ea7-4c14-a472-ca0a79154318}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Make files">
+      <UniqueIdentifier>{6c7a9556-b237-4410-9048-55e5c6d261a6}</UniqueIdentifier>
+      <Extensions>*.mak</Extensions>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{5a7e6ef6-592c-4cd5-8e22-c158a49fe5d2}</UniqueIdentifier>
+      <Extensions>*.vgdbsettings</Extensions>
+    </Filter>
+    <Filter Include="Source files\mbed Files">
+      <UniqueIdentifier>{ea25a4c2-b7e7-41c8-8447-ed2acee18a8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\mbed Files">
+      <UniqueIdentifier>{d7be5c67-af2a-44dc-9077-c784bcd5f760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Accelerometer">
+      <UniqueIdentifier>{77abc436-cfb4-4a46-893d-f5e4de760908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Accelerometer">
+      <UniqueIdentifier>{2a647c65-7637-4733-aa71-94e0c122f7c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\BlueNRG Files">
+      <UniqueIdentifier>{2c5f87be-a789-4012-8b5c-7d26fb047cb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\BlueNRG Files">
+      <UniqueIdentifier>{a620316d-fa40-4419-a8ce-6c3663a871df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Knocklet Files">
+      <UniqueIdentifier>{b64ffa74-7c33-488c-9b9a-2043435cf713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\Knocklet Files">
+      <UniqueIdentifier>{bf1ee4e8-baad-4436-889f-bb7b518ffa6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\BlueNRG Files\BSP">
+      <UniqueIdentifier>{9e9b0a63-c7d7-4c0d-ab6c-c0a870ffc992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\BlueNRG Files\Middlewares">
+      <UniqueIdentifier>{532449de-f730-4409-8ebf-ddb18c692fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\BlueNRG Files\BSP">
+      <UniqueIdentifier>{52143a6a-e13a-40dc-b9cc-8c47bf0f57ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\BlueNRG Files\Middlewares">
+      <UniqueIdentifier>{8bfbed4b-2d60-4018-9d79-04d7bef0077e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Accelerometer\MMA8452.cpp">
+      <Filter>Source files\Accelerometer</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\BSP\stm32l0xx_nucleo.c">
+      <Filter>Source files\BlueNRG Files\BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\BSP\stm32_bluenrg_ble.c">
+      <Filter>Source files\BlueNRG Files\BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\ble_list.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_gap_aci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_gatt_aci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_hal_aci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_IFR.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_interface.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_updater_aci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\bluenrg_utils.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\clock.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\cube_hal_l0.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\gp_timer.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\hci.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\osal.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_gpio.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32l0xx_hal_msp.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BEvendef.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BInitdef.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BLueproc.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\BParadef.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueNRG\Middlewares\stm32xx_it.c">
+      <Filter>Source files\BlueNRG Files\Middlewares</Filter>
+    </ClCompile>
+    <ClCompile Include="Knocklet\ACcelero.cpp">
+      <Filter>Source files\Knocklet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_us_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_lp_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_rtc_time.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_board.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_mbed.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_no_rtos.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_alloc_wrappers.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_wait_api_rtos.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_semihost_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\stubs.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_gpio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_critical.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\mbed_pinmap_common.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_posix.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\retarget.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\trng_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pwmout_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\pinmap.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\sleep.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\stm_spi_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\lp_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\spi_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_irq_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\port_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\TOOLCHAIN_GCC_ARM\startup_stm32l073xx.S">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\us_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralPins.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogout_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\mbed_overrides.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\serial_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\i2c_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\analogin_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="debug.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="KNOCKLET_BRAC-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="release.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="KNOCKLET_BRAC-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="mbed.mak">
+      <Filter>Source files\mbed Files</Filter>
+    </None>
+    <None Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed">
+      <Filter>Header files\mbed Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Accelerometer\MMA8452.h">
+      <Filter>Header files\Accelerometer</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\BSP\stm32_bluenrg_ble.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\BSP\stm32l0xx_nucleo_bluenrg.h">
+      <Filter>Header files\BlueNRG Files\BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\ble_clock.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\ble_list.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\ble_status.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_aci_const.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gap.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gap_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_gatt_server.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_hal_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_interface.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_l2cap_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_updater_aci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\bluenrg_utils.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\compiler.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\cube_hal.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\debug.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\gp_timer.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\hal.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\hal_types.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\hci.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\hci_const.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\link_layer.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\osal.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\sm.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_dma.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_exti.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_gpio.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_spi.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_syscfg.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32l0xx_hal_bluenrg_uart.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BEvendef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BInitdef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BLueproc.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\BParadef.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueNRG\Middlewares\stm32xx_it.h">
+      <Filter>Header files\BlueNRG Files\Middlewares</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Knocklet\ACcelero.h">
+      <Filter>Header files\Knocklet Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSimd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTicker.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\i2c_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmInstr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FilePath.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pwmout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\port_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\PlatformMutex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\rtc_time.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_assert.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc000.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_irq_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\toolchain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timeout.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\hal\emac_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca9.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\dma_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\FunctionPointer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\sleep_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\Event.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\trng_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptManager.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ticker.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Stream.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPISlave.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2CSlave.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\EventQueue.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\CAN.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogin_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm3.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm7.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Timer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\analogout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_helper.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\SingletonPtr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileSystemLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_const_structs.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\rtc_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LowPowerTimeout.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\InterruptIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_math.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CircularBuffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\mbed_events.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\arm_common_tables.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CallChain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SPI.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_sc300.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmSecureAccess.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\us_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\lp_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cmFunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\events\equeue\equeue_platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Callback.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_debug.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm0plus.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\ethernet_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\I2C.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_error.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_interface.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Serial.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileBase.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caFunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_cm4_simd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\semihost_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\mbed.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\buffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DirHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\LocalFileSystem.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_stats.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\CThunk.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\TimerEvent.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\DigitalInOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\BusIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\wait_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\can_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\Transaction.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\critical.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PwmOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\RawSerial.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\pinmap.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\Ethernet.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\SerialBase.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\AnalogIn.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\FileHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\platform\mbed_mem_trace.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\storage_abstraction\Driver_Storage.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_caInstr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\gpio_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\cmsis\core_ca_mmu.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\serial_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\drivers\PortOut.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\hal\spi_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32_hal_legacy.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l073xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PortNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis_nvic.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_crc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\mbed_rtx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PinNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\cmsis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2s.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\gpio_object.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cortex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\system_stm32l0xx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\objects.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_cryp_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_def.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lcd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\rtc_api_hal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rtc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rcc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_iwdg.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_gpio_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dac.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smartcard_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_i2c.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\hal_tick.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tim_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_comp_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_dma.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_lptim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_tsc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_spi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_rng.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_irda.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\PeripheralNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_usart_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ramfunc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\TARGET_NUCLEO_L073RZ\device\stm32l0xx_hal_conf.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_firewall.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\common_objects.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_adc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pwr_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_uart_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_smbus.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\PeripheralPins.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_pcd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_flash_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\Administrateur.NB-FABLAB1\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.mbed\targets\TARGET_STM\TARGET_STM32L0\device\stm32l0xx_hal_wwdg.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="mbed.xml">
+      <Filter>VisualGDB settings</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

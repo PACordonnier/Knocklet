@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=BAT1 Old Footprint=BATTCON_20MM_4LEGS New Footprint=BATTCON
+Change Component Footprint: Designator=S1 Old Footprint=SPST-2 New Footprint=AYZ0202
+Added Pin To Net: NetName=GND Pin=S1-3
+Added Member To Class: ClassName=Copy of MCU_64 Member=Component BAT1 20mm coincell

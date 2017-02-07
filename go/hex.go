@@ -1,3 +1,4 @@
+//Code test, utilisation du paquet hex de go
 package main
 
 import (

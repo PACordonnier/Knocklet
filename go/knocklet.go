@@ -1,5 +1,5 @@
 // +build
-
+// Programme Knocklet, sous forme de daemon
 package main
 
 import (
@@ -25,6 +25,9 @@ const rssiMax = 110
 const rssiMin = 40
 const durationMax = 200
 
+/**
+		Structures envoyés et reçus permettant la communication JSON avec jeedom
+**/
 type Params struct {
 	Apikey string `json:"apikey"`
 	BraceletId string `json:"braceletId"`
@@ -51,8 +54,11 @@ type Response struct {
 	Error Error `json:"error"`
 }
 
+// Map stockant les adresses MAC des bracelets connus.
+// On stocke l'heure de réception du premier message et on bloque la réception pendant une courte période.
 var addressMap map[string]time.Time
 
+// Listener réagissant lors d'un chagement d'état de l'interface bluetooth.
 func onStateChanged(d gatt.Device, s gatt.State) {
 	fmt.Println("State:", s)
 	switch s {
@@ -73,6 +79,7 @@ func onStateChanged(d gatt.Device, s gatt.State) {
 	}
 }
 
+// Fonction envoyant en HTTP les informations du kncoks àà JEEDOM
 func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 	params := Params{
 		Apikey: "lbippE2VJkuxVdfI4sKtZWQkCTwNJxH517kYVYEDLBbUe2eD",
@@ -82,6 +89,7 @@ func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 		Knocks: knocks,
 	}
 	method :=""
+	//Dans le cas d'un code d'initialisation, on envoie la méthode init
 	if knocks == 255 {
 		method = "init"
 	} else {
@@ -109,14 +117,18 @@ func sendToJeedom(braceletId string, moduleId string, knocks int, rssi int) {
 	defer resp.Body.Close()
 }
 
+// Listener réagissant lors de la découverte d'un Advertisement BLE
 func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 	id := strings.ToUpper(flag.Args()[0])
+	// On filtre avec l'adresse bluetooth passé en paramètre au programme
 	if !strings.HasPrefix(strings.ToUpper(p.ID()), id) {
 		return
 	}
 	fmt.Println(rssi)
 	lastTime, presence := addressMap[p.ID()]
+	//On vérifie qu'on a pas reçu un message de ce bracelet depuis moins d'une seconde.
 	if (!presence || time.Since(lastTime).Seconds() > 1.6) {
+		//On récupère les informations intéressantes et on les prépare pour les envoyer à JEEDOM
 		fmt.Printf("\nPeripheral ID:%s, NAME:(%s)\n", p.ID(), p.Name())
 		fmt.Println("  Local Name        =", a.LocalName)
 		fmt.Println("  TX Power Level    =", a.TxPowerLevel)
@@ -127,6 +139,8 @@ func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 		addressMap[p.ID()] = time.Now()
 		h := []byte{0}
 		val := append(h, a.ServiceData[0].Data[0])
+		// Calcul d'un delai avant l'envoi à JEEDOM, en fonction d'une valaire de RSSI min et max
+		// La durée du délai est linéaire entre ces deux RSSI.
 		duration := ((-rssi - rssiMin) * durationMax) / (rssiMax - rssiMin)
 		fmt.Println(duration)
 		time.Sleep(time.Duration(duration) * time.Millisecond)
@@ -135,13 +149,13 @@ func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 	}
 }
 
+// Bout de codes servant à récupérer l'adresse MAC de notre appareil (ici une Raspberry)
 // cmdReadBDAddr implements cmd.CmdParam for demostrating LnxSendHCIRawCommand()
 type cmdReadBDAddr struct{}
 
 func (c cmdReadBDAddr) Marshal(b []byte) {}
 func (c cmdReadBDAddr) Opcode() int      { return 0x1009 }
 func (c cmdReadBDAddr) Len() int         { return 0 }
-
 
 // Get bdaddr with LnxSendHCIRawCommand() for demo purpose
 func bdaddr(d gatt.Device) string {

@@ -1,3 +1,4 @@
+// Code exemple, utilisation de HTTP
 package main
 
 import (

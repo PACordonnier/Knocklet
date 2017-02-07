@@ -1,3 +1,4 @@
+// Code test, utilisation de JSON
 package main
 
 import (

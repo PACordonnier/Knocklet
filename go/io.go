@@ -1,3 +1,4 @@
+//Code test, lecture de JSOn dans un fichier
 package main
 
 import (
@@ -6,7 +7,7 @@ import (
 )
 
 type Address struct {
-	address string 
+	address string
 type List struct {
 	List []Address `json:"list"`
 }

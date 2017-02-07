@@ -1,0 +1,2 @@
+Install go
+go get github.com/paypal/gatt
